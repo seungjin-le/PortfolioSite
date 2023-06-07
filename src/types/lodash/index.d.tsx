@@ -6,4 +6,7 @@ declare module 'lodash' {
   export interface PageLayoutProps {
     children: ReactNode
   }
+  export interface HeaderTitleProps {
+    title: string
+  }
 }

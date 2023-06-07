@@ -1,7 +1,8 @@
 import React from 'react'
+import {PageLayoutProps} from 'lodash'
 
-const Section = () => {
-  return <div></div>
+const Section = ({children}: PageLayoutProps) => {
+  return <div>{children}</div>
 }
 
 export default Section
