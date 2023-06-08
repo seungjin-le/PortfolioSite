@@ -4,7 +4,7 @@ import {Typography} from 'antd'
 import styled from 'styled-components'
 
 const Title = ({title}: HeaderTitleProps) => {
-  return <CustomAntdTypography level={2}>{title}</CustomAntdTypography>
+  return <CustomAntdTypography level={1}>{title}</CustomAntdTypography>
 }
 
 export default Title

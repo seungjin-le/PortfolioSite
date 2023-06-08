@@ -1,4 +1,4 @@
-import {ReactNode} from 'react'
+import {Dispatch, ReactNode, SetStateAction} from 'react'
 
 declare module 'TagCloud' {
   // 타입 선언 내용
@@ -18,6 +18,16 @@ declare module 'lodash' {
     left: ReactNode
     right: ReactNode
   }
+  export interface TagItem {
+    title: string
+    description: string
+  }
+  export interface TagModalProps {
+    item: TagItem
+    showModal: boolean
+    setShowModal: Dispatch<SetStateAction<boolean>>
+  }
+
   export type CustomScrollPageProps = {
     gradientDirection: true | false
   }

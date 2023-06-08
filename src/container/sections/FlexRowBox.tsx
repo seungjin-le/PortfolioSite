@@ -8,14 +8,19 @@ import Title from '../../components/header/Title'
 const FlexRowBox = ({title, left, right}: SectionFlexBoxProps) => {
   return (
     <FlexBox>
-      <Animator className={'item left'} animation={MoveIn(-1000, 0)}>
+      <div className={'titleBox'}>
         <Title title={title} />
-        {left}
-      </Animator>
-      <Animator className={'item right'} animation={MoveIn(1000, 0)}>
-        <Title title={' '} />
-        {right}
-      </Animator>
+      </div>
+      <div className={'aboutBox'}>
+        <Animator className={'item left'} animation={MoveIn(-1000, 0)}>
+          {left}
+        </Animator>
+
+        <Animator className={'item right'} animation={MoveIn(1000, 0)}>
+          <Title title={' '} />
+          {right}
+        </Animator>
+      </div>
     </FlexBox>
   )
 }
@@ -26,10 +31,26 @@ const FlexBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   height: 100%;
   width: 100%;
+  & .titleBox {
+    width: 100%;
+    display: flex;
+    align-items: start;
+    margin-bottom: 2rem;
+  }
+  & .aboutBox {
+    width: 100%;
+    max-height: 520px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
   & .item {
     padding: 0 2rem;
-    width: 100%;
+    width: 50%;
+    height: 100%;
   }
 `
