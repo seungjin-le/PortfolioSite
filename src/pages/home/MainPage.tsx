@@ -20,7 +20,7 @@ import SkillTagCloud from '../../components/tagCloud/SkillTagCloud'
 
 const MainPage = () => {
   const ZoomInScrollOut = batch(Sticky(), Move(), ZoomIn(), Fade())
-  const FadeUp = batch(Fade(), Move(), Sticky())
+  //const FadeUp = batch(Fade(), Move(), Sticky(), MoveOut(0, -200))
 
   return (
     <CustomScrollContainer>
@@ -43,9 +43,11 @@ const MainPage = () => {
         <FlexRowBox title={'Skill'} left={<SkillTagCloud />} right={<CollapseList />} />
       </CustomScrollPage>
       <CustomScrollPage gradientDirection={true}>
-        <Animator animation={FadeUp}>
-          <ProjectDescription />
-        </Animator>
+        <div style={{display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'center'}}>
+          <Animator animation={MoveIn(-400, 0)}>
+            <ProjectDescription />
+          </Animator>
+        </div>
       </CustomScrollPage>
 
       <ScrollPage>
@@ -56,7 +58,6 @@ const MainPage = () => {
           </span>
         </div>
       </ScrollPage>
-
       <ScrollPage>
         <Animator animation={batch(Fade(), Sticky())}>
           <span style={{fontSize: '40px'}}>Done</span>
@@ -70,9 +71,17 @@ const MainPage = () => {
 
 export default MainPage
 
-const CustomScrollContainer = styled(ScrollContainer)``
+const CustomScrollContainer = styled(ScrollContainer)`
+  width: 100%;
+  & > div {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }
+`
 
 const CustomScrollPage = styled(ScrollPage)<CustomScrollPageProps>`
+  width: 100%;
   background-image: ${({gradientDirection}) =>
       gradientDirection
         ? 'linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.5))'
