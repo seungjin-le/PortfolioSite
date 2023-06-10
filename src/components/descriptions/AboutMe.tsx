@@ -31,14 +31,10 @@ const AboutTextBox = styled.div`
   justify-content: center;
   flex-direction: column;
   font-size: 18px;
-  padding: 2rem;
-  border: 1px solid gray;
+  line-height: 25px;
+  padding: 2.5rem;
   border-radius: 17px;
   transition: 0.5s;
-
-  &:hover {
-    border: 1px solid aqua;
-  }
 
   & div {
     padding: 0.7rem 0;

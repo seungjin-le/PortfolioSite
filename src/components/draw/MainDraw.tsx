@@ -41,6 +41,10 @@ const MainDraw = () => {
 export default MainDraw
 
 const DrawBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   circle,
   rect,
   line {

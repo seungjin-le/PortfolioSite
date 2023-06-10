@@ -3,41 +3,53 @@ import {motion, AnimatePresence} from 'framer-motion'
 import styled from 'styled-components'
 import {allIngredients} from '../../utility/listItems'
 
+import SectionTitle from '../section/SectionTitle'
+
 const SiteLinks = () => {
   const [selectedTab, setSelectedTab] = useState(allIngredients[0])
   return (
-    <LinkBox>
-      <nav>
-        <ul>
-          {allIngredients.map(item => (
-            <li
-              key={item.label}
-              className={item === selectedTab ? 'selected' : ''}
-              onClick={() => setSelectedTab(item)}
-            >
-              <img src={item.icon} alt='' style={{width: '20px', height: '20px'}} /> {item.label}
-            </li>
-          ))}
-        </ul>
-      </nav>
-      <main>
-        <AnimatePresence>
-          <motion.div
-            key={selectedTab ? selectedTab.label : 'empty'}
-            initial={{x: '100%', opacity: 0}}
-            animate={{x: 0, opacity: 1}}
-            className={'imgBox'}
-            onClick={() => window.open(selectedTab.link)}
-          >
-            {selectedTab && <img className={'siteImage'} src={selectedTab.image} alt='site' />}
-          </motion.div>
-        </AnimatePresence>
-      </main>
-    </LinkBox>
+    <>
+      <SectionTitle title={'Sites'} />
+      <Box>
+        <LinkBox>
+          <nav>
+            <ul>
+              {allIngredients.map(item => (
+                <li
+                  key={item.label}
+                  className={item === selectedTab ? 'selected' : ''}
+                  onClick={() => setSelectedTab(item)}
+                >
+                  <img src={item.icon} alt='' style={{width: '20px', height: '20px'}} /> <h2>{item.label}</h2>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <main>
+            <AnimatePresence>
+              <motion.div
+                key={selectedTab ? selectedTab.label : 'empty'}
+                initial={{x: '100%', opacity: 0}}
+                animate={{x: 0, opacity: 1}}
+                className={'imgBox'}
+                onClick={() => window.open(selectedTab.link)}
+              >
+                {selectedTab && <img className={'siteImage'} src={selectedTab.image} alt='site' />}
+              </motion.div>
+            </AnimatePresence>
+          </main>
+        </LinkBox>
+      </Box>
+    </>
   )
 }
 
 export default SiteLinks
+
+const Box = styled.div`
+  padding: 0 2rem;
+`
 
 const LinkBox = styled.div`
   width: 100%;
@@ -51,6 +63,9 @@ const LinkBox = styled.div`
   display: flex;
   flex-direction: column;
 
+  & > div {
+    padding: 0 2rem;
+  }
   nav {
     background: #fdfdfd;
     border-radius: 10px 10px 0 0;

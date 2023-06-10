@@ -26,6 +26,7 @@ const GlobalStyle = createGlobalStyle`
     border: 0;
     font-size: 100%;
     vertical-align: baseline;
+    user-select: none;
   }
   /* HTML5 display-role reset for older browsers */
   article, aside, details, figcaption, figure,
@@ -56,5 +57,10 @@ const GlobalStyle = createGlobalStyle`
     border-collapse: collapse;
     border-spacing: 0;
   }
+  
+
+
+  
+
 
 `

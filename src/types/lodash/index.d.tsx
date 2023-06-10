@@ -22,12 +22,15 @@ declare module 'lodash' {
     title: string
     description: string
   }
-  export interface TagModalProps {
-    item: TagItem
+  export interface ModalProps {
+    item?: TagItem
     showModal: boolean
     setShowModal: Dispatch<SetStateAction<boolean>>
   }
-
+  export interface SliderImageProps {
+    src: string | undefined
+    alt: string | undefined
+  }
   export type CustomScrollPageProps = {
     gradientDirection: true | false
   }
