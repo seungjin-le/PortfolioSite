@@ -83,6 +83,17 @@ export const CollapseListItem: CollapseProps['items'] = [
   },
   {
     key: '4',
+    label: 'TypeScript',
+    children: (
+      <p>
+        JavaScript의 라이브러리인 React.js를 개발하면서 종종 JS의느슨한 타입이슈로 인해 데이터 타입의 에러가 발생하였고,
+        그러한 문제를 해결할 수 있는 TS의 타입 시스템에 대해 이해를 하고있고 TS를 사용하 여 외주 개발한 경험도 있습니다,
+        ES6의 문법들 또한 충분히 이해하고 활용할 수 있습니다.
+      </p>
+    ),
+  },
+  {
+    key: '5',
     label: 'Redux',
     children: (
       <p>
@@ -92,12 +103,24 @@ export const CollapseListItem: CollapseProps['items'] = [
     ),
   },
   {
-    key: '5',
-    label: 'GitHub',
+    key: '6',
+    label: 'Git & GitHub',
+    children: (
+      <p>
+        외주 프로젝트를 진행하면서 다른 개발자 들과 서로 진행 상황을 작성하거나, 주기적으로 회의를 통 해 개발 중인
+        프로젝트의 라이브러리를 삭제, 변경하거나 세로 규칙을 세워 프로젝트의 버전 관리를 했었습니다.
+      </p>
+    ),
+  },
+  {
+    key: '7',
+    label: 'Slick',
     children: (
       <p>
         외주 개발로 팀 프로젝트를 진행하면서 여러 명이 함께 커밋 규칙을 세우고 진행 상황을 공유하며 이슈가 생겼을 때
-        해결해 본 경험이 있습니다.
+        해결해 본 경험이 있습니다. 외주 프로젝트를 진행하면서 다른 개발자 들과 서로 진행 상황을 작성하거나, 주기적으로
+        회의를 통 해 개발 중인 프로젝트의 라이브러리를 삭제, 변경하거나 세로 규칙을 세워 프로젝트의 버전 관리를
+        했었습니다.
       </p>
     ),
   },

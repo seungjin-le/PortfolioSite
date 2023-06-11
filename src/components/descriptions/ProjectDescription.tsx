@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import {Carousel} from 'antd'
 import {CarouselRef} from 'antd/es/carousel'
 import SliderImageItem from '../slider/SliderImageItem'
-import SectionTitle from '../section/SectionTitle'
+import Title from '../texts/Title'
 
 export const images = [
   'https://d33wubrfki0l68.cloudfront.net/dd23708ebc4053551bb33e18b7174e73b6e1710b/dea24/static/images/wallpapers/shared-colors@2x.png',
@@ -32,7 +32,7 @@ const ProjectDescription = () => {
   return (
     <ProjectBox>
       <Containers>
-        <SectionTitle title={'Projects'} />
+        <Title title={'Projects'} level={1} />
         <div>
           <div style={{position: 'relative'}}>
             <Carousel dotPosition={'top'} ref={ref => (slider.current = ref)}>

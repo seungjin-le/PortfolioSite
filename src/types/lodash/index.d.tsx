@@ -10,8 +10,9 @@ declare module 'lodash' {
   export interface PageLayoutProps {
     children: ReactNode
   }
-  export interface HeaderTitleProps {
+  export interface TitleProps {
     title: string
+    level?: 1 | 5 | 2 | 3 | 4 | undefined
   }
   export interface SectionFlexBoxProps {
     title: string

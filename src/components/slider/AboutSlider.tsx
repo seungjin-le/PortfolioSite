@@ -3,16 +3,19 @@ import {Carousel} from 'antd'
 import {images} from '../descriptions/ProjectDescription'
 import {CarouselRef} from 'antd/es/carousel'
 import styled from 'styled-components'
-import SliderImageItem from './SliderImageItem'
+
 import {LeftOutlined, RightOutlined} from '@ant-design/icons'
+import Info from '../info/Info'
+import InfoSkillList from '../list/InfoSkillList'
 
 const AboutSlider = () => {
   const [slide, setSlide] = useState<number>(0)
   const slider = useRef<CarouselRef | null | undefined>()
+
   const handleSliderOnChange = (num: number) => {
     const changeValue = slide + num
     if (!slider.current) return
-    const len = images.length
+    const len: number = images.length - 1
     if (changeValue === len || changeValue === -1) {
       setSlide(changeValue === len ? 0 : len - 1)
       slider.current.goTo(changeValue === len ? 0 : len - 1)
@@ -24,10 +27,9 @@ const AboutSlider = () => {
 
   return (
     <SliderBox>
-      <CustomAntdSlider dotPosition={'top'} ref={ref => (slider.current = ref)}>
-        {images.map((value: string, index: number) => {
-          return <SliderImageItem src={value} alt={value} key={index} />
-        })}
+      <CustomAntdSlider dotPosition={'bottom'} ref={ref => (slider.current = ref)}>
+        <Info />
+        <InfoSkillList />
       </CustomAntdSlider>
       <SliderBtnBox>
         <div className='prev' onClick={() => handleSliderOnChange(-1)}>
@@ -52,6 +54,10 @@ const SliderBox = styled.div`
 const CustomAntdSlider = styled(Carousel)`
   width: 100%;
   height: 100%;
+  padding: 0 4rem;
+  & > div {
+    z-index: 1;
+  }
 `
 
 const SliderBtnBox = styled.div`
@@ -63,6 +69,7 @@ const SliderBtnBox = styled.div`
   padding: 0 10px;
   box-sizing: border-box;
   top: 45%;
+  z-index: 0;
   .next,
   .prev {
     display: flex;
@@ -74,6 +81,8 @@ const SliderBtnBox = styled.div`
     font-weight: bold;
     overflow: hidden;
     transition: 0.8s;
+    background: rgba(255, 255, 255, 0.1);
+
     &:hover {
       background: rgba(255, 255, 255, 0.5);
     }

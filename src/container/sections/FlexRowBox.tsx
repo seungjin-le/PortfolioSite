@@ -2,15 +2,15 @@ import React, {useState} from 'react'
 import {SectionFlexBoxProps} from 'lodash'
 import {Animator, MoveIn} from 'react-scroll-motion'
 import styled from 'styled-components'
-import SectionTitle from '../../components/section/SectionTitle'
 import AboutMeModal from '../../components/modal/AboutMeModal'
+import Title from '../../components/texts/Title'
 
 const FlexRowBox = ({title, left, right}: SectionFlexBoxProps) => {
   const [showModal, setShowModal] = useState(false)
   return (
     <FlexBox>
       <div className={'titleBox'}>
-        <SectionTitle title={title} />
+        <Title title={title} level={1} />
       </div>
       <div className={'aboutBox'} onClick={() => setShowModal(true)}>
         <Animator className={'item left'} animation={MoveIn(-1000, 0)}>

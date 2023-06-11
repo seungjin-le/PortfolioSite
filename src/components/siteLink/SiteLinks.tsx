@@ -2,14 +2,13 @@ import React, {useState} from 'react'
 import {motion, AnimatePresence} from 'framer-motion'
 import styled from 'styled-components'
 import {allIngredients} from '../../utility/listItems'
-
-import SectionTitle from '../section/SectionTitle'
+import Title from '../texts/Title'
 
 const SiteLinks = () => {
   const [selectedTab, setSelectedTab] = useState(allIngredients[0])
   return (
     <>
-      <SectionTitle title={'Sites'} />
+      <Title title={'Sites'} level={1} />
       <Box>
         <LinkBox>
           <nav>
