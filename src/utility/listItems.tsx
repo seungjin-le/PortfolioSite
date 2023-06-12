@@ -114,7 +114,7 @@ export const CollapseListItem: CollapseProps['items'] = [
   },
   {
     key: '7',
-    label: 'Slick',
+    label: 'Slack',
     children: (
       <p>
         외주 개발로 팀 프로젝트를 진행하면서 여러 명이 함께 커밋 규칙을 세우고 진행 상황을 공유하며 이슈가 생겼을 때
@@ -144,5 +144,184 @@ export const allIngredients = [
     label: 'Info',
     image: '/images/sites/info.png',
     link: 'https://realdeveloper.pro/bibbibig',
+  },
+]
+
+export const labelsAndColors = [
+  {label: 'React', color: '#61dafb'},
+  {label: 'JavaScript', color: '#f0db4f'},
+  {label: 'TypeScript', color: '#007acc'},
+  {label: 'Prettier', color: '#1a2b34'},
+  {label: 'ESLint', color: '#4b32c3'},
+  {label: 'RESTAPI', color: '#ff7f50'},
+  {label: 'Axios', color: '#003366'},
+  {label: 'Ant-design', color: '#001529'},
+  {label: 'React-Redux', color: '#764abc'},
+  {label: 'React-Router', color: '#ca4245'},
+  {label: 'Web3-react', color: '#4285f4'},
+  {label: 'Ethers.js', color: '#005792'},
+  {label: 'Styled-Components', color: '#db7093'},
+  {label: 'Jazzicon', color: '#f012be'},
+]
+
+export const projectsInfo = [
+  {
+    company: '그라노',
+    projectName: '그라노팜 개발과제 테스트',
+    date: {
+      start: '2023/05/11',
+      end: '2023/05/17',
+    },
+    projectType: '과제 테스트',
+    team: {
+      front: 1,
+      back: 0,
+    },
+    skills: [
+      'React',
+      'Javascript',
+      'Typescript',
+      'Prettier',
+      'ESLint',
+      'RESTAPI',
+      'Axios',
+      'Ant-design',
+      'React-Redux',
+      'React-Router',
+      'Web3-react',
+      'Ethers.js',
+      'Styled-Components',
+      'Jazzicon',
+    ],
+    description: `
+## 그라노팜의 개발 과제 테스트로서, 5일 동안 단독으로 프로젝트를 수행하였습니다.
+
+---
+
+이 과제는 Web3를 이용하여 메타마스크의 지갑을 연동하고, 해당 지갑의 잔액을 표시하는 작업, 그리고 Tab 이동 기능을 구현하는 것이 포함되어 있었습니다.  
+또한, 협업을 위해 Git Commit Message를 효과적으로 작성하였으며, 후에 팀에 합류할 개발자를 위해 프로젝트의 구조와 사용 방법을 상세히 기술한 README.md 문서를 작성하였습니다.  
+이 프로젝트는 모든 개발 단계를 마치고 Netlify를 통해 웹에 배포하였습니다. 이를 통해 처음부터 끝까지 독립적인 프로젝트 수행 능력과 협업을 위한 필요한 문서 작성 능력을 갖추었습니다.
+
+---  
+
+# Link
+## [GitHub](https://github.com/seungjin-le/Granopharm_Coding_Test)
+## [배포한 과제 URL](https://granopam.netlify.app)
+`,
+  },
+  {
+    company: '(주)OKPOS',
+    projectName: '(주)OKPOS Web Admin Page 개발',
+    date: {
+      start: '2022/10/1',
+      end: '2023/04/31',
+    },
+    projectType: '외주 개발',
+    team: {
+      front: 3,
+      back: 3,
+    },
+    skills: [
+      'JavaScript',
+      'React',
+      'TypeScript',
+      'React-Redux',
+      'Axios',
+      'Styled-Components',
+      'Chart.js',
+      'React-Quill',
+      'CoreUI',
+      'React-Router',
+      'AntDesign',
+    ],
+    description: `
+## 담당한 기능
+  - 오케이 포스의 관리자 페이지 개발을 맡아, 고객 관리 파트너 센터와 제품 판매 공식 몰중 파트너 센터 전체를 담당하였습니다.
+## 주요 성과
+  - 컴포넌트 재사용성 높임:리스트, 상세 모달 템플릿 등 공통 컴포넌트 개발
+  - 구조화 및 유지 보수 성향상:Props를 활용해 기능 제어, 코드 작성
+  - 성능 향상 : 리스트의 검색 기능 개발(특정 기간, 제목, 이름, 번호 등), Chart.js를 활용한 그래프 시 각화
+## 공통 컴포넌트 개발
+  - CoreUI를 사용하여 회원 및 제품 리스트를 템플릿으로 제작하고, 다른 페이지를 개발하는 프론트 엔드 개발자들과 협업하여 제작한 컴포넌트를 모든 페이지에서 사용하였습니다.
+  - CoreUI를 사용하여 고객 및 제품의 각 상세 모달 틀과 기본 기능(수정, 삭제, 추가)을 템플릿으로 제작하였습니다. 이를 다른 페이지를 개발하는 프론트엔드 개발자들과 협업하여 모든 페이지에서 사 용하였습니다.
+  - 상세 모달 중 삭제, 수정, 추가 기능을 사용하지 않는 페이지는 Props를 통해 기본기능이 보이지 않도록 설계하여 컴포넌트의 재사용 성과 유지 보수성을 높였습니다.
+  - 리스트 템플릿을 사용하여 일정 기간 검색 및 제목, 이름, 제품번호 등을 검색할 수 있는 기능을 개발하였습니다. 그리고 검색 기능을 사용하지 않는 리스트에서는 Props를 이용하여 검색 기능이 보이 지 않도록 처리하여 컴포넌트의 재사용성을 높였습니다.
+## 개발한 페이지들
+- 회원 관리
+  - 오케이포스의 회원 정보를 관리하고,회원 정보를 검색, 수정, 삭제할 수 있는 기능을 개발하였습니
+다.
+- 탈퇴 회원 관리(탈퇴 사유 통계 포함)
+  - 탈퇴한 회원 정보를 관리하고,탈퇴 사유를 분류하여 통계를 제공합니다. 또한 탈퇴 회원 정보를 검 색, 수정, 삭제할 수 있는 기능을 개발하였습니다.
+- 공지사항 관리(CRUD 기능 포함)
+  - 오케이포스의 공지사항을 관리하고, 공지사항을 검색, 수정, 삭제, 추가할 수 있는 기능을 개발하 였습니다.
+- 영업 대리점 관리
+  - 오케이포스와 계약한 대리점 정보를 관리하고,대리점 정보를 검색,수정,삭제할 수 있는 기능을 개발하였습니다.
+- 자료실 관리(제품, 서비스 등, CRUD 기능 포함)
+  - 오케이포스의 제품, 서비스 등 정보 자료를 관리하고,자료를 검색, 수정, 삭제, 추가할 수 있는 기능 을 개발하였습니다.
+- 발주 신청 관리(배송 데이터 수정 및 추가 가능)
+  - 고객이 신청한 발주 데이터를 관리하고, 발주 데이터를 검색, 수정, 삭제할 수 있는 기능을 개발하였습니다. 또한 배송 데이터를 수정하거나 추가하는 기능을 개발하였습니다.
+- 제품 유지보수 신청 관리(CRUD 기능 포함)
+  - 고객이 신청한 제품 유지보수 데이터를 관리하고, 유지보수 데이터를 검색, 수정, 삭제할 수 있는 기능을 개발하였습니다.
+- 교육 일정 관리(CRUD 기능 포함)
+  - 고객이 신청한 제품 교육일정 데이터를 관리하고, 교육일정을 검색, 수정, 삭제, 추가할 수 있는 기능을 개발하였습니다.
+- 교육 신청 관리(CRUD 기능 포함)
+  - 고객이 신청한 제품 교육신청 데이터를 관리하고, 교육신청을 검색, 수정, 삭제, 추가할 수 있는 기능을 개발하였습니다.
+- 교육 신청서 리스트 관리
+  - 고객이 신청한 교육 신청서 데이터를 관리하고, 교육 신청서를 검색, 수정, 삭제할 수 있는 기능을 개발하였습니다.
+`,
+  },
+  {
+    company: 'Pettick',
+    projectName: 'Pettick Web Admin Page 개발',
+    date: {
+      start: '2022/05',
+      end: '2022/08',
+    },
+    projectType: '외주 개발',
+    team: {
+      front: 2,
+      back: 2,
+    },
+    skills: ['JavaScript', 'React', 'react-bootstrap-table', 'Axios', 'React-Router', 'CoreUI', 'Styled-Components'],
+    description: `
+## 담당한 기능
+- 기존 기능을 수정하거나 새로운 기능을 추가하고 새로운 페이지를 개발했습니다.
+
+## 주요 성과
+
+- 상품상세페이지개선 : 데이터출력로직수정으로사용성향상
+- 상품옵션 기능 강화 : 옵션 CRUD 기능 추가로 관리 효율 증대
+- 쿠폰 페이지 UI 개선 : 사용자 경험 향상 
+- 제품 형태별 리스트 관리 페이지 추가 : 관리 효율성 증가
+- 제품 주문 현황 페이지 개선 : UI 및 로직 수정, 배송추적 기능 추가로 서비스 개선
+- 제품 주문-취소/교환/환불 처리 강화: 신속하고 정확한 처리 가능 이를 통해 프로젝트의 사용자 경험 및 관리 효율성이 크게 향상되었습니다.
+
+
+
+## 개발한 기능들
+- 상품 상세페이지 상품 리스트 데이터 출력 로직 수정  
+  - 문제:데이터 출력이 안되는 문제 발생  
+  - 해결 방법: 불필요한 변수를 제거하고 API를 State에 저장하여 불변성 유지
+  - 배운 것: React의 불변성의 중요함을 배웠습니다. 
+- 상품 상세페이지 옵션 기능 UI 및 옵션 CRUD 기능 추가 및 API 연동
+  - 문제:클릭 시 해당 옵션 체크하는 기능 구현 중 문제 발생
+  - 해결 방법:객체 배열에 고유 key 값을 부여
+  - 배운 것: React-Bootstrap-Table 활용법, 데이터마다 고유한 옵션 부여 방법 
+- 쿠폰 페이지 UI 수정
+  - 배운 것: 이미 구성된 Component 사용법 및 재활용 방법 
+- 제품 형태(캡슐, 가루, 물약 등) 리스트 관리 페이지 추가
+  - 페이지 추가 후 Router 연결
+  - 제품 리스트 모달 구현(수정, 생성)
+  - 형태 리스트 데이터 수정, 추가, 삭제 등 CRUD 구현 
+- 제품 주문 현황 페이지 UI 및 로직 수 정
+  - React-bootstrap-table 라이브러리를 사용해 유저 데이터 출력 택배사 리스트 모달 UI 퍼블리싱
+  - 제품 주문한 유저의 운송장, 택배사 수정 API 연동 및 배송추적 연동
+  - 문제: 스마트 택배(스윗 트레커) API 연동 중 문제 발생
+  - 해결 방법: https://info.sweettracker.co.kr로 수정 
+  - 배운 것: Open API의 http와 https 지원 여부확인 
+- 제품 주문-취소/교환/환불
+  - 유저 결제방식에 따른 계좌번호, 예금주, 은행 데이터 출력 모달 UI 퍼블리싱 
+  - 유저 결제 방식에 따라 적절한 데이터를 출력하고, 취소/교환/환불 처리를 위한 API 연동을 구현
+      `,
   },
 ]

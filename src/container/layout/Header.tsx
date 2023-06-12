@@ -9,7 +9,7 @@ const Header = () => {
     <CustomAntdRow>
       <Col span={4} />
       <Col span={16}>
-        <Title title={'Front-end'} level={1} />
+        <Title title={'Front-end'} color={'#00203f'} level={1} />
       </Col>
       <Col span={4}>
         <ProfileDropdownMenu />
@@ -22,7 +22,7 @@ export default Header
 
 const CustomAntdRow = styled(Row)`
   max-height: 70px;
-  background-color: #fff;
+  background: #adefd1;
   text-align: center;
   justify-content: center;
   align-items: center;

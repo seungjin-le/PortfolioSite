@@ -13,6 +13,7 @@ declare module 'lodash' {
   export interface TitleProps {
     title: string
     level?: 1 | 5 | 2 | 3 | 4 | undefined
+    color?: string
   }
   export interface SectionFlexBoxProps {
     title: string
@@ -31,6 +32,31 @@ declare module 'lodash' {
   export interface SliderImageProps {
     src: string | undefined
     alt: string | undefined
+  }
+
+  export interface SkillTagProps {
+    name: string
+    color?: string
+  }
+  export interface DescriptionMarkdownProps {
+    description: string
+  }
+  export interface ProjectDescriptionProps {
+    item: {
+      company: string
+      projectName: string
+      date: {
+        start: string
+        end: string
+      }
+      projectType: string
+      team: {
+        front: number
+        back: number
+      }
+      skills: string[]
+      description: string
+    }
   }
   export type CustomScrollPageProps = {
     gradientDirection: true | false

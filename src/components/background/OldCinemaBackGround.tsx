@@ -80,7 +80,7 @@ const CustomScrollPage = styled(ScrollPage)`
     position: absolute;
     top: -5%;
     left: -5%;
-    opacity: 0.11;
+    opacity: 0.17;
     background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/662025/grain.jpg') repeat center center;
     -webkit-animation: grain 0.5s steps(1) infinite;
     animation: grain 0.5s steps(1) infinite;

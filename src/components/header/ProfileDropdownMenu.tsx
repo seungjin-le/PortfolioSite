@@ -32,7 +32,7 @@ const ProfileDropdownMenu = () => {
           Resume
         </ListItem>
       ),
-      key: '1',
+      key: '2',
     },
   ]
   return (
@@ -50,16 +50,16 @@ export default ProfileDropdownMenu
 
 const CustomAntdDropdown = styled(Dropdown)`
   display: flex;
-
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
+  transition: 0.5s;
   &:hover {
-    background: rgba(200, 200, 200, 0.5);
+    background: rgba(0, 12.5, 24.7, 0.5);
   }
   &:active {
-    background: rgba(200, 200, 200, 1);
+    background: rgba(0, 12.5, 24.7, 1);
   }
   &.ant-dropdown-open {
     .line1 {

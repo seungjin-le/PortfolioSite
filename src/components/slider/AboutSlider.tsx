@@ -1,6 +1,6 @@
 import React, {useRef, useState} from 'react'
 import {Carousel} from 'antd'
-import {images} from '../descriptions/ProjectDescription'
+import {images} from '../descriptions/ProjectSlider'
 import {CarouselRef} from 'antd/es/carousel'
 import styled from 'styled-components'
 

@@ -3,13 +3,14 @@ import {ScrollContainer, Sticky, Fade, batch, MoveOut, Move, ZoomIn, Animator, M
 import FlexRowBox from '../../container/sections/FlexRowBox'
 import styled from 'styled-components'
 
-import ProjectDescription from '../../components/descriptions/ProjectDescription'
+import ProjectSlider from '../../components/descriptions/ProjectSlider'
 import SkillTagCloud from '../../components/tagCloud/SkillTagCloud'
 import AboutMe from '../../components/descriptions/AboutMe'
 import MainDraw from '../../components/draw/MainDraw'
 import SiteLinks from '../../components/siteLink/SiteLinks'
-import OldCinemaBackGround from '../../components/background/OldCinemaBackGround'
+
 import Title from '../../components/texts/Title'
+import OriginBackground from '../../components/background/OriginBackground'
 
 const MainPage = () => {
   const ZoomInScrollOut = batch(Sticky(), Move(), ZoomIn(), Fade())
@@ -17,39 +18,39 @@ const MainPage = () => {
 
   return (
     <CustomScrollContainer>
-      <OldCinemaBackGround>
+      <OriginBackground>
         <MainDraw />
-      </OldCinemaBackGround>
+      </OriginBackground>
 
-      <OldCinemaBackGround>
+      <OriginBackground>
         <Animator animation={batch(Fade(), Sticky(), MoveOut(0, -200))}>
-          <Title title={'안녕하세요?'} level={1} />
+          <Title title={'안녕하세요?'} color={'#adefd1'} level={1} />
         </Animator>
-      </OldCinemaBackGround>
+      </OriginBackground>
 
-      <OldCinemaBackGround>
+      <OriginBackground>
         <Animator animation={ZoomInScrollOut}>
-          <Title title={'프론트엔드 개발자 이승진 입니다.✨'} level={1} />
+          <Title title={'프론트엔드 개발자 이승진 입니다.✨'} color={'#adefd1'} level={1} />
         </Animator>
-      </OldCinemaBackGround>
-      <OldCinemaBackGround>
+      </OriginBackground>
+      <OriginBackground>
         <FlexRowBox title={'About Me'} left={<AboutMe />} right={<SkillTagCloud />} />
-      </OldCinemaBackGround>
-      <OldCinemaBackGround>
+      </OriginBackground>
+      <OriginBackground>
         <Animator animation={MoveIn(-4000, 0)}>
-          <ProjectDescription />
+          <ProjectSlider />
         </Animator>
-      </OldCinemaBackGround>
-      <OldCinemaBackGround>
+      </OriginBackground>
+      <OriginBackground>
         <Animator animation={MoveIn(2000, 0)}>
           <SiteLinks />
         </Animator>
-      </OldCinemaBackGround>
-      <OldCinemaBackGround>
+      </OriginBackground>
+      <OriginBackground>
         <Animator animation={batch(Fade(), Sticky())}>
-          <span style={{fontSize: '40px'}}>감사합니다.</span>
+          <Title title={'감사합니다.'} color={'#adefd1'} level={1} />
         </Animator>
-      </OldCinemaBackGround>
+      </OriginBackground>
     </CustomScrollContainer>
   )
 }

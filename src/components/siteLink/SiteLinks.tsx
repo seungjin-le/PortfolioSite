@@ -8,7 +8,7 @@ const SiteLinks = () => {
   const [selectedTab, setSelectedTab] = useState(allIngredients[0])
   return (
     <>
-      <Title title={'Sites'} level={1} />
+      <Title title={'Sites'} color={'#adefd1'} level={1} />
       <Box>
         <LinkBox>
           <nav>
@@ -52,12 +52,12 @@ const Box = styled.div`
 
 const LinkBox = styled.div`
   width: 100%;
-  max-height: 650px;
+  max-height: 600px;
   height: 100%;
   border-radius: 10px;
   background: white;
   overflow: hidden;
-  box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075), 0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075),
+  box-shadow: 3px 1px 1px hsl(0deg 0% 0% / 0.175), 0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.375),
     0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075);
   display: flex;
   flex-direction: column;
@@ -83,15 +83,16 @@ const LinkBox = styled.div`
 
   main {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100%;
-    flex-grow: 1;
-    user-select: none;
     width: 100%;
-    & > div {
+    max-height: 535px;
+    .imgBox {
+      width: 100%;
       height: 100%;
+      .siteImage {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 

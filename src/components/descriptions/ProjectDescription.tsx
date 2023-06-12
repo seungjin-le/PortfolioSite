@@ -1,106 +1,66 @@
-import React, {useRef, useState} from 'react'
-
+import {Descriptions} from 'antd'
+import React from 'react'
+import SkillTag from '../tags/SkillTag'
+import {labelsAndColors} from '../../utility/listItems'
 import styled from 'styled-components'
-import {Carousel} from 'antd'
-import {CarouselRef} from 'antd/es/carousel'
-import SliderImageItem from '../slider/SliderImageItem'
+import {ProjectDescriptionProps} from 'lodash'
 import Title from '../texts/Title'
+import DescriptionMarkDown from '../texts/DescriptionMarkDown'
 
-export const images = [
-  'https://d33wubrfki0l68.cloudfront.net/dd23708ebc4053551bb33e18b7174e73b6e1710b/dea24/static/images/wallpapers/shared-colors@2x.png',
-  'https://d33wubrfki0l68.cloudfront.net/49de349d12db851952c5556f3c637ca772745316/cfc56/static/images/wallpapers/bridge-02@2x.png',
-  'https://d33wubrfki0l68.cloudfront.net/594de66469079c21fc54c14db0591305a1198dd6/3f4b1/static/images/wallpapers/bridge-01@2x.png',
-]
-
-const ProjectDescription = () => {
-  const [slide, setSlide] = useState(0)
-  const slider = useRef<CarouselRef | null | undefined>()
-
-  const handleSliderOnChange = (num: number) => {
-    const changeValue = slide + num
-    if (!slider.current) return
-    const len = images.length
-    if (changeValue === len || changeValue === -1) {
-      setSlide(changeValue === len ? 0 : len - 1)
-      slider.current.goTo(changeValue === len ? 0 : len - 1)
-      return
-    }
-    setSlide(slide => slide + num)
-    slider.current.goTo(slide + num)
-  }
-
+const ProjectDescription = ({item}: ProjectDescriptionProps) => {
   return (
-    <ProjectBox>
-      <Containers>
-        <Title title={'Projects'} level={1} />
-        <div>
-          <div style={{position: 'relative'}}>
-            <Carousel dotPosition={'top'} ref={ref => (slider.current = ref)}>
-              {images.map((value: string, index: number) => {
-                return <SliderImageItem src={value} alt={value} key={index} />
-              })}
-            </Carousel>
-            <div className='next' onClick={() => handleSliderOnChange(1)}>
-              {'‣'}
-            </div>
-            <div className='prev' onClick={() => handleSliderOnChange(-1)}>
-              {'‣'}
-            </div>
-          </div>
-        </div>
-      </Containers>
-    </ProjectBox>
+    <DescriptionBox>
+      <Title title={item?.company} level={3} />
+      <CustomAntdDescription bordered>
+        <Descriptions.Item label='프로젝트 이름' span={1}>
+          {item?.projectName}
+        </Descriptions.Item>
+        <Descriptions.Item label='개발 기간' span={2}>
+          {item?.date?.start} ~ {item?.date?.end}
+        </Descriptions.Item>
+        <Descriptions.Item label='프로젝트 유형' span={1}>
+          {item?.projectType}
+        </Descriptions.Item>
+        <Descriptions.Item label='팀 구성' span={2}>
+          <div>Frontend : {item?.team?.front} 명</div>
+          <div>Backend : {item?.team?.back} 명</div>
+        </Descriptions.Item>
+        <Descriptions.Item label='사용 스킬' span={3}>
+          {labelsAndColors?.map((v, i) => {
+            if (item.skills.indexOf(v.label)) return <SkillTag name={v.label} color={v.color} key={i} />
+          })}
+        </Descriptions.Item>
+        <Descriptions.Item label='상세 설명' span={3} className={'description'}>
+          <DescriptionMarkDown description={item.description} />
+        </Descriptions.Item>
+      </CustomAntdDescription>
+    </DescriptionBox>
   )
 }
 
 export default ProjectDescription
 
-const ProjectBox = styled.div`
-  width: 100%;
-  max-height: 720px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  & .team + td span {
-    display: flex;
-    justify-content: space-between;
-  }
-`
-const Containers = styled.div`
-  width: 100%;
-  position: relative;
-  height: 100%;
-  & div {
-    width: 100%;
-  }
+const DescriptionBox = styled.div``
+
+const CustomAntdDescription = styled(Descriptions)`
+  border: 1px solid #00203f !important;
+  border-radius: 14px;
+  overflow: hidden;
   & > div {
-    padding: 0 2rem;
+    border: none !important;
   }
-
-  .next,
-  .prev {
-    top: calc(47%);
-    position: absolute;
-    background: white;
-    border-radius: 30px;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    user-select: none;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 18px;
-    z-index: 2;
+  & tr th {
+    background: #00203f !important;
+    border-top: 1px solid #adefd1;
+    color: #adefd1 !important;
   }
-
-  .next {
-    right: 20px;
+  & tr td {
+    background: #adefd1 !important;
+    border-top: 1px solid #00203f;
+    color: #00203f !important;
   }
-
-  .prev {
-    left: 20px;
-    transform: scale(-1);
+  & tr:first-child th,
+  & tr:first-child td {
+    border-top: none !important;
   }
 `
