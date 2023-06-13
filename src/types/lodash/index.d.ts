@@ -1,4 +1,4 @@
-import {Dispatch, ReactNode, RefObject, SetStateAction} from 'react'
+import {Dispatch, ReactNode, SetStateAction} from 'react'
 
 declare module 'TagCloud' {
   // 타입 선언 내용

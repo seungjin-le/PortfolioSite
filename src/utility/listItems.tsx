@@ -18,7 +18,7 @@ export const skillSet: string[] = [
   'Axios',
   'RESTAPI',
 ]
-export const TagItems: any = {
+export const tagItems: any = {
   JavaScript: {
     title: 'JavaScript',
     description:
@@ -45,7 +45,7 @@ export const TagItems: any = {
       '외주 개발로 팀 프로젝트를 진행하면서 여러 명이 함께 커밋 규칙을 세우고 진행 상황을 공유하며 이슈가 생겼을 때 해결해 본 경험이 있습니다.',
   },
 }
-export const CollapseListItem: CollapseProps['items'] = [
+export const collapseListItem: CollapseProps['items'] = [
   {
     key: '1',
     label: 'JavaScript',

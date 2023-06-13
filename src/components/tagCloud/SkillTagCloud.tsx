@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {TagCloudOptions} from 'TagCloud'
 import styled from 'styled-components'
 import TagCloud from '@frank-mayer/react-tag-cloud'
-import {skillSet, TagItems} from '../../utility/listItems'
+import {skillSet, tagItems} from '../../utility/listItems'
 import SkillModal from '../modal/SkillModal'
 
 const SkillTagCloud = () => {
@@ -13,9 +13,9 @@ const SkillTagCloud = () => {
   })
 
   const handleOnClickTag = (tag: string): void => {
-    if (TagItems[tag]) {
+    if (tagItems[tag]) {
       setShowModal(true)
-      setSelectedItem(TagItems[tag])
+      setSelectedItem(tagItems[tag])
     }
   }
 

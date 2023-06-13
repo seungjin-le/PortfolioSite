@@ -9,7 +9,7 @@ import InfoSkillList from '../list/InfoSkillList'
 
 const AboutSlider = () => {
   const [slide, setSlide] = useState<number>(0)
-  const slider = useRef<CarouselRef | null | undefined>()
+  const slider = useRef<CarouselRef | null | undefined>(null)
 
   const handleSliderOnChange = (num: number) => {
     const changeValue = slide + num
@@ -54,9 +54,6 @@ const CustomAntdSlider = styled(Carousel)`
   width: 100%;
   height: 100%;
   padding: 0 4rem;
-  & > div {
-    z-index: 1;
-  }
 `
 
 const SliderBtnBox = styled.div`
