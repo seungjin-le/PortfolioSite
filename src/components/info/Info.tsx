@@ -7,9 +7,9 @@ const Info = () => {
   return (
     <InfoBox>
       <Image className={'image'} src='/images/info/infoImage.jpeg' alt='' preview={false} />
-      <ModalTitle title={'Name : Lee Seung Jin'} level={4} />
-      <ModalTitle title={'Email : dltmdwls154@gmail.com'} level={4} />
-      <ModalTitle title={'Phone : +82) 010-5574-2436'} level={4} />
+      <ModalTitle title={'Name : Lee Seung Jin'} level={4} color={'#adefd1'} />
+      <ModalTitle title={'Email : dltmdwls154@gmail.com'} level={4} color={'#adefd1'} />
+      <ModalTitle title={'Phone : +82) 010-5574-2436'} level={4} color={'#adefd1'} />
     </InfoBox>
   )
 }
@@ -26,6 +26,7 @@ const InfoBox = styled.div`
   box-sizing: border-box;
   border-radius: 14px;
   padding: 10px 10px;
+
   & div {
     padding-bottom: 1rem;
     margin: 0;

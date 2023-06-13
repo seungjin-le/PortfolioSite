@@ -16,11 +16,9 @@ const FlexRowBox = ({title, left, right}: SectionFlexBoxProps) => {
         <Animator className={'item left'} animation={MoveIn(-1000, 0)}>
           {left}
         </Animator>
-
         <Animator className={'item right'} animation={MoveIn(1000, 0)}>
           {right}
         </Animator>
-
         <img className={'backgroundImage'} src='/images/background/watercolor.png' alt='' />
       </div>
       <AboutMeModal showModal={showModal} setShowModal={setShowModal} />

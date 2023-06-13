@@ -1,6 +1,5 @@
 import React, {useRef, useState} from 'react'
 import {Carousel} from 'antd'
-import {images} from '../descriptions/ProjectSlider'
 import {CarouselRef} from 'antd/es/carousel'
 import styled from 'styled-components'
 
@@ -15,7 +14,7 @@ const AboutSlider = () => {
   const handleSliderOnChange = (num: number) => {
     const changeValue = slide + num
     if (!slider.current) return
-    const len: number = images.length - 1
+    const len: number = 2
     if (changeValue === len || changeValue === -1) {
       setSlide(changeValue === len ? 0 : len - 1)
       slider.current.goTo(changeValue === len ? 0 : len - 1)

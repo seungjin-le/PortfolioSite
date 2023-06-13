@@ -1,4 +1,4 @@
-import {Dispatch, ReactNode, SetStateAction} from 'react'
+import {Dispatch, ReactNode, RefObject, SetStateAction} from 'react'
 
 declare module 'TagCloud' {
   // 타입 선언 내용
@@ -57,6 +57,10 @@ declare module 'lodash' {
       skills: string[]
       description: string
     }
+    setScrollTop: Dispatch<SetStateAction<boolean>>
+    setScrollBottom: Dispatch<SetStateAction<boolean>>
+    setScrollBtnClick: Dispatch<SetStateAction<string>>
+    scrollBtnClick: string
   }
   export type CustomScrollPageProps = {
     gradientDirection: true | false

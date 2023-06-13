@@ -12,6 +12,17 @@ export default DescriptionMarkDown
 
 const CustomReactMarkdown = styled(ReactMarkdown)`
   max-height: 100%;
+  .shadow:after {
+    content: '';
+    position: absolute;
+    z-index: 99;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 100%);
+    width: 100%;
+    height: 40px; /* adjust this to change the size of shadow */
+  }
   ul,
   li {
     list-style-type: disc;

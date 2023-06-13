@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const AboutMe = () => {
   return (
     <AboutTextBox>
-      <div>안녕하세요, 신입 프론트엔드 개발자 이승진입니다. </div>
+      <div>안녕하세요, 신입 프론트엔드 개발자 이승진입니다.</div>
       <div>
         고등학교 3학년부터 취업을 시작해 반도체 업계에서 약 4년간 근무한 경험을 바탕으로, 힘든 상황에서도 빠르게
         적응하고 문제를 해결할 수 있는 능력을 갖추 게 되었습니다.
@@ -35,7 +35,7 @@ const AboutTextBox = styled.div`
   padding: 2.5rem;
   border-radius: 17px;
   transition: 0.5s;
-
+  color: #00203f;
   & div {
     padding: 0.7rem 0;
     word-break: keep-all;

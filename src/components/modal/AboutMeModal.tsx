@@ -17,7 +17,7 @@ const AboutMeModal = ({showModal, setShowModal}: ModalProps) => {
       footer={null}
     >
       <div className={'modalFlexBox'}>
-        <Title title={'프론트엔드 개발자 이승진입니다.'} level={3} />
+        <Title title={'프론트엔드 개발자 이승진입니다.'} level={3} color={'#00203f'} />
         <Row className={'aboutBox'}>
           <Col className={'left'} span={12}>
             <div>
@@ -61,10 +61,12 @@ const CustomAntdModal = styled(Modal)`
     background: linear-gradient(to right, #5eb7b7 50%, #1b2a49 50%);
   }
 
-  &.aboutModalBox * {
-    color: #fff;
+  & .left * {
+    color: #00203f;
   }
-
+  & .right * {
+    color: #adefd1;
+  }
   & .modalFlexBox {
     display: flex;
     flex-direction: column;
