@@ -213,7 +213,7 @@ export const projectsInfo = [
     company: '(주)OKPOS',
     projectName: '(주)OKPOS Web Admin Page 개발',
     date: {
-      start: '2022/10/1',
+      start: '2022/10/01',
       end: '2023/04/31',
     },
     projectType: '외주 개발',

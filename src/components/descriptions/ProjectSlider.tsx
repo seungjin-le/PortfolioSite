@@ -32,9 +32,9 @@ const ProjectSlider = () => {
 
   return (
     <Containers>
-      <Title title={'Projects'} color={'#adefd1'} level={1} />
+      <Title title={'Projects'} color={'#eee'} level={1} />
       <SliderBox>
-        <Carousel dotPosition={'top'} ref={ref => (slider.current = ref)} className={'qwe'}>
+        <Carousel dotPosition={'top'} ref={ref => (slider.current = ref)}>
           {projectsInfo?.map((value, index) => {
             return (
               <ProjectDescription
@@ -99,21 +99,34 @@ const Containers = styled.div`
     font-weight: bold;
     overflow: hidden;
     transition: 0.4s;
-    background: rgba(0, 32, 63, 0.8);
+    background: rgba(238, 238, 238, 0.4);
     font-size: 26px;
+    & svg {
+      transition: 0.4s;
+      color: #eee;
+    }
+    &:hover {
+      background: rgba(238, 238, 238, 0.8);
+      svg {
+        color: #161616;
+      }
+    }
+    &:active {
+      transition: 0.4s;
+      box-shadow: 0 0 5px 10px #eee;
+    }
   }
 `
 const SliderBox = styled.div`
   border-radius: 18px;
   padding: 2rem 0;
-  background: rgb(173, 239, 209);
+  background: rgba(53, 53, 53, 0.7);
   height: 100%;
   position: relative;
-  //box-shadow: inset -5px 0 10px 5px rgb(77, 71, 71), inset 20px 0px 20px 20px rgb(77, 71, 71);
   & .slick-dots.slick-dots-top * {
-    background: rgba(0, 32, 63, 0.6);
+    background: rgba(238, 238, 238, 0.6);
     &.slick-active * {
-      background: rgba(0, 32, 63, 0.6);
+      background: rgba(238, 238, 238, 0.9);
     }
   }
 
@@ -126,6 +139,18 @@ const SliderBox = styled.div`
   & .team + td span {
     display: flex;
     justify-content: space-between;
+  }
+  & tbody {
+    & th,
+    & td {
+      text-align: center !important;
+      vertical-align: middle;
+      font-size: 15px !important;
+    }
+    & tr:last-child * {
+      text-align: start;
+      vertical-align: baseline;
+    }
   }
 
   & .upDownBtnBox {
@@ -145,6 +170,7 @@ const SliderBox = styled.div`
       & .up,
       & .down {
         transform: rotate(90deg) translateY(50%);
+
         &.up {
           top: -100%;
           margin-top: 6rem;
@@ -168,16 +194,6 @@ const SliderBtnBox = styled.div`
     top: 50%;
     transform: translateY(-100%);
 
-    & span svg {
-      color: #00203f;
-    }
-    &:hover {
-      background: rgba(0, 32, 63, 0.8);
-    }
-    &:active {
-      transition: 0.2s;
-      box-shadow: 0 0 5px 10px #00203f;
-    }
     &.next {
       left: 100%;
       transform: translate(-100%, -100%);
@@ -185,15 +201,7 @@ const SliderBtnBox = styled.div`
     }
 
     &.prev {
-      background: rgba(173, 239, 209, 0.4);
       margin-left: 3rem;
-      &:hover {
-        background: rgba(173, 239, 209, 0.8);
-      }
-      &:active {
-        transition: 0.2s;
-        box-shadow: 0 0 5px 10px #adefd1;
-      }
     }
   }
 `

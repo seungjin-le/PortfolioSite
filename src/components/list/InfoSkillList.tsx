@@ -19,17 +19,8 @@ export default InfoSkillList
 const InfoSkillListBox = styled.div`
   height: 100%;
   width: 100%;
-  & .slick-track div {
-    height: 100%;
-  }
-  & .slick-slide.slick-active.slick-current {
-    height: 100%;
-    width: 100%;
-    background: red !important;
-  }
 
   & > div {
-    max-width: 400px;
   }
   & * {
     height: 100%;

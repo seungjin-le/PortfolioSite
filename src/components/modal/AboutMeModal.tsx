@@ -62,10 +62,10 @@ const CustomAntdModal = styled(Modal)`
   }
 
   & .left * {
-    color: #00203f;
+    color: #eee;
   }
   & .right * {
-    color: #adefd1;
+    color: #eee;
   }
   & .modalFlexBox {
     display: flex;

@@ -55,12 +55,6 @@ const CustomAntdDropdown = styled(Dropdown)`
   width: 100%;
   height: 100%;
   transition: 0.5s;
-  &:hover {
-    background: rgba(0, 12.5, 24.7, 0.5);
-  }
-  &:active {
-    background: rgba(0, 12.5, 24.7, 1);
-  }
   &.ant-dropdown-open {
     .line1 {
       display: block;
@@ -89,7 +83,7 @@ const Btn = styled('div')`
   border-radius: 50%;
   cursor: pointer;
   & .line {
-    background-color: black;
+    background-color: #eee;
     border-radius: 1em;
     width: 2rem;
     height: 0.25rem;

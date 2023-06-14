@@ -15,4 +15,6 @@ export default Title
 
 const CustomAntdTypography = styled(Typography.Title)`
   margin-bottom: 1em !important;
+  font-family: JalnanTtf, JalnanOTF, sans-serif;
+  font-weight: bold !important;
 `

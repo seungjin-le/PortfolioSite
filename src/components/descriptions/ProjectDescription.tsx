@@ -16,11 +16,31 @@ const ProjectDescription = ({
 }: ProjectDescriptionProps) => {
   const scrollRef = React.useRef<HTMLDivElement>(null)
 
+  const smoothScrollTo = (element: HTMLDivElement, top: number) => {
+    const start = element.scrollTop
+    const change = top - start
+    const startTime = performance.now()
+
+    const animateScroll = (currentTime: any) => {
+      const elapsedTime = currentTime - startTime
+      const progress = Math.min(elapsedTime / 400, 1)
+      element.scrollTop = start + change * progress
+      if (progress < 1) window.requestAnimationFrame(animateScroll)
+    }
+
+    window.requestAnimationFrame(animateScroll)
+  }
+
   const scrollMove = (text: string) => {
     const element = scrollRef.current
     if (!element) return
-    if (text === 'up') return (element.scrollTop = 0), setScrollBtnClick('')
-    if (text === 'down') return (element.scrollTop = element.scrollHeight), setScrollBtnClick('')
+    if (text === 'up') {
+      smoothScrollTo(element, 0)
+      setScrollBtnClick('')
+    } else if (text === 'down') {
+      smoothScrollTo(element, element.scrollHeight)
+      setScrollBtnClick('')
+    }
   }
 
   useEffect(() => {
@@ -30,7 +50,7 @@ const ProjectDescription = ({
       const {scrollTop, clientHeight, scrollHeight} = scrollRef.current
       const pos = scrollTop + clientHeight
       scrollTop !== 0 ? setScrollTop(true) : setScrollTop(false)
-      pos !== scrollHeight ? setScrollBottom(true) : setScrollBottom(false)
+      pos + 5 < scrollHeight ? setScrollBottom(true) : setScrollBottom(false)
     }
     if (scrollRef.current) {
       scrollRef.current.addEventListener('scroll', handleScroll)
@@ -47,19 +67,19 @@ const ProjectDescription = ({
 
   return (
     <div>
-      <Title title={item?.company} level={3} />
+      <Title title={item?.company} level={3} color={'#eee'} />
       <DescriptionBox ref={scrollRef}>
         <CustomAntdDescription bordered>
-          <Descriptions.Item label='프로젝트 이름' span={1}>
+          <Descriptions.Item label='프로젝트 이름' span={2}>
             {item?.projectName}
           </Descriptions.Item>
-          <Descriptions.Item label='개발 기간' span={2}>
+          <Descriptions.Item label='개발 기간' span={1}>
             {item?.date?.start} ~ {item?.date?.end}
           </Descriptions.Item>
-          <Descriptions.Item label='프로젝트 유형' span={1}>
+          <Descriptions.Item label='프로젝트 유형' span={2}>
             {item?.projectType}
           </Descriptions.Item>
-          <Descriptions.Item label='팀 구성' span={2}>
+          <Descriptions.Item label='팀 구성' span={1}>
             <div>Frontend : {item?.team?.front} 명</div>
             <div>Backend : {item?.team?.back} 명</div>
           </Descriptions.Item>
@@ -83,7 +103,8 @@ const DescriptionBox = styled.div`
   max-height: 550px;
   overflow: scroll;
   position: relative;
-  border: 1px solid #00203f !important;
+  border: 1px solid #161616 !important;
+
   border-radius: 14px;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -93,25 +114,29 @@ const DescriptionBox = styled.div`
 `
 
 const CustomAntdDescription = styled(Descriptions)`
-  // .description
-
-  &:hover tr.ant-descriptions-row:last-child {
-  }
   & > div {
     border: none !important;
   }
   & tr th {
-    background: #00203f !important;
+    background: rgba(22, 22, 22, 0.5) !important;
     border-top: 1px solid #adefd1;
-    color: #adefd1 !important;
+    color: #eee !important;
   }
   & tr td {
-    background: #adefd1 !important;
-    border-top: 1px solid #00203f;
-    color: #00203f !important;
+    background: rgba(238, 238, 238, 0.5) !important;
+    border-top: 1px solid #161616;
+    color: #161616 !important;
   }
   & tr:first-child th,
   & tr:first-child td {
     border-top: none !important;
+  }
+  & tr:first-child {
+    & th {
+      width: 12%;
+    }
+    & td {
+      width: 34%;
+    }
   }
 `

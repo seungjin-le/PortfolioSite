@@ -8,7 +8,7 @@ const SiteLinks = () => {
   const [selectedTab, setSelectedTab] = useState(allIngredients[0])
   return (
     <>
-      <Title title={'Sites'} color={'#adefd1'} level={1} />
+      <Title title={'Sites'} color={'#eee'} level={1} />
       <Box>
         <LinkBox>
           <nav>

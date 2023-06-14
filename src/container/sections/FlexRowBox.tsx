@@ -10,7 +10,7 @@ const FlexRowBox = ({title, left, right}: SectionFlexBoxProps) => {
   return (
     <FlexBox>
       <div className={'titleBox'}>
-        <Title title={title} color={'#adefd1'} level={1} />
+        <Title title={title} color={'#eee'} level={1} />
       </div>
       <div className={'aboutBox'} onClick={() => setShowModal(true)}>
         <Animator className={'item left'} animation={MoveIn(-1000, 0)}>

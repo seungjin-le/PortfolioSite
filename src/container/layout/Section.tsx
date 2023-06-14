@@ -12,5 +12,5 @@ export default Section
 const CustomSectionLayout = styled(Layout)`
   height: 100%;
   width: 100%;
-  background: #fff;
+  background: #161616;
 `

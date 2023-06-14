@@ -24,7 +24,7 @@ const CustomScrollPage = styled(ScrollPage)`
   position: relative;
   width: 100%;
   height: 100%;
-  background: #00203f;
+  background: #161616;
 
   & .grain {
     width: 100%;
@@ -66,7 +66,7 @@ const CustomScrollPage = styled(ScrollPage)`
     left: 0;
     padding-left: 100px;
     opacity: 0.08;
-    background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/662025/scratch.png') repeat center center;
+
     -webkit-animation: scratch 0.45s steps(1) infinite;
     animation: scratch 0.45s steps(1) infinite;
   }
