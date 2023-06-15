@@ -17,11 +17,10 @@ const MainPage = () => {
 
   return (
     <CustomScrollContainer>
+      <WatchModel />
       <OriginBackground>
         <MainDraw />
-        <WatchModel />
       </OriginBackground>
-
       <OriginBackground>
         <Animator animation={batch(Fade(), Sticky(), MoveOut(0, -200))}>
           <Title title={'안녕하세요?'} color={'#eee'} level={1} />

@@ -4,11 +4,13 @@ import Header from './Header'
 import Section from './Section'
 import {PageLayoutProps} from 'lodash'
 import styled from 'styled-components'
+import WatchModel from '../../components/three/WatchModel'
 
 const MainLayout = ({children}: PageLayoutProps) => {
   return (
     <CustomPageLayout>
       <Header />
+      <WatchModel />
       <Section>{children}</Section>
     </CustomPageLayout>
   )

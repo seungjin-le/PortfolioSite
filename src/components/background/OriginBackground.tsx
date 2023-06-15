@@ -5,7 +5,7 @@ import {PageLayoutProps} from 'lodash'
 
 const OriginBackground = ({children}: PageLayoutProps) => {
   return (
-    <CustomScrollPage className={'backgroundBox'}>
+    <CustomScrollPage>
       <div className='outer-scratch'>
         <div className='background grain'>
           <div>{children}</div>
@@ -24,7 +24,6 @@ const CustomScrollPage = styled(ScrollPage)`
   position: relative;
   width: 100%;
   height: 100%;
-  background: #161616;
 
   & .grain {
     width: 100%;
@@ -32,8 +31,7 @@ const CustomScrollPage = styled(ScrollPage)`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-
+    justify-content: end;
     & > div {
       width: 100%;
       z-index: 1;
