@@ -1,7 +1,7 @@
 import {Card} from 'antd'
 import {styled} from 'styled-components'
 import React, {useState} from 'react'
-// {title,texts}
+
 const DescriptionsBox = () => {
   const [onClick, setOnClick] = useState(false)
 
@@ -59,6 +59,7 @@ const DescriptionsBox = () => {
 export default DescriptionsBox
 
 const CustomAntdCardBox = styled(Card)`
+  position: relative;
   background: rgba(53, 53, 53, 0.5);
   font-size: 1rem;
   border-radius: 1rem;

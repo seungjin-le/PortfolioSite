@@ -71,10 +71,16 @@ const GlobalStyle = createGlobalStyle`
     vertical-align: baseline;
     user-select: none;
   }
-  body{
-    
+  #cursor {
+    pointer-events: none;
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    border: 1px solid #eee;
+    border-radius: 50%;
+    transition: transform 0.1s ease-in-out;
+    transform: translate(-50%, -50%) scale(0);
   }
-  /* HTML5 display-role reset for older browsers */
   article, aside, details, figcaption, figure,
   footer, header, hgroup, menu, nav, section {
     display: block;

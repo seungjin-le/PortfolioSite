@@ -44,6 +44,7 @@ declare module 'lodash' {
   export interface ProjectDescriptionProps {
     item: {
       company: string
+      logo?: string
       projectName: string
       date: {
         start: string

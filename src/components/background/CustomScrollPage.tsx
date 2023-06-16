@@ -3,13 +3,13 @@ import styled from 'styled-components'
 import {ScrollPage} from 'react-scroll-motion'
 import {PageLayoutProps} from 'lodash'
 
-const OriginBackground = ({children}: PageLayoutProps) => {
-  return <CustomScrollPage>{children}</CustomScrollPage>
+const CustomScrollPage = ({children}: PageLayoutProps) => {
+  return <CustomScrollPageBox>{children}</CustomScrollPageBox>
 }
 
-export default memo(OriginBackground)
+export default memo(CustomScrollPage)
 
-const CustomScrollPage = styled(ScrollPage)`
+const CustomScrollPageBox = styled(ScrollPage)`
   position: relative;
   width: 100%;
   height: 100%;

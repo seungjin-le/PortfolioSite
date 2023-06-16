@@ -67,7 +67,10 @@ const ProjectDescription = ({
 
   return (
     <div>
-      <Title title={item?.company} level={3} color={'#eee'} />
+      <DescriptionTitleBox>
+        <img src={item?.logo} alt='' />
+        <Title title={item?.company} level={3} color={'#eee'} />
+      </DescriptionTitleBox>
       <DescriptionBox ref={scrollRef}>
         <CustomAntdDescription bordered>
           <Descriptions.Item label='프로젝트 이름' span={2}>
@@ -99,6 +102,20 @@ const ProjectDescription = ({
 
 export default memo(ProjectDescription)
 
+const DescriptionTitleBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  & img {
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    height: 50px;
+    max-width: 200px;
+    border-radius: 14px;
+  }
+`
+
 const DescriptionBox = styled.div`
   max-height: 550px;
   overflow: scroll;
@@ -107,7 +124,6 @@ const DescriptionBox = styled.div`
   border-radius: 14px;
   -ms-overflow-style: none;
   scrollbar-width: none;
-
   &::-webkit-scrollbar {
     display: none;
   }

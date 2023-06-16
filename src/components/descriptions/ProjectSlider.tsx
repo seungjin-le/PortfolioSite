@@ -119,11 +119,12 @@ const Containers = styled.div`
 `
 const SliderBox = styled.div`
   border-radius: 18px;
-  padding: 2rem 0;
+  padding: 2rem 3rem;
   background: rgba(53, 53, 53, 0.7);
   height: 100%;
-  max-width: 1000px;
+  max-width: 1200px;
   position: relative;
+
   & .slick-dots.slick-dots-top * {
     background: rgba(238, 238, 238, 0.6);
     &.slick-active * {
@@ -174,7 +175,7 @@ const SliderBox = styled.div`
 
         &.up {
           top: -100%;
-          margin-top: 6rem;
+          margin-top: 6.5rem;
         }
         &.down {
           bottom: 100%;
@@ -197,11 +198,11 @@ const SliderBtnBox = styled.div`
     &.next {
       left: 100%;
       transform: translate(-100%, -100%);
-      margin-left: -3rem;
+      margin-left: -1.5rem;
     }
 
     &.prev {
-      margin-left: 3rem;
+      margin-left: 1.5rem;
     }
   }
 `

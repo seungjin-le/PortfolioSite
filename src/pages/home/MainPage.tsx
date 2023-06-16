@@ -1,4 +1,4 @@
-import React, {memo} from 'react'
+import React from 'react'
 import {ScrollContainer, Sticky, Fade, batch, MoveOut, Animator, MoveIn} from 'react-scroll-motion'
 import FlexRowBox from '../../container/sections/FlexRowBox'
 import styled from 'styled-components'
@@ -6,7 +6,7 @@ import ProjectSlider from '../../components/descriptions/ProjectSlider'
 import MainDraw from '../../components/draw/MainDraw'
 import SiteLinks from '../../components/siteLink/SiteLinks'
 import Title from '../../components/texts/Title'
-import OriginBackground from '../../components/background/OriginBackground'
+import OriginBackground from '../../components/background/CustomScrollPage'
 import Footer from '../../container/layout/Footer'
 import DescriptionsBox from 'components/descriptions/DescriptionsBox'
 import SkillTagCloud from '../../components/tags/SkillTagCloud'
@@ -46,7 +46,7 @@ const MainPage = () => {
   )
 }
 
-export default memo(MainPage)
+export default MainPage
 
 const CustomScrollContainer = styled(ScrollContainer)`
   width: 100%;

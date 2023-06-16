@@ -5,7 +5,7 @@ import SkillTagCloud from '../tags/SkillTagCloud'
 
 const InfoSkillList = () => {
   return (
-    <InfoSkillListBox className={'123123123123123123 '}>
+    <InfoSkillListBox>
       <Title level={3} title={'Skill'} color={'#adefd1'} />
       <SkillTagCloud />
     </InfoSkillListBox>

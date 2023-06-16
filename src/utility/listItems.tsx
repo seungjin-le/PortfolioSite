@@ -167,6 +167,7 @@ export const labelsAndColors = [
 export const projectsInfo = [
   {
     company: '그라노',
+    logo: 'images/logos/grano.png',
     projectName: '그라노팜 개발과제 테스트',
     date: {
       start: '2023/05/11',
@@ -211,6 +212,7 @@ export const projectsInfo = [
   },
   {
     company: '(주)OKPOS',
+    logo: 'images/logos/okpos.png',
     projectName: '(주)OKPOS Web Admin Page 개발',
     date: {
       start: '2022/10/01',
@@ -272,6 +274,7 @@ export const projectsInfo = [
   },
   {
     company: 'Pettick',
+    logo: 'images/logos/pettick.png',
     projectName: 'Pettick Web Admin Page 개발',
     date: {
       start: '2022/05',

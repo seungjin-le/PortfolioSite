@@ -1,8 +1,6 @@
 import {Col, Row} from 'antd'
 import React from 'react'
 import styled from 'styled-components'
-//import ProfileDropdownMenu from '../../components/header/ProfileDropdownMenu'
-//<ProfileDropdownMenu />
 import Title from '../../components/texts/Title'
 
 const Header = () => {
@@ -11,7 +9,7 @@ const Header = () => {
       <div>
         <Col span={4} />
         <Col span={16}>
-          <Title title={'Front-end'} color={'#eee'} level={1} />
+          <Title title={'Front-end Lee Seung Jin'} color={'#eee'} level={1} />
         </Col>
         <Col span={4}></Col>
       </div>
