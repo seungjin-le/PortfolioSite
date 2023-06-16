@@ -1,11 +1,12 @@
-import React, {useRef, useState} from 'react'
+import React, {useRef, useState, Suspense, lazy} from 'react'
 import styled from 'styled-components'
 import {Carousel} from 'antd'
 import {CarouselRef} from 'antd/es/carousel'
 import Title from '../texts/Title'
 import {LeftOutlined, RightOutlined} from '@ant-design/icons'
-import ProjectDescription from './ProjectDescription'
 import {projectsInfo} from '../../utility/listItems'
+
+const ProjectDescription = lazy(() => import('./ProjectDescription'))
 
 const ProjectSlider = () => {
   const [slide, setSlide] = useState(0)
@@ -37,14 +38,15 @@ const ProjectSlider = () => {
         <Carousel dotPosition={'top'} ref={ref => (slider.current = ref)}>
           {projectsInfo?.map((value, index) => {
             return (
-              <ProjectDescription
-                item={value}
-                key={index}
-                setScrollTop={setScrollTop}
-                setScrollBottom={setScrollBottom}
-                scrollBtnClick={scrollBtnClick}
-                setScrollBtnClick={setScrollBtnClick}
-              />
+              <Suspense fallback={<div>Loading...</div>} key={index}>
+                <ProjectDescription
+                  item={value}
+                  setScrollTop={setScrollTop}
+                  setScrollBottom={setScrollBottom}
+                  scrollBtnClick={scrollBtnClick}
+                  setScrollBtnClick={setScrollBtnClick}
+                />
+              </Suspense>
             )
           })}
         </Carousel>
