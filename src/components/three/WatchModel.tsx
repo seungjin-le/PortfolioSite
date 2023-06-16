@@ -96,7 +96,7 @@ const CustomCanvas = styled(Canvas)`
   position: fixed !important;
   height: 100%;
   width: 100%;
-  top: 0;
+  top: 100%;
   z-index: -999;
   opacity: 0;
   animation: fadeIn 2s ease-in-out forwards;
@@ -107,6 +107,7 @@ const CustomCanvas = styled(Canvas)`
   }
   @keyframes fadeIn {
     to {
+      top: 0;
       opacity: 1;
     }
   }
