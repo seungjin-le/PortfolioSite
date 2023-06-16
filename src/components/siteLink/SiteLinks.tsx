@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {memo, NamedExoticComponent, useCallback, useState} from 'react'
 import {motion, AnimatePresence} from 'framer-motion'
 import styled from 'styled-components'
 import {allIngredients} from '../../utility/listItems'
@@ -6,6 +6,19 @@ import Title from '../texts/Title'
 
 const SiteLinks = () => {
   const [selectedTab, setSelectedTab] = useState(allIngredients[0])
+  const handleSelect = useCallback((item: any) => {
+    setSelectedTab(item)
+  }, [])
+
+  // eslint-disable-next-line react/display-name
+  const LinkItem: NamedExoticComponent<any> = memo(({item, selectedTab, onSelect}: any) => {
+    return (
+      <li key={item.label} className={item === selectedTab ? 'selected' : ''} onClick={onSelect}>
+        <img src={item.icon} alt='' style={{width: '20px', height: '20px'}} /> <h2>{item.label}</h2>
+      </li>
+    )
+  })
+
   return (
     <Box>
       <Title title={'Sites'} color={'#eee'} level={1} />
@@ -14,13 +27,7 @@ const SiteLinks = () => {
           <nav>
             <ul>
               {allIngredients.map(item => (
-                <li
-                  key={item.label}
-                  className={item === selectedTab ? 'selected' : ''}
-                  onClick={() => setSelectedTab(item)}
-                >
-                  <img src={item.icon} alt='' style={{width: '20px', height: '20px'}} /> <h2>{item.label}</h2>
-                </li>
+                <LinkItem key={item.label} item={item} selectedTab={selectedTab} onSelect={() => handleSelect(item)} />
               ))}
             </ul>
           </nav>
