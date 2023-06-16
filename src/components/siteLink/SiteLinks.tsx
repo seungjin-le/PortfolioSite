@@ -7,9 +7,9 @@ import Title from '../texts/Title'
 const SiteLinks = () => {
   const [selectedTab, setSelectedTab] = useState(allIngredients[0])
   return (
-    <>
+    <Box>
       <Title title={'Sites'} color={'#eee'} level={1} />
-      <Box>
+      <SiteBox>
         <LinkBox>
           <nav>
             <ul>
@@ -39,15 +39,28 @@ const SiteLinks = () => {
             </AnimatePresence>
           </main>
         </LinkBox>
-      </Box>
-    </>
+      </SiteBox>
+    </Box>
   )
 }
 
 export default SiteLinks
 
 const Box = styled.div`
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  
+  & > h1 {
+    margin:0 auto;
+    
+  }
+`
+
+const SiteBox = styled.div`
   padding: 0 2rem;
+  max-width:1000px;
 `
 
 const LinkBox = styled.div`

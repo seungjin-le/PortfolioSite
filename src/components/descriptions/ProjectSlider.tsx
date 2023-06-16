@@ -91,7 +91,7 @@ const Containers = styled.div`
   display: flex;
   flex-direction: column;
   overflow: hidden;
-
+  z-index: 15;
   & .btn {
     border-radius: 50%;
     padding: 15px;
@@ -122,6 +122,7 @@ const SliderBox = styled.div`
   padding: 2rem 0;
   background: rgba(53, 53, 53, 0.7);
   height: 100%;
+  max-width: 1000px;
   position: relative;
   & .slick-dots.slick-dots-top * {
     background: rgba(238, 238, 238, 0.6);
@@ -185,7 +186,6 @@ const SliderBox = styled.div`
 `
 const SliderBtnBox = styled.div`
   bottom: 100%;
-  height: auto;
   width: 100%;
   .next.btn,
   .prev.btn {

@@ -104,10 +104,10 @@ const DescriptionBox = styled.div`
   overflow: scroll;
   position: relative;
   border: 1px solid #161616 !important;
-
   border-radius: 14px;
   -ms-overflow-style: none;
   scrollbar-width: none;
+
   &::-webkit-scrollbar {
     display: none;
   }
@@ -119,7 +119,7 @@ const CustomAntdDescription = styled(Descriptions)`
   }
   & tr th {
     background: rgba(22, 22, 22, 0.5) !important;
-    border-top: 1px solid #adefd1;
+    border-top: 1px solid #eee;
     color: #eee !important;
   }
   & tr td {

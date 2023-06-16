@@ -33,6 +33,10 @@ export default GlobalStyleStyled
 //     --button-inner-padding-horizontal: 3rem;
 
 const GlobalStyle = createGlobalStyle`
+  body * {
+    transition: all 0.5s !important;
+  }
+  
   @font-face {
     font-family: 'JalnanTtf'; 
     src: local('JalnanTtf'), local('JalnanTtf');
@@ -81,9 +85,14 @@ const GlobalStyle = createGlobalStyle`
   html,
   body,
   body > #root{
-    height: 100%;
+    height: 0;
     background: #161616;
-    
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
   body {
     line-height: 1;
@@ -103,6 +112,6 @@ const GlobalStyle = createGlobalStyle`
     border-collapse: collapse;
     border-spacing: 0;
   }
-
+  
   
 `

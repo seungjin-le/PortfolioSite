@@ -35,7 +35,7 @@ const AboutTextBox = styled.div`
   padding: 2.5rem;
   border-radius: 17px;
   transition: 0.5s;
-  color: #00203f;
+  color: #eee;
   & div {
     padding: 0.7rem 0;
     word-break: keep-all;

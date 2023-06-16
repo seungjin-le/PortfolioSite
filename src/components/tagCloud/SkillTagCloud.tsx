@@ -39,11 +39,10 @@ const SkillTagCloud = () => {
 export default SkillTagCloud
 
 const CloudBox = styled.div`
-  transition: 0.5s;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
+  color: #eee;
+  justify-content: flex-start;
+  padding: 0 2rem 2rem;
   .tagcloud--item:hover:hover {
     font-size: 24px;
     transition: 0.5s;
