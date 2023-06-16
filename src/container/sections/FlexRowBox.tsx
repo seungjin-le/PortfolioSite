@@ -6,7 +6,6 @@ import styled from 'styled-components'
 import Title from '../../components/texts/Title'
 
 const FlexRowBox = ({title, left, right}: SectionFlexBoxProps) => {
-  //const [showModal, setShowModal] = useState(false)
   return (
     <FlexBox>
       <div className={'titleBox'}>
@@ -29,7 +28,7 @@ export default FlexRowBox
 
 const FlexBox = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
   height: 100%;
@@ -57,7 +56,6 @@ const FlexBox = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-
     cursor: pointer;
   }
 `

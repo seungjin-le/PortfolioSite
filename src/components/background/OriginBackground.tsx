@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {memo} from 'react'
 import styled from 'styled-components'
 import {ScrollPage} from 'react-scroll-motion'
 import {PageLayoutProps} from 'lodash'
@@ -7,7 +7,7 @@ const OriginBackground = ({children}: PageLayoutProps) => {
   return <CustomScrollPage>{children}</CustomScrollPage>
 }
 
-export default OriginBackground
+export default memo(OriginBackground)
 
 const CustomScrollPage = styled(ScrollPage)`
   position: relative;
@@ -18,5 +18,4 @@ const CustomScrollPage = styled(ScrollPage)`
   align-items: center;
   justify-content: center;
   padding: 2rem 3rem;
-  background: rgba(16, 16, 16, 0);
 `

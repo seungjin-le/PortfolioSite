@@ -1,19 +1,19 @@
-import React from 'react'
+import React, {memo} from 'react'
 import {ScrollContainer, Sticky, Fade, batch, MoveOut, Animator, MoveIn} from 'react-scroll-motion'
 import FlexRowBox from '../../container/sections/FlexRowBox'
 import styled from 'styled-components'
 import ProjectSlider from '../../components/descriptions/ProjectSlider'
-import SkillTagCloud from '../../components/tagCloud/SkillTagCloud'
 import MainDraw from '../../components/draw/MainDraw'
 import SiteLinks from '../../components/siteLink/SiteLinks'
 import Title from '../../components/texts/Title'
 import OriginBackground from '../../components/background/OriginBackground'
 import Footer from '../../container/layout/Footer'
 import DescriptionsBox from 'components/descriptions/DescriptionsBox'
+import SkillTagCloud from '../../components/tags/SkillTagCloud'
 
 const MainPage = () => {
   return (
-    <CustomScrollContainer>
+    <CustomScrollContainer snap='mandatory'>
       <OriginBackground>
         <MainDraw />
       </OriginBackground>
@@ -37,7 +37,7 @@ const MainPage = () => {
         </Animator>
       </OriginBackground>
       <OriginBackground>
-        <Animator animation={batch(Fade(), Sticky())}>
+        <Animator animation={batch(Fade(), Sticky(), MoveOut(0, -200))}>
           <Title title={'감사합니다.'} color={'#eee'} level={1} />
         </Animator>
       </OriginBackground>
@@ -46,7 +46,7 @@ const MainPage = () => {
   )
 }
 
-export default MainPage
+export default memo(MainPage)
 
 const CustomScrollContainer = styled(ScrollContainer)`
   width: 100%;

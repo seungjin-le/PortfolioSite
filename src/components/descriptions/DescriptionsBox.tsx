@@ -9,7 +9,7 @@ const DescriptionsBox = () => {
     <CustomAntdCardBox
       title='안녕하세요, 신입 프론트엔드 개발자 이승진입니다.'
       onClick={() => setOnClick(!onClick)}
-      style={{maxHeight: onClick ? '1900px' : '700px', transition: 'maxHeight 4s ease-in-out'}}
+      className={onClick ? 'maxHeight' : ''}
     >
       <div>
         고등학교 3학년부터 취업을 시작해 반도체 업계에서 약 4년간 근무한 경험을 바탕으로, 힘든 상황에서도 빠르게
@@ -67,7 +67,8 @@ const CustomAntdCardBox = styled(Card)`
   width: 100%;
   cursor: pointer;
   overflow: hidden;
-
+  max-height: 700px;
+  transition: 0.3s !important;
   & * {
     color: #eee;
     word-break: keep-all;
@@ -76,5 +77,9 @@ const CustomAntdCardBox = styled(Card)`
   & .ant-card-head-title {
     font-size: 1.5rem;
     color: #5d5d5d;
+  }
+  &.maxHeight {
+    transition: 0.3s !important;
+    max-height: 1900px;
   }
 `

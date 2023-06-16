@@ -47,20 +47,19 @@ const SiteLinks = () => {
 export default SiteLinks
 
 const Box = styled.div`
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
-  
+
   & > h1 {
-    margin:0 auto;
-    
+    margin: 0 auto;
   }
 `
 
 const SiteBox = styled.div`
   padding: 0 2rem;
-  max-width:1000px;
+  max-width: 1000px;
 `
 
 const LinkBox = styled.div`
@@ -68,7 +67,7 @@ const LinkBox = styled.div`
   max-height: 600px;
   height: 100%;
   border-radius: 10px;
-  background: white;
+  background: rgba(16, 16, 16, 0);
   overflow: hidden;
   box-shadow: 3px 1px 1px hsl(0deg 0% 0% / 0.175), 0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.375),
     0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075);
@@ -79,9 +78,9 @@ const LinkBox = styled.div`
     padding: 0 2rem;
   }
   nav {
-    background: #fdfdfd;
+    background: rgba(53, 53, 53, 0.5);
     border-radius: 10px 10px 0 0;
-    border: 1px solid #eeeeee;
+
     height: 44px;
   }
 
@@ -114,7 +113,6 @@ const LinkBox = styled.div`
     list-style: none;
     padding: 0;
     margin: 0;
-    font-family: 'Poppins', sans-serif;
     font-weight: 500;
     font-size: 14px;
   }
@@ -129,7 +127,8 @@ const LinkBox = styled.div`
     width: 100%;
     padding: 20px 30px;
     position: relative;
-    background: white;
+    color: #eee;
+    background: rgba(53, 53, 53, 0.5);
     cursor: pointer;
     height: 24px;
     display: flex;
@@ -145,11 +144,10 @@ const LinkBox = styled.div`
     left: 0;
     right: 0;
     height: 1px;
-    background: var(--accent);
   }
 
   li.selected {
-    background: #eee;
+    background: rgba(103, 103, 103, 0.8);
   }
 
   li button {
@@ -173,7 +171,6 @@ const LinkBox = styled.div`
     left: 0;
     bottom: 0;
     width: 300px;
-    background: #fff;
   }
 
   .add-item {
@@ -188,7 +185,7 @@ const LinkBox = styled.div`
 
   .add-item:disabled {
     opacity: 0.4;
-    cursor: default;
+
     pointer-events: none;
   }
 

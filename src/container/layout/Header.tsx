@@ -1,7 +1,8 @@
 import {Col, Row} from 'antd'
 import React from 'react'
 import styled from 'styled-components'
-import ProfileDropdownMenu from '../../components/header/ProfileDropdownMenu'
+//import ProfileDropdownMenu from '../../components/header/ProfileDropdownMenu'
+//<ProfileDropdownMenu />
 import Title from '../../components/texts/Title'
 
 const Header = () => {
@@ -12,9 +13,7 @@ const Header = () => {
         <Col span={16}>
           <Title title={'Front-end'} color={'#eee'} level={1} />
         </Col>
-        <Col span={4}>
-          <ProfileDropdownMenu />
-        </Col>
+        <Col span={4}></Col>
       </div>
     </CustomAntdRow>
   )
@@ -32,6 +31,7 @@ const CustomAntdRow = styled(Row)`
   padding: 1rem 0;
   position: fixed;
   z-index: 3;
+  left: 0;
   & > div {
     display: flex;
     text-align: center;

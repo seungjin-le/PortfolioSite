@@ -8,7 +8,7 @@ const GlobalStyleStyled = () => {
 
 export default GlobalStyleStyled
 
-//--background: #161616;
+//     --background: #161616;
 //     --background-card: #252525;
 //     --background-level-one: rgba(53,53,53,.5);
 //     --border-card: hsla(0,0%,100%,.1);
@@ -33,9 +33,7 @@ export default GlobalStyleStyled
 //     --button-inner-padding-horizontal: 3rem;
 
 const GlobalStyle = createGlobalStyle`
-  body * {
-    transition: all 0.5s !important;
-  }
+  
   
   @font-face {
     font-family: 'JalnanTtf'; 

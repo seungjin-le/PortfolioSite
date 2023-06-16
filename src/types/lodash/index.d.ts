@@ -62,6 +62,11 @@ declare module 'lodash' {
     setScrollBtnClick: Dispatch<SetStateAction<string>>
     scrollBtnClick: string
   }
+
+  export interface SectionNumProps {
+    sectionNum: number
+  }
+
   export type CustomScrollPageProps = {
     gradientDirection: true | false
   }

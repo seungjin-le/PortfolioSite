@@ -5,6 +5,7 @@
   "dependencies": {
     "@ant-design/icons": "^5.1.4",
     "@frank-mayer/react-tag-cloud": "^1.2.1",
+    "@react-spring/web": "^9.7.2",
     "@react-three/drei": "^9.74.15",
     "@react-three/fiber": "^8.13.3",
     "@testing-library/jest-dom": "^5.16.5",
@@ -25,6 +26,7 @@
     "react-scripts": "5.0.1",
     "react-scroll": "^1.8.9",
     "react-scroll-motion": "^0.3.2",
+    "react-spring": "^9.7.1",
     "react-tagcloud": "^2.3.1",
     "remark-gfm": "^3.0.1",
     "scss": "^0.2.4",
@@ -59,6 +61,7 @@
     ]
   },
   "devDependencies": {
+    "@react-spring/types": "^9.7.2",
     "@types/react-scroll": "^1.8.7",
     "@types/react-tagcloud": "^1.1.7",
     "@types/three": "^0.152.1",

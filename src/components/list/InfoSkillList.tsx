@@ -1,10 +1,8 @@
 import React from 'react'
-// import {Collapse} from 'antd'
 import styled from 'styled-components'
 import Title from '../texts/Title'
-//import {collapseListItem} from '../../utility/listItems'
-import SkillTagCloud from '../tagCloud/SkillTagCloud'
-//<Collapse accordion={true} items={collapseListItem || []} defaultActiveKey={['1']} />
+import SkillTagCloud from '../tags/SkillTagCloud'
+
 const InfoSkillList = () => {
   return (
     <InfoSkillListBox className={'123123123123123123 '}>
@@ -20,8 +18,6 @@ const InfoSkillListBox = styled.div`
   height: 100%;
   width: 100%;
 
-  & > div {
-  }
   & * {
     height: 100%;
     width: 100%;

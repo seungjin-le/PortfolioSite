@@ -1,8 +1,10 @@
-import React, {useEffect, useRef} from 'react'
+import React, {memo, useEffect, useRef, useState} from 'react'
 import {useGLTF} from '@react-three/drei'
 import {Canvas} from '@react-three/fiber'
 import styled from 'styled-components'
 import * as THREE from 'three'
+import {a, useSpring} from '@react-spring/three'
+import {scroll} from '../../utility/listItems'
 
 const Model = () => {
   const {scene} = useGLTF('/images/3D/3d/scene.gltf')
@@ -14,7 +16,21 @@ const Model = () => {
     min: 1.085,
     hou: -0.93,
   }
+  const [currentSection, setCurrentSection] = useState<number>(0)
+  const AnimatedPrimitive = a.primitive as any
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const {scrollY} = window
+      const sectionHeight = window.innerHeight
+      const sectionIndex = Math.round(scrollY / sectionHeight)
+      setCurrentSection(sectionIndex)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
   scene.traverse(object => {
     // Object_84 초침
     // Object_81 분침, 82 분침 바늘
@@ -46,44 +62,35 @@ const Model = () => {
         second.current.rotation.z = initialValue.sec + sec * date.getSeconds()
       }
     }
-    const intervalId = setInterval(animate, 1000) // 1초마다 animate 함수를 호출합니다.
+    const intervalId = setInterval(animate, 1000) // 1초마다 animate 함수를 호출
 
     return () => {
-      clearInterval(intervalId) // 컴포넌트가 언마운트될 때 인터벌을 정리합니다.
+      clearInterval(intervalId)
     }
   }, [])
-  const scroll = [
-    {
-      position: [1, -1, 1],
-      scale: [0.8, 0.8, 0.8],
-      rotation: [0, -0.6, 0],
-    },
-    {
-      position: [0, -1, 0],
-      scale: [0.8, 0.8, 0.8],
-      rotation: [0, 0, 0],
-    },
-  ]
-  //position={[1, -1, 1]} scale={[.8, .8, .8]} rotation={[0, -0.6, 0]}
-  // postions 확대
-  // eslint-disable-next-line react/no-unknown-property
-  // 1 position={[1, -1, 1]} scale={[.8, .8, .8]} rotation={[0, -0.6, 0]}
-  return <CustomPrimitive object={scene} {...scroll[1]} />
+
+  const props: any = useSpring({
+    position: scroll[currentSection].position,
+    scale: scroll[currentSection].scale,
+    rotation: scroll[currentSection].rotation,
+    config: {mass: 5, tension: 500, friction: 120},
+  })
+
+  return <AnimatedPrimitive object={scene} {...props} />
 }
-//
+
 const WatchModel = () => {
   return (
     <CustomCanvas>
       <ambientLight />
       {/* eslint-disable-next-line react/no-unknown-property */}
       <pointLight position={[-1, 1, 6]} />
-
       <Model />
     </CustomCanvas>
   )
 }
 
-export default WatchModel
+export default memo(WatchModel)
 
 const CustomCanvas = styled(Canvas)`
   position: fixed !important;
@@ -91,13 +98,16 @@ const CustomCanvas = styled(Canvas)`
   width: 100%;
   top: 0;
   z-index: -999;
+  opacity: 0;
+  animation: fadeIn 2s ease-in-out forwards;
   & canvas {
     width: 100%;
     height: 100%;
     opacity: 0.3;
-    & * {
-      transition: 0.6s;
+  }
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
     }
   }
 `
-const CustomPrimitive = styled('primitive')``
