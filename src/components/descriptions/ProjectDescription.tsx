@@ -1,5 +1,5 @@
 import {Descriptions} from 'antd'
-import React, {memo, useEffect} from 'react'
+import React, {useEffect} from 'react'
 import SkillTag from '../tags/SkillTag'
 import {labelsAndColors} from '../../utility/listItems'
 import styled from 'styled-components'
@@ -100,7 +100,7 @@ const ProjectDescription = ({
   )
 }
 
-export default memo(ProjectDescription)
+export default ProjectDescription
 
 const DescriptionTitleBox = styled.div`
   display: flex;

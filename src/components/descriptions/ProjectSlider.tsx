@@ -91,7 +91,6 @@ const Containers = styled.div`
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  z-index: 15;
   & .btn {
     border-radius: 50%;
     padding: 15px;
