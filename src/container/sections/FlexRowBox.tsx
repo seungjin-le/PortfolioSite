@@ -2,7 +2,6 @@ import React from 'react'
 import {SectionFlexBoxProps} from 'lodash'
 import {Animator, MoveIn} from 'react-scroll-motion'
 import styled from 'styled-components'
-//import AboutMeModal from '../../components/modal/AboutMeModal'
 import Title from '../../components/texts/Title'
 
 const FlexRowBox = ({title, left, right}: SectionFlexBoxProps) => {
@@ -22,8 +21,7 @@ const FlexRowBox = ({title, left, right}: SectionFlexBoxProps) => {
     </FlexBox>
   )
 }
-//onClick={() => setShowModal(true)}
-//<AboutMeModal showModal={showModal} setShowModal={setShowModal} />
+
 export default FlexRowBox
 
 const FlexBox = styled.div`

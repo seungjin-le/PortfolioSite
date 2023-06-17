@@ -31,7 +31,6 @@ const SiteLinks = () => {
               ))}
             </ul>
           </nav>
-
           <main>
             <AnimatePresence>
               <motion.div

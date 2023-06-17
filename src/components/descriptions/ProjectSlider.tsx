@@ -35,18 +35,19 @@ const ProjectSlider = () => {
       <Title title={'Projects'} color={'#eee'} level={1} />
       <SliderBox>
         <Carousel dotPosition={'top'} ref={ref => (slider.current = ref)}>
-          {projectsInfo?.map((value, index) => {
-            return (
-              <ProjectDescription
-                item={value}
-                key={index}
-                setScrollTop={setScrollTop}
-                setScrollBottom={setScrollBottom}
-                scrollBtnClick={scrollBtnClick}
-                setScrollBtnClick={setScrollBtnClick}
-              />
-            )
-          })}
+          {projectsInfo &&
+            projectsInfo.map((value, index) => {
+              return (
+                <ProjectDescription
+                  item={value}
+                  key={index}
+                  setScrollTop={setScrollTop}
+                  setScrollBottom={setScrollBottom}
+                  scrollBtnClick={scrollBtnClick}
+                  setScrollBtnClick={setScrollBtnClick}
+                />
+              )
+            })}
         </Carousel>
         <span className={'upDownBtnBox'}>
           <span>

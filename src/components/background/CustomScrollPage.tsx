@@ -1,4 +1,4 @@
-import React, {memo} from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import {ScrollPage} from 'react-scroll-motion'
 import {PageLayoutProps} from 'lodash'
@@ -7,7 +7,7 @@ const CustomScrollPage = ({children}: PageLayoutProps) => {
   return <CustomScrollPageBox>{children}</CustomScrollPageBox>
 }
 
-export default memo(CustomScrollPage)
+export default CustomScrollPage
 
 const CustomScrollPageBox = styled(ScrollPage)`
   position: relative;

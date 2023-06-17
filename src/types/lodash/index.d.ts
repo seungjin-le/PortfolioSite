@@ -41,23 +41,24 @@ declare module 'lodash' {
   export interface DescriptionMarkdownProps {
     description: string
   }
-  export interface ProjectDescriptionProps {
-    item: {
-      company: string
-      logo?: string
-      projectName: string
-      date: {
-        start: string
-        end: string
-      }
-      projectType: string
-      team: {
-        front: number
-        back: number
-      }
-      skills: string[]
-      description: string
+  export interface ProjectItemProps {
+    company: string
+    logo?: string
+    projectName: string
+    date: {
+      start: string
+      end: string
     }
+    projectType: string
+    team: {
+      front: number
+      back: number
+    }
+    skills: string[]
+    description: string
+  }
+  export interface ProjectDescriptionProps {
+    item: ProjectItemProps
     setScrollTop: Dispatch<SetStateAction<boolean>>
     setScrollBottom: Dispatch<SetStateAction<boolean>>
     setScrollBtnClick: Dispatch<SetStateAction<string>>
