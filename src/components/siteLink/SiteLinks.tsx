@@ -32,7 +32,7 @@ const SiteLinks = () => {
             </ul>
           </nav>
           <main>
-            <AnimatePresence>
+            <AnimatePresence initial={true}>
               <motion.div
                 key={selectedTab ? selectedTab.label : 'empty'}
                 initial={{x: '100%', opacity: 0}}
