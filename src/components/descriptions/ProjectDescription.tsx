@@ -64,7 +64,6 @@ const ProjectDescription = ({
   useEffect(() => {
     scrollMove(scrollBtnClick)
   }, [scrollBtnClick])
-  if (!item) return <div></div>
   return (
     <div>
       <DescriptionTitleBox>

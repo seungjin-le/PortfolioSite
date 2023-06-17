@@ -122,14 +122,12 @@ const SliderBox = styled.div`
   height: 100%;
   max-width: 1200px;
   position: relative;
-  & > div {
+  & div {
     width: 100%;
     height: 100%;
   }
   & .slick-slider.slick-initialized {
-    background: red;
     width: 100%;
-    min-width: 100%;
   }
 
   & .slick-dots.slick-dots-top * {
