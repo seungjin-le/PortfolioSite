@@ -41,7 +41,6 @@ const MainPage = () => {
           <Title title={'감사합니다.'} color={'#eee'} level={1} />
         </Animator>
       </OriginBackground>
-
       <Footer />
     </CustomScrollContainer>
   )
