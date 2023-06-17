@@ -1,24 +1,20 @@
-import React, {memo, NamedExoticComponent, useCallback, useState} from 'react'
-import {motion, AnimatePresence} from 'framer-motion'
+import React, {useRef, useState} from 'react'
 import styled from 'styled-components'
-import {allIngredients} from '../../utility/listItems'
 import Title from '../texts/Title'
+import {allIngredients} from '../../utility/listItems'
+import {Carousel} from 'antd'
+import {CarouselRef} from 'antd/es/carousel'
 
 const SiteLinks = () => {
   const [selectedTab, setSelectedTab] = useState(allIngredients[0])
-  const handleSelect = useCallback((item: any) => {
-    setSelectedTab(item)
-  }, [])
+  const slider = useRef<CarouselRef | null | undefined>()
 
-  // eslint-disable-next-line react/display-name
-  const LinkItem: NamedExoticComponent<any> = memo(({item, selectedTab, onSelect}: any) => {
-    return (
-      <li key={item.label} className={item === selectedTab ? 'selected' : ''} onClick={onSelect}>
-        <img src={item.icon} alt='' style={{width: '20px', height: '20px'}} /> <h2>{item.label}</h2>
-      </li>
-    )
-  })
-
+  const handleSliderOnChange = (num: number) => {
+    setSelectedTab(allIngredients[num])
+    const element = slider.current
+    if (!element) return
+    element.goTo(num)
+  }
   return (
     <Box>
       <Title title={'Sites'} color={'#eee'} level={1} />
@@ -26,23 +22,29 @@ const SiteLinks = () => {
         <LinkBox>
           <nav>
             <ul>
-              {allIngredients.map(item => (
-                <LinkItem key={item.label} item={item} selectedTab={selectedTab} onSelect={() => handleSelect(item)} />
-              ))}
+              {allIngredients.map((item, index) => {
+                return (
+                  <li
+                    key={item.label}
+                    className={item.label === selectedTab.label ? 'selected' : ''}
+                    onClick={() => handleSliderOnChange(index)}
+                  >
+                    <img src={item.icon} alt='' style={{width: '20px', height: '20px'}} /> <h2>{item.label}</h2>
+                  </li>
+                )
+              })}
             </ul>
           </nav>
           <main>
-            <AnimatePresence initial={true}>
-              <motion.div
-                key={selectedTab ? selectedTab.label : 'empty'}
-                initial={{x: '100%', opacity: 0}}
-                animate={{x: 0, opacity: 1}}
-                className={'imgBox'}
-                onClick={() => window.open(selectedTab.link)}
-              >
-                {selectedTab && <img className={'siteImage'} src={selectedTab.image} alt='site' />}
-              </motion.div>
-            </AnimatePresence>
+            <Carousel dots={false} ref={ref => (slider.current = ref)}>
+              {allIngredients.map((v, i) => {
+                return (
+                  <div key={i} className={'imgBox'} onClick={() => window.open(selectedTab.link, '_blank')}>
+                    <img className={'siteImage'} src={v.image} alt='site' />
+                  </div>
+                )
+              })}
+            </Carousel>
           </main>
         </LinkBox>
       </SiteBox>
@@ -57,7 +59,6 @@ const Box = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
-
   & > h1 {
     margin: 0 auto;
   }
@@ -86,17 +87,7 @@ const LinkBox = styled.div`
   nav {
     background: rgba(53, 53, 53, 0.5);
     border-radius: 10px 10px 0 0;
-
     height: 44px;
-  }
-
-  .tabs {
-    flex-grow: 1;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
-    flex-wrap: nowrap;
-    width: 100%;
   }
 
   main {
@@ -104,9 +95,24 @@ const LinkBox = styled.div`
     height: 100%;
     width: 100%;
     max-height: 535px;
+
+    & * {
+      outline: none;
+    }
+
+    & div.slick-slide {
+      width: 100%;
+      height: 100%;
+      max-height: 535px;
+
+      &:active {
+        border: none;
+      }
+    }
     .imgBox {
       width: 100%;
       height: 100%;
+      cursor: pointer;
       .siteImage {
         width: 100%;
         height: 100%;
@@ -114,94 +120,28 @@ const LinkBox = styled.div`
     }
   }
 
-  ul,
-  li {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    font-weight: 500;
-    font-size: 14px;
-  }
-
   ul {
     display: flex;
     width: 100%;
-  }
-
-  li {
-    border-radius: 5px 5px 0 0;
-    width: 100%;
-    padding: 20px 30px;
-    position: relative;
-    color: #eee;
-    background: rgba(53, 53, 53, 0.5);
-    cursor: pointer;
-    height: 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex: 1;
-    min-width: 0;
-    user-select: none;
-  }
-  .underline {
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    right: 0;
-    height: 1px;
-  }
-
-  li.selected {
-    background: rgba(103, 103, 103, 0.8);
-  }
-
-  li button {
-    width: 20px;
-    height: 20px;
-    border: 0;
-    background: #fff;
-    border-radius: 3px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    stroke: #000;
-    margin-left: 10px;
-    cursor: pointer;
-    flex-shrink: 0;
-  }
-
-  .background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 300px;
-  }
-
-  .add-item {
-    width: 30px;
-    height: 30px;
-    background: #eee;
-    border-radius: 50%;
-    border: 0;
-    cursor: pointer;
-    align-self: center;
-  }
-
-  .add-item:disabled {
-    opacity: 0.4;
-
-    pointer-events: none;
-  }
-
-  & .imgBox {
     height: 100%;
-    width: 100%;
-    cursor: pointer;
-  }
-  & .siteImage {
-    width: 100%;
-    height: 100%;
+    & li {
+      border-radius: 5px 5px 0 0;
+      width: 100%;
+      height: 100%;
+      padding: 20px 30px;
+      position: relative;
+      color: #eee;
+      background: rgba(53, 53, 53, 0.5);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex: 1;
+      min-width: 0;
+      user-select: none;
+      &.selected {
+        background: rgba(103, 103, 103, 0.8);
+      }
+    }
   }
 `
