@@ -5,6 +5,7 @@ import Header from './Header'
 import {PageLayoutProps} from 'lodash'
 import styled from 'styled-components'
 import WatchModel from 'components/three/WatchModel'
+import CustomScrollBar from '../../components/scroll/CustomScrollBar'
 
 const MainLayout = ({children}: PageLayoutProps) => {
   return (
@@ -12,6 +13,7 @@ const MainLayout = ({children}: PageLayoutProps) => {
       <Header />
       {children}
       <WatchModel />
+      <CustomScrollBar />
     </CustomPageLayout>
   )
 }

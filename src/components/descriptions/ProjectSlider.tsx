@@ -86,8 +86,6 @@ const ProjectSlider = () => {
 export default ProjectSlider
 
 const Containers = styled.div`
-  width: 100%;
-  height: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -124,6 +122,15 @@ const SliderBox = styled.div`
   height: 100%;
   max-width: 1200px;
   position: relative;
+  & > div {
+    width: 100%;
+    height: 100%;
+  }
+  & .slick-slider.slick-initialized {
+    background: red;
+    width: 100%;
+    min-width: 100%;
+  }
 
   & .slick-dots.slick-dots-top * {
     background: rgba(238, 238, 238, 0.6);
