@@ -10,6 +10,7 @@ import OriginBackground from '../../components/background/CustomScrollPage'
 import Footer from '../../container/layout/Footer'
 import DescriptionsBox from 'components/descriptions/DescriptionsBox'
 import SkillTagCloud from '../../components/tags/SkillTagCloud'
+import SkillList from '../../container/sections/SkillList'
 
 const MainPage = () => {
   return (
@@ -25,6 +26,9 @@ const MainPage = () => {
       </OriginBackground>
       <OriginBackground>
         <FlexRowBox title={'About Me'} left={<DescriptionsBox />} right={<SkillTagCloud />} />
+      </OriginBackground>
+      <OriginBackground>
+        <SkillList />
       </OriginBackground>
       <OriginBackground>
         <Animator animation={MoveIn(-4000, 0)}>

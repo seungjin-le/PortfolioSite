@@ -32,9 +32,9 @@ const Model = () => {
     }
   }, [])
   scene.traverse(object => {
-    // Object_84 초침
-    // Object_81 분침, 82 분침 바늘
-    // Object_78 시침 79 시침 바늘
+    // Object_84 : 초침
+    // Object_81 : 분침, 82 : 분침 바늘
+    // Object_78 : 시침, 79 : 시침 바늘
     const {name} = object
 
     if (name === 'Object_84') return (second.current = object)

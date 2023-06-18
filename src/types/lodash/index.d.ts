@@ -38,6 +38,12 @@ declare module 'lodash' {
     name: string
     color?: string
   }
+  export interface SkillListProps {
+    title: string
+    index: number
+    onClick: (key: any) => void
+  }
+
   export interface DescriptionMarkdownProps {
     description: string
   }
