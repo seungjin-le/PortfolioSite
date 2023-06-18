@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import {Carousel} from 'antd'
 import {CarouselRef} from 'antd/es/carousel'
 import Title from '../texts/Title'
-import {LeftOutlined, RightOutlined} from '@ant-design/icons'
 import ProjectDescription from './ProjectDescription'
 import {projectsInfo} from '../../utility/listItems'
+import SliderBtn from '../button/SliderBtn'
 
 const ProjectSlider = () => {
   const [slide, setSlide] = useState(0)
@@ -19,7 +19,7 @@ const ProjectSlider = () => {
     const element = slider.current
     if (!element) return
     const len = projectsInfo.length
-
+    console.log(scrollTop, scrollBottom)
     if (changeValue === len || changeValue === -1) {
       setSlide(changeValue === len ? 0 : len - 1)
       element.goTo(changeValue === len ? 0 : len - 1)
@@ -49,34 +49,13 @@ const ProjectSlider = () => {
               )
             })}
         </Carousel>
-        <span className={'upDownBtnBox'}>
-          <span>
-            <span
-              className='up btn'
-              style={{display: scrollTop ? 'inline-block' : 'none'}}
-              onClick={() => setScrollBtnClick('up')}
-            >
-              <LeftOutlined />
-            </span>
-          </span>
-          <span>
-            <span
-              className='down btn'
-              style={{display: scrollBottom ? 'inline-block' : 'none'}}
-              onClick={() => setScrollBtnClick('down')}
-            >
-              <RightOutlined />
-            </span>
-          </span>
-        </span>
-
-        <SliderBtnBox>
-          <span className='prev btn' onClick={() => handleSliderOnChange(-1)}>
-            <LeftOutlined />
-          </span>
-          <span className='next btn' onClick={() => handleSliderOnChange(1)}>
-            <RightOutlined />
-          </span>
+        <SliderBtnBox className={'posY'}>
+          <SliderBtn direction={'left'} onClick={() => setScrollBtnClick('up')} />
+          <SliderBtn direction={'right'} onClick={() => setScrollBtnClick('up')} />
+        </SliderBtnBox>
+        <SliderBtnBox className={'posX'}>
+          <SliderBtn direction={'left'} onClick={() => handleSliderOnChange(-1)} />
+          <SliderBtn direction={'right'} onClick={() => handleSliderOnChange(1)} />
         </SliderBtnBox>
       </SliderBox>
     </Containers>
@@ -85,36 +64,34 @@ const ProjectSlider = () => {
 
 export default ProjectSlider
 
+// <span className={'upDownBtnBox'}>
+//           <span>
+//             <span
+//               className='up btn'
+//               style={{display: scrollTop ? 'inline-block' : 'none'}}
+//               onClick={() => setScrollBtnClick('up')}
+//             >
+//               <LeftOutlined />
+//             </span>
+//           </span>
+//           <span>
+//             <span
+//               className='down btn'
+//               style={{display: scrollBottom ? 'inline-block' : 'none'}}
+//               onClick={() => setScrollBtnClick('down')}
+//             >
+//               <RightOutlined />
+//             </span>
+//           </span>
+//         </span>
+
 const Containers = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  & .btn {
-    border-radius: 50%;
-    padding: 15px;
-    cursor: pointer;
-    font-weight: bold;
-    overflow: hidden;
-    transition: 0.4s;
-    background: rgba(238, 238, 238, 0.4);
-    font-size: 26px;
-    & svg {
-      transition: 0.4s;
-      color: #eee;
-    }
-    &:hover {
-      background: rgba(238, 238, 238, 0.8);
-      svg {
-        color: #161616;
-      }
-    }
-    &:active {
-      transition: 0.4s;
-      box-shadow: 0 0 5px 10px #eee;
-    }
-  }
 `
+
 const SliderBox = styled.div`
   border-radius: 18px;
   padding: 2rem 3rem;
@@ -159,55 +136,38 @@ const SliderBox = styled.div`
       vertical-align: baseline;
     }
   }
-
-  & .upDownBtnBox {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    height: 100%;
-    transform: translate(-50%);
-    & span {
-      &.btn {
-        position: absolute;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-      }
-      & .up,
-      & .down {
-        transform: rotate(90deg) translateY(50%);
-
-        &.up {
-          top: -100%;
-          margin-top: 6.5rem;
-        }
-        &.down {
-          bottom: 100%;
-          margin-bottom: 2.7rem;
-        }
+`
+const SliderBtnBox = styled.div`
+  &.posX {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    & .btn {
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      &.right {
+        left: 100%;
+        transform: translateX(-200%);
       }
     }
   }
-`
-const SliderBtnBox = styled.div`
-  bottom: 100%;
-  width: 100%;
-  .next.btn,
-  .prev.btn {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-100%);
-
-    &.next {
-      left: 100%;
-      transform: translate(-100%, -100%);
-      margin-left: -1.5rem;
-    }
-
-    &.prev {
-      margin-left: 1.5rem;
+  &.posY {
+    display: inline-block;
+    width: 100%;
+    & .btn {
+      position: absolute;
+      z-index: 2;
+      left: 50%;
+      transform: rotate(90deg) translateY(50%);
+      &.left {
+        top: 0;
+        margin-top: 1.5rem;
+      }
+      &.right {
+        top: 90%;
+      }
     }
   }
 `

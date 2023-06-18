@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import Title from '../../components/texts/Title'
 import SkillDescription from '../../components/descriptions/SkillDescription'
 import CursorPointer from '../../components/cursor/CursorPointer'
-import {LeftOutlined, RightOutlined} from '@ant-design/icons'
 import {collapseListItem} from '../../utility/listItems'
+import SliderBtn from '../../components/button/SliderBtn'
 
 const SkillList = () => {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -51,14 +51,8 @@ const SkillList = () => {
         <ContainerBox>
           <Container>
             <div className={'sliderBtnBox'}>
-              <span className={'btn left'} onClick={handlePrev}>
-                <LeftOutlined />
-                <CursorPointer />
-              </span>
-              <span className={'btn right'} onClick={handleNext}>
-                <CursorPointer />
-                <RightOutlined />
-              </span>
+              <SliderBtn onClick={handlePrev} direction={'left'} />
+              <SliderBtn onClick={handleNext} direction={'right'} />
             </div>
             <Carousel ref={carouselRef}>
               {collapseListItem.map(value => (
@@ -121,24 +115,13 @@ const Container = styled.div`
     justify-content: space-between;
     width: 100%;
     & .btn {
-      font-size: 24px;
       position: absolute;
       z-index: 2;
-      color: rgba(16, 16, 16);
       top: 50%;
-      cursor: pointer;
-      border-radius: 14px;
-      padding: 15px;
-      background: rgba(238, 238, 238, 0.4);
-      transition: 0.2s;
+
       &.right {
         left: 100%;
         transform: translateX(-100%);
-      }
-      &:hover {
-        transition: 0.2s;
-        background: rgba(16, 16, 16, 0.8);
-        color: rgba(238, 238, 238, 0.8);
       }
     }
   }

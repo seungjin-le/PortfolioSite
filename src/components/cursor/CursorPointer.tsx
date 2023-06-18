@@ -34,6 +34,8 @@ const LightComponent = styled.div`
 const Light = styled.div`
   position: absolute;
   background-color: rgba(255, 255, 255, 0.1);
+  width: 0 !important;
+  height: 0 !important;
   border-radius: 50%;
   pointer-events: none;
   transition: all 0.01s ease-out;

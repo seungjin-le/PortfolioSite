@@ -41,9 +41,13 @@ declare module 'lodash' {
   export interface SkillListProps {
     title: string
     index: number
-    onClick: (key: any) => void
+    onClick: (index: any) => void
   }
-
+  export interface SliderBtnProps {
+    onClick: () => void
+    direction: string
+    className?: string
+  }
   export interface DescriptionMarkdownProps {
     description: string
   }
