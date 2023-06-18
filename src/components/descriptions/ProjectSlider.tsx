@@ -19,7 +19,6 @@ const ProjectSlider = () => {
     const element = slider.current
     if (!element) return
     const len = projectsInfo.length
-    console.log(scrollTop, scrollBottom)
     if (changeValue === len || changeValue === -1) {
       setSlide(changeValue === len ? 0 : len - 1)
       element.goTo(changeValue === len ? 0 : len - 1)
@@ -50,8 +49,8 @@ const ProjectSlider = () => {
             })}
         </Carousel>
         <SliderBtnBox className={'posY'}>
-          <SliderBtn direction={'left'} onClick={() => setScrollBtnClick('up')} />
-          <SliderBtn direction={'right'} onClick={() => setScrollBtnClick('up')} />
+          {scrollTop && <SliderBtn direction={'left'} onClick={() => setScrollBtnClick('up')} />}
+          {scrollBottom && <SliderBtn direction={'right'} onClick={() => setScrollBtnClick('up')} />}
         </SliderBtnBox>
         <SliderBtnBox className={'posX'}>
           <SliderBtn direction={'left'} onClick={() => handleSliderOnChange(-1)} />
@@ -63,27 +62,6 @@ const ProjectSlider = () => {
 }
 
 export default ProjectSlider
-
-// <span className={'upDownBtnBox'}>
-//           <span>
-//             <span
-//               className='up btn'
-//               style={{display: scrollTop ? 'inline-block' : 'none'}}
-//               onClick={() => setScrollBtnClick('up')}
-//             >
-//               <LeftOutlined />
-//             </span>
-//           </span>
-//           <span>
-//             <span
-//               className='down btn'
-//               style={{display: scrollBottom ? 'inline-block' : 'none'}}
-//               onClick={() => setScrollBtnClick('down')}
-//             >
-//               <RightOutlined />
-//             </span>
-//           </span>
-//         </span>
 
 const Containers = styled.div`
   position: relative;
@@ -149,7 +127,10 @@ const SliderBtnBox = styled.div`
       top: 50%;
       &.right {
         left: 100%;
-        transform: translateX(-200%);
+        transform: translateX(-250%);
+      }
+      &.left {
+        left: 6.5%;
       }
     }
   }
@@ -163,7 +144,7 @@ const SliderBtnBox = styled.div`
       transform: rotate(90deg) translateY(50%);
       &.left {
         top: 0;
-        margin-top: 1.5rem;
+        margin-top: 7rem;
       }
       &.right {
         top: 90%;

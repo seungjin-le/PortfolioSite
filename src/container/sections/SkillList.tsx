@@ -94,6 +94,7 @@ const SkillSlideBox = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  width: 100%;
 `
 
 const ContainerBox = styled.div`
