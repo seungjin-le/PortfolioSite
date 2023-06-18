@@ -14,7 +14,6 @@ const MainLayout = ({children}: PageLayoutProps) => {
     </CustomPageLayout>
   )
 }
-
 export default MainLayout
 
 const CustomPageLayout = styled(Layout)`

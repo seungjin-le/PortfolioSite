@@ -1,5 +1,5 @@
 import {Descriptions} from 'antd'
-import React, {useEffect} from 'react'
+import React, {memo, useEffect} from 'react'
 import SkillTag from '../tags/SkillTag'
 import {labelsAndColors} from '../../utility/listItems'
 import styled from 'styled-components'
@@ -15,6 +15,32 @@ const ProjectDescription = ({
   setScrollBtnClick,
 }: ProjectDescriptionProps) => {
   const scrollRef = React.useRef<HTMLDivElement>(null)
+  const scrollBottomLine = React.useRef<HTMLDivElement>(null)
+  const scrollTopLine = React.useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          const {isIntersecting, target} = entry
+          const scrollTop = scrollTopLine.current
+          const scrollBottom = scrollBottomLine.current
+
+          if (target === scrollBottom) setScrollBottom(!isIntersecting)
+          if (target === scrollTop) setScrollTop(!isIntersecting)
+        })
+      },
+      {threshold: 1.0},
+    )
+
+    if (scrollBottomLine.current) observer.observe(scrollBottomLine.current)
+    if (scrollTopLine.current) observer.observe(scrollTopLine.current)
+
+    return () => {
+      if (scrollBottomLine.current) observer.unobserve(scrollBottomLine.current)
+      if (scrollTopLine.current) observer.observe(scrollTopLine.current)
+    }
+  }, [])
 
   const smoothScrollTo = (element: HTMLDivElement, top: number) => {
     const start = element.scrollTop
@@ -42,28 +68,10 @@ const ProjectDescription = ({
       setScrollBtnClick('')
     }
   }
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!scrollRef?.current) return
-
-      const {scrollTop, clientHeight, scrollHeight} = scrollRef.current
-      const pos = scrollTop + clientHeight
-      scrollTop !== 0 ? setScrollTop(true) : setScrollTop(false)
-      pos + 5 < scrollHeight ? setScrollBottom(true) : setScrollBottom(false)
-    }
-    if (scrollRef.current) {
-      scrollRef.current.addEventListener('scroll', handleScroll)
-    }
-    return () => {
-      if (scrollRef.current) {
-        scrollRef.current.removeEventListener('scroll', handleScroll)
-      }
-    }
-  }, [])
   useEffect(() => {
     scrollMove(scrollBtnClick)
   }, [scrollBtnClick])
+
   return (
     <div>
       <DescriptionTitleBox>
@@ -73,6 +81,7 @@ const ProjectDescription = ({
       <DescriptionBox ref={scrollRef}>
         <CustomAntdDescription bordered>
           <Descriptions.Item label='프로젝트 이름' span={2}>
+            <ScrollLine ref={scrollTopLine} className={'top'} />
             {item?.projectName}
           </Descriptions.Item>
           <Descriptions.Item label='개발 기간' span={1}>
@@ -92,6 +101,7 @@ const ProjectDescription = ({
           </Descriptions.Item>
           <Descriptions.Item label='상세 설명' span={3} className={'description'}>
             <DescriptionMarkDown description={item.description} />
+            <ScrollLine ref={scrollBottomLine} className={'bottom'} />
           </Descriptions.Item>
         </CustomAntdDescription>
       </DescriptionBox>
@@ -99,13 +109,29 @@ const ProjectDescription = ({
   )
 }
 
-export default ProjectDescription
+export default memo(ProjectDescription)
+
+const ScrollLine = styled.div`
+  position: absolute;
+  left: 0;
+  width: 100% !important;
+  height: 1px !important;
+  &.top {
+    top: 1px;
+  }
+  &.bottom {
+    top: 100%;
+    transform: translateY(-300%);
+  }
+`
 
 const DescriptionTitleBox = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: start;
+  width: auto !important;
+  height: auto !important;
   & img {
     margin-bottom: 1rem;
     margin-right: 1rem;
@@ -117,10 +143,10 @@ const DescriptionTitleBox = styled.div`
 
 const DescriptionBox = styled.div`
   max-height: 550px;
-  overflow: scroll;
   position: relative;
   border: 1px solid #161616 !important;
   border-radius: 14px;
+  overflow: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
   &::-webkit-scrollbar {
@@ -129,6 +155,8 @@ const DescriptionBox = styled.div`
 `
 
 const CustomAntdDescription = styled(Descriptions)`
+  width: 400px;
+  height: 400px;
   & > div {
     border: none !important;
   }
@@ -153,5 +181,8 @@ const CustomAntdDescription = styled(Descriptions)`
     & td {
       width: 34%;
     }
+  }
+  & tr:last-child td {
+    position: relative;
   }
 `

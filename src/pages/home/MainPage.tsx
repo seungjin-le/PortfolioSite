@@ -1,5 +1,5 @@
 import React from 'react'
-import {ScrollContainer, Sticky, Fade, batch, MoveOut, Animator, MoveIn} from 'react-scroll-motion'
+import {ScrollContainer, Sticky, Fade, batch, MoveOut, MoveIn} from 'react-scroll-motion'
 import FlexRowBox from '../../container/sections/FlexRowBox'
 import styled from 'styled-components'
 import MainDraw from '../../components/draw/MainDraw'
@@ -12,6 +12,7 @@ import SkillTagCloud from '../../components/tags/SkillTagCloud'
 import SkillList from '../../container/sections/SkillList'
 import AboutCard from '../../components/card/AboutCard'
 import ProjectSlider from '../../components/slider/ProjectSlider'
+import CustomAnimator from '../../components/background/CustomAnimator'
 
 const MainPage = () => {
   return (
@@ -20,12 +21,10 @@ const MainPage = () => {
         <MainDraw />
       </OriginBackground>
       <OriginBackground>
-        <Animator animation={batch(Fade(), Sticky(), MoveOut(0, -200))}>
-          <div>
-            <Title title={'안녕하세요?'} color={'#eee'} level={1} />
-            <Title title={'프론트엔드 개발자 이승진 입니다.'} color={'#eee'} level={1} />
-          </div>
-        </Animator>
+        <CustomAnimator animation={batch(Fade(), Sticky(), MoveOut(0, -200))}>
+          <Title title={'안녕하세요?'} color={'#eee'} level={1} />
+          <Title title={'프론트엔드 개발자 이승진 입니다.'} color={'#eee'} level={1} />
+        </CustomAnimator>
       </OriginBackground>
       <OriginBackground>
         <FlexRowBox title={'About Me'} left={<DescriptionsBox />} right={<SkillTagCloud />} />
@@ -34,19 +33,17 @@ const MainPage = () => {
         <SkillList />
       </OriginBackground>
       <OriginBackground>
-        <Animator animation={MoveIn(-4000, 0)}>
+        <CustomAnimator animation={MoveIn(-4000, 0)}>
           <ProjectSlider />
-        </Animator>
+        </CustomAnimator>
       </OriginBackground>
       <OriginBackground>
-        <Animator animation={MoveIn(2000, 0)}>
+        <CustomAnimator animation={MoveIn(2000, 0)}>
           <SiteLinks />
-        </Animator>
+        </CustomAnimator>
       </OriginBackground>
       <OriginBackground>
-        <Animator animation={batch(Fade(), Sticky(), MoveOut(0, -200))}>
-          <AboutCard />
-        </Animator>
+        <AboutCard />
       </OriginBackground>
       <Footer />
     </CustomScrollContainer>

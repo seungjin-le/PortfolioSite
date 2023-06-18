@@ -40,7 +40,7 @@ const SiteLinks = () => {
               {allIngredients.map((v, i) => {
                 return (
                   <div key={i} className={'imgBox'} onClick={() => window.open(selectedTab.link, '_blank')}>
-                    <img className={'siteImage'} src={v.image} alt='site' />
+                    <img className={'siteImage'} src={v.image} alt={v.image} />
                   </div>
                 )
               })}
@@ -59,6 +59,8 @@ const Box = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
+  width: 100%;
+  height: 100%;
   & > h1 {
     margin: 0 auto;
   }
@@ -67,11 +69,15 @@ const Box = styled.div`
 const SiteBox = styled.div`
   padding: 0 2rem;
   max-width: 1000px;
+  min-width: 400px;
+  width: 100%;
+  height: 100%;
 `
 
 const LinkBox = styled.div`
   width: 100%;
   max-height: 600px;
+  min-width: 300px;
   height: 100%;
   border-radius: 10px;
   background: rgba(16, 16, 16, 0);
@@ -99,19 +105,18 @@ const LinkBox = styled.div`
     & * {
       outline: none;
     }
-
+    & div {
+      height: 100%;
+      width: 100%;
+    }
     & div.slick-slide {
       width: 100%;
       height: 100%;
-      max-height: 535px;
-
       &:active {
         border: none;
       }
     }
     .imgBox {
-      width: 100%;
-      height: 100%;
       cursor: pointer;
       .siteImage {
         width: 100%;

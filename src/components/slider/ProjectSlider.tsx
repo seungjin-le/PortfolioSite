@@ -33,31 +33,33 @@ const ProjectSlider = () => {
   return (
     <Containers>
       <Title title={'Projects'} color={'#eee'} level={1} />
-      <SliderBox>
-        <Carousel dotPosition={'top'} ref={ref => (slider.current = ref)}>
-          {projectsInfo &&
-            projectsInfo.map((value, index) => {
-              return (
-                <ProjectDescription
-                  item={value}
-                  key={index}
-                  setScrollTop={setScrollTop}
-                  setScrollBottom={setScrollBottom}
-                  scrollBtnClick={scrollBtnClick}
-                  setScrollBtnClick={setScrollBtnClick}
-                />
-              )
-            })}
-        </Carousel>
-        <SliderBtnBox className={'posY'}>
-          {scrollTop && <SliderBtn direction={'left'} onClick={() => setScrollBtnClick('up')} />}
-          {scrollBottom && <SliderBtn direction={'right'} onClick={() => setScrollBtnClick('down')} />}
-        </SliderBtnBox>
-        <SliderBtnBox className={'posX'}>
-          <SliderBtn direction={'left'} onClick={() => handleSliderOnChange(-1)} />
-          <SliderBtn direction={'right'} onClick={() => handleSliderOnChange(1)} />
-        </SliderBtnBox>
-      </SliderBox>
+      <div className={'project'}>
+        <SliderBox>
+          <Carousel dotPosition={'top'} ref={ref => (slider.current = ref)}>
+            {projectsInfo &&
+              projectsInfo.map((value, index) => {
+                return (
+                  <ProjectDescription
+                    item={value}
+                    key={index}
+                    setScrollTop={setScrollTop}
+                    setScrollBottom={setScrollBottom}
+                    scrollBtnClick={scrollBtnClick}
+                    setScrollBtnClick={setScrollBtnClick}
+                  />
+                )
+              })}
+          </Carousel>
+          <SliderBtnBox className={'posY'}>
+            {scrollTop && <SliderBtn direction={'left'} onClick={() => setScrollBtnClick('up')} />}
+            {scrollBottom && <SliderBtn direction={'right'} onClick={() => setScrollBtnClick('down')} />}
+          </SliderBtnBox>
+          <SliderBtnBox className={'posX'}>
+            <SliderBtn direction={'left'} onClick={() => handleSliderOnChange(-1)} />
+            <SliderBtn direction={'right'} onClick={() => handleSliderOnChange(1)} />
+          </SliderBtnBox>
+        </SliderBox>
+      </div>
     </Containers>
   )
 }
@@ -69,11 +71,16 @@ const Containers = styled.div`
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  width: 100%;
+  height: 100%;
+  & .project {
+    padding: 0 2rem;
+  }
 `
 
 const SliderBox = styled.div`
   border-radius: 18px;
-  padding: 2rem 3rem;
+  padding: 2rem 0;
   background: rgba(53, 53, 53, 0.7);
   height: 100%;
   max-width: 1200px;
@@ -84,6 +91,7 @@ const SliderBox = styled.div`
   }
   & .slick-slider.slick-initialized {
     width: 100%;
+    height: 100%;
   }
 
   & .slick-dots.slick-dots-top * {
@@ -128,10 +136,10 @@ const SliderBtnBox = styled.div`
       top: 50%;
       &.right {
         left: 100%;
-        transform: translateX(-250%);
+        transform: translateX(-200%);
       }
       &.left {
-        left: 6.5%;
+        left: 55px;
       }
     }
   }

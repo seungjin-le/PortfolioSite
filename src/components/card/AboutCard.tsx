@@ -38,13 +38,17 @@ export default AboutCard
 const Container = styled.div`
   width: 100%;
   height: 100%;
-  background: red;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `
 
 const CardBox = styled.div`
-  width: 700px;
-  height: 350px;
+  max-width: 700px;
+  max-height: 350px;
+  width: 100%;
+  height: 100%;
   padding: 1rem;
   perspective: 1000px;
   & .card {

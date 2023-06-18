@@ -12,11 +12,12 @@ export default CustomScrollPage
 const CustomScrollPageBox = styled(ScrollPage)`
   position: relative;
   width: 100%;
-  max-width: 1700px;
+  max-width: 1800px;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 2rem 3rem;
+  margin: 0 auto !important;
 `

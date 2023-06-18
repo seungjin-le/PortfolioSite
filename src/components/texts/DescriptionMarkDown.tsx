@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {memo} from 'react'
 import ReactMarkdown from 'react-markdown'
 import {DescriptionMarkdownProps} from 'lodash'
 import remarkGfm from 'remark-gfm'
@@ -8,7 +8,7 @@ const DescriptionMarkDown = ({description}: DescriptionMarkdownProps) => {
   return <CustomReactMarkdown remarkPlugins={[remarkGfm]}>{description}</CustomReactMarkdown>
 }
 
-export default DescriptionMarkDown
+export default memo(DescriptionMarkDown)
 
 const CustomReactMarkdown = styled(ReactMarkdown)`
   max-height: 100%;

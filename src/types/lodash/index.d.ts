@@ -10,6 +10,10 @@ declare module 'lodash' {
   export interface PageLayoutProps {
     children: ReactNode
   }
+  export interface AnimatorProps {
+    children: ReactNode
+    animation: ReactNode[] | Animation | any
+  }
   export interface TitleProps {
     title: string
     level?: 1 | 5 | 2 | 3 | 4 | undefined
