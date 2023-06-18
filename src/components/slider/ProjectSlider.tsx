@@ -3,9 +3,10 @@ import styled from 'styled-components'
 import {Carousel} from 'antd'
 import {CarouselRef} from 'antd/es/carousel'
 import Title from '../texts/Title'
-import ProjectDescription from './ProjectDescription'
+
 import {projectsInfo} from '../../utility/listItems'
 import SliderBtn from '../button/SliderBtn'
+import ProjectDescription from '../descriptions/ProjectDescription'
 
 const ProjectSlider = () => {
   const [slide, setSlide] = useState(0)
@@ -50,7 +51,7 @@ const ProjectSlider = () => {
         </Carousel>
         <SliderBtnBox className={'posY'}>
           {scrollTop && <SliderBtn direction={'left'} onClick={() => setScrollBtnClick('up')} />}
-          {scrollBottom && <SliderBtn direction={'right'} onClick={() => setScrollBtnClick('up')} />}
+          {scrollBottom && <SliderBtn direction={'right'} onClick={() => setScrollBtnClick('down')} />}
         </SliderBtnBox>
         <SliderBtnBox className={'posX'}>
           <SliderBtn direction={'left'} onClick={() => handleSliderOnChange(-1)} />
@@ -147,7 +148,7 @@ const SliderBtnBox = styled.div`
         margin-top: 7rem;
       }
       &.right {
-        top: 90%;
+        top: 83%;
       }
     }
   }

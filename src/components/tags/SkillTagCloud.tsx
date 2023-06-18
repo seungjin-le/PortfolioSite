@@ -1,24 +1,10 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {TagCloudOptions} from 'TagCloud'
 import styled from 'styled-components'
 import TagCloud from '@frank-mayer/react-tag-cloud'
-import {skillSet, tagItems} from '../../utility/listItems'
-import SkillModal from '../modal/SkillModal'
+import {skillSet} from '../../utility/listItems'
 
 const SkillTagCloud = () => {
-  const [showModal, setShowModal] = useState<boolean>(false)
-  const [selectedItem, setSelectedItem] = useState({
-    title: '',
-    description: '',
-  })
-
-  const handleOnClickTag = (tag: string): void => {
-    if (tagItems[tag]) {
-      setShowModal(true)
-      setSelectedItem(tagItems[tag])
-    }
-  }
-
   return (
     <CloudBox>
       <TagCloud
@@ -26,12 +12,11 @@ const SkillTagCloud = () => {
           radius: Math.min(500, w.innerWidth, w.innerHeight) / 2,
           maxSpeed: 'fast',
         })}
-        onClick={(tag: string) => handleOnClickTag(tag)}
+        //onClick={(tag: string) => handleOnClickTag(tag)}
         onClickOptions={{passive: true}}
       >
         {skillSet}
       </TagCloud>
-      <SkillModal item={selectedItem} showModal={showModal} setShowModal={setShowModal} />
     </CloudBox>
   )
 }

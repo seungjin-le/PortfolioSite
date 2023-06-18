@@ -21,6 +21,6 @@ const CustomPageLayout = styled(Layout)`
   height: 0;
   width: 100%;
   margin: 0 auto;
-  max-width: 2000px;
+  max-width: 1800px;
   min-width: 400px;
 `
