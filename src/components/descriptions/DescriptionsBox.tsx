@@ -1,6 +1,6 @@
 import {Card} from 'antd'
 import {styled} from 'styled-components'
-import React, {useState} from 'react'
+import React, {memo, useState} from 'react'
 import CursorPointer from '../cursor/CursorPointer'
 
 const DescriptionsBox = () => {
@@ -58,7 +58,7 @@ const DescriptionsBox = () => {
   )
 }
 
-export default DescriptionsBox
+export default memo(DescriptionsBox)
 
 const CustomAntdCardBox = styled(Card)`
   position: relative;

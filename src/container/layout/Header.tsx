@@ -1,5 +1,5 @@
 import {Col, Row} from 'antd'
-import React from 'react'
+import React, {memo} from 'react'
 import styled from 'styled-components'
 import Title from '../../components/texts/Title'
 
@@ -17,7 +17,7 @@ const Header = () => {
   )
 }
 
-export default Header
+export default memo(Header)
 
 const CustomAntdRow = styled(Row)`
   max-height: 200px;

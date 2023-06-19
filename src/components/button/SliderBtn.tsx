@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {memo} from 'react'
 import CursorPointer from '../cursor/CursorPointer'
 import {LeftOutlined, RightOutlined} from '@ant-design/icons'
 import styled from 'styled-components'
@@ -13,7 +13,8 @@ const SliderBtn = ({onClick, direction}: SliderBtnProps) => {
   )
 }
 
-export default SliderBtn
+export default memo(SliderBtn)
+
 const SliderButtonBox = styled.span`
   font-size: 24px;
   z-index: 2;

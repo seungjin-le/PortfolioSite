@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react'
+import React, {memo, useCallback, useState} from 'react'
 import {styled} from 'styled-components'
 
 const CursorPointer = () => {
@@ -21,7 +21,7 @@ const CursorPointer = () => {
     </LightComponent>
   )
 }
-export default CursorPointer
+export default memo(CursorPointer)
 const LightComponent = styled.div`
   width: 100%;
   height: 100%;

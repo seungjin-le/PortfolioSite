@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {memo, useState} from 'react'
 import styled from 'styled-components'
 import Title from '../texts/Title'
 import CursorPointer from '../cursor/CursorPointer'
@@ -25,7 +25,7 @@ const AboutCard = () => {
   )
 }
 
-export default AboutCard
+export default memo(AboutCard)
 
 const Container = styled.div`
   width: 100%;
