@@ -205,6 +205,8 @@ export const projectsInfo = [
       'AntDesign',
     ],
     description: `
+# 해당 업체와 보안 유지 계약으로 인해 이미지와 코드 등을 공유할 수 없습니다. 
+    
 ## 담당한 기능
   - 오케이 포스의 관리자 페이지 개발을 맡아, 고객 관리 파트너 센터와 제품 판매 공식 몰중 파트너 센터 전체를 담당하였습니다.
 ## 주요 성과
@@ -255,6 +257,8 @@ export const projectsInfo = [
     },
     skills: ['JavaScript', 'React', 'react-bootstrap-table', 'Axios', 'React-Router', 'CoreUI', 'Styled-Components'],
     description: `
+# 해당 업체와 보안 유지 계약으로 인해 이미지와 코드 등을 공유할 수 없습니다.
+
 ## 담당한 기능
 - 기존 기능을 수정하거나 새로운 기능을 추가하고 새로운 페이지를 개발했습니다.
 

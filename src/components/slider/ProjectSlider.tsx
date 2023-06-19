@@ -80,7 +80,7 @@ const Containers = styled.div`
 
 const SliderBox = styled.div`
   border-radius: 18px;
-  padding: 2rem 0;
+  padding: 2rem;
   background: rgba(53, 53, 53, 0.7);
   height: 100%;
   max-width: 1200px;
