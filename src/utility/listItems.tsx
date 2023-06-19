@@ -278,7 +278,7 @@ Redux라이브러리를 사용하여 효육적인 상태관리와 JavaScript의 
     },
     skills: ['JavaScript', 'React', 'React-Bootstrap-Table', 'Axios', 'React-Router', 'CoreUI', 'Styled-Components'],
     description: `
-# 해당 업체와 보안 유지 계약으로 인해 이미지와 코드 등을 공유할 수 없는점 양해 부탁드립니다.
+## 해당 업체와 보안 유지 계약으로 인해 이미지와 코드 등을 공유할 수 없는점 양해 부탁드립니다.
 
 ---
 
