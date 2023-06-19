@@ -4,7 +4,7 @@ import React, {useState} from 'react'
 import CursorPointer from '../cursor/CursorPointer'
 
 const DescriptionsBox = () => {
-  const [onClick, setOnClick] = useState(false)
+  const [onClick, setOnClick] = useState<boolean>(false)
 
   return (
     <CustomAntdCardBox

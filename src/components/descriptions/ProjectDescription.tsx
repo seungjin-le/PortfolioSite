@@ -1,5 +1,5 @@
 import {Descriptions} from 'antd'
-import React, {memo, useEffect} from 'react'
+import React, {memo, useCallback, useEffect} from 'react'
 import SkillTag from '../tags/SkillTag'
 import {labelsAndColors} from '../../utility/listItems'
 import styled from 'styled-components'
@@ -21,8 +21,7 @@ const ProjectDescription = ({
   useEffect(() => {
     const observer = new IntersectionObserver(
       entries => {
-        entries.forEach(entry => {
-          const {isIntersecting, target} = entry
+        entries.forEach(({isIntersecting, target}) => {
           const scrollTop = scrollTopLine.current
           const scrollBottom = scrollBottomLine.current
 
@@ -45,19 +44,21 @@ const ProjectDescription = ({
   const smoothScrollTo = (element: HTMLDivElement, top: number) => {
     const start = element.scrollTop
     const change = top - start
-    const startTime = performance.now()
+    const duration = 400
+    let startTime: any = null
 
     const animateScroll = (currentTime: any) => {
+      if (!startTime) startTime = currentTime
       const elapsedTime = currentTime - startTime
-      const progress = Math.min(elapsedTime / 400, 1)
+      const progress = Math.min(elapsedTime / duration, 1)
       element.scrollTop = start + change * progress
-      if (progress < 1) window.requestAnimationFrame(animateScroll)
+      if (progress < 1) setTimeout(animateScroll, 20, performance.now())
     }
 
-    window.requestAnimationFrame(animateScroll)
+    setTimeout(animateScroll, 20, performance.now())
   }
 
-  const scrollMove = (text: string) => {
+  const scrollMove = useCallback((text: string) => {
     const element = scrollRef.current
     if (!element) return
     if (text === 'up') {
@@ -67,7 +68,8 @@ const ProjectDescription = ({
       smoothScrollTo(element, element.scrollHeight)
       setScrollBtnClick('')
     }
-  }
+  }, [])
+
   useEffect(() => {
     scrollMove(scrollBtnClick)
   }, [scrollBtnClick])

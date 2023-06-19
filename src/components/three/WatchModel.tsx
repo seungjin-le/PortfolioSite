@@ -42,7 +42,6 @@ const Model = () => {
     if (name === 'Object_78' || name === 'Object_79') return hour.current.push(object)
   })
 
-  // 매 프레임마다 바늘의 회전 각도를 업데이트합니다.
   useEffect(() => {
     const animate = () => {
       const date = new Date()

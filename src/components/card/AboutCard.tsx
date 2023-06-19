@@ -4,20 +4,12 @@ import Title from '../texts/Title'
 import CursorPointer from '../cursor/CursorPointer'
 
 const AboutCard = () => {
-  const [isFlipped, setIsFlipped] = useState(false)
-
-  const handleClick = () => {
-    setIsFlipped(!isFlipped)
-  }
+  const [isFlipped, setIsFlipped] = useState<boolean>(false)
 
   return (
     <Container>
-      <CardBox onClick={handleClick}>
-        <CardInner
-          className={'card'}
-          isFlipped={isFlipped}
-          style={{transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0)'}}
-        >
+      <CardBox onClick={() => setIsFlipped(!isFlipped)}>
+        <CardInner className={'card'} style={{transform: `rotateY(${isFlipped ? 180 : 0}deg)`}}>
           <CardFront className={'front'}>
             <Title title={'Click Card!'} color={'#eee'} level={2} />
           </CardFront>
@@ -60,7 +52,7 @@ const CardBox = styled.div`
   }
 `
 
-const CardInner = styled.div<{isFlipped: boolean}>`
+const CardInner = styled.div`
   position: relative;
   width: 100%;
   height: 100%;

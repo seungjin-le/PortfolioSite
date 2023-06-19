@@ -1,26 +1,15 @@
 import React, {memo, useEffect, useState} from 'react'
 import {motion, useScroll, useSpring} from 'framer-motion'
 import styled from 'styled-components'
+import {throttle} from 'lodash'
 
 const CustomScrollBar = () => {
   const {scrollYProgress} = useScroll()
-  const [scrollPos, setScrollPos] = useState(0)
-
+  const [scrollPos, setScrollPos] = useState<number>(0)
+  const handleScroll = throttle(() => {
+    setScrollPos(window.scrollY)
+  }, 200)
   useEffect(() => {
-    let lastKnownScrollPosition = 0
-    let ticking = false
-    const handleScroll = () => {
-      lastKnownScrollPosition = window.scrollY
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          setScrollPos(lastKnownScrollPosition)
-          ticking = false
-        })
-
-        ticking = true
-      }
-    }
-
     window.addEventListener('scroll', handleScroll)
 
     return () => {
@@ -33,7 +22,6 @@ const CustomScrollBar = () => {
     damping: 10,
     restDelta: 0.001,
   })
-
   return (
     <ScrollBox>
       <CustomMotionScrollBar style={{scaleY: scrollPos === 0 ? 0 : scaleX}} />
@@ -56,7 +44,7 @@ const CustomMotionScrollBar = styled(motion.div)`
   width: 100%;
   height: 100%;
   background: rgba(238, 238, 238, 0.4);
-  transform-origin: top; // 변환의 기준점을 상단으로 설정합니다.
+  transform-origin: top;
   border-bottom-left-radius: 14px;
   border-bottom-right-radius: 14px;
 `

@@ -12,7 +12,6 @@ const SkillTagCloud = () => {
           radius: Math.min(500, w.innerWidth, w.innerHeight) / 2,
           maxSpeed: 'fast',
         })}
-        //onClick={(tag: string) => handleOnClickTag(tag)}
         onClickOptions={{passive: true}}
       >
         {skillSet}
