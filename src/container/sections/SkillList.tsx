@@ -9,6 +9,7 @@ import SliderBtn from '../../components/button/SliderBtn'
 const SkillList = () => {
   const [activeIndex, setActiveIndex] = useState(0)
   const carouselRef = useRef<HTMLDivElement | null>(null)
+  const [isCarouselAutoSpin, setIsCarouselAutoSpin] = useState(true)
 
   useEffect(() => {
     const carousel = carouselRef.current
@@ -17,23 +18,37 @@ const SkillList = () => {
     if (!carousel) return
     Array.from(carousel.children).forEach((child: any, index: number) => {
       const theta = angle * index
-      child.style.transform = `rotateY(${theta}rad) translateZ(250px)`
+      child.style.transform = `rotateY(${theta}rad) translateZ(230px)`
     })
 
     carousel.style.transform = `rotateY(${-angle * activeIndex}rad)`
   }, [activeIndex])
 
   const handlePrev = () => {
+    setIsCarouselAutoSpin(false)
     setActiveIndex(prevIndex => (prevIndex === 0 ? collapseListItem.length - 1 : prevIndex - 1))
   }
 
   const handleNext = () => {
+    setIsCarouselAutoSpin(false)
     setActiveIndex(prevIndex => (prevIndex === collapseListItem.length - 1 ? 0 : prevIndex + 1))
   }
 
   const handleSkillOnClick = (key: number) => {
+    setIsCarouselAutoSpin(false)
     setActiveIndex(key - 1)
   }
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      if (isCarouselAutoSpin)
+        setActiveIndex(prevIndex => (prevIndex === 0 ? collapseListItem.length - 1 : prevIndex - 1))
+    }, 1000)
+
+    return () => {
+      clearInterval(intervalId)
+    }
+  }, [isCarouselAutoSpin])
 
   return (
     <SkillContainer>
@@ -95,6 +110,13 @@ const SkillSlideBox = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
+  @media (max-width: 1020px) {
+    flex-direction: column;
+    & > div:last-child {
+      width: 600px;
+      margin-top: 2rem;
+    }
+  }
 `
 
 const ContainerBox = styled.div`

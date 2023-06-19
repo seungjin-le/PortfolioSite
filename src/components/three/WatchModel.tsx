@@ -14,7 +14,7 @@ const Model = () => {
   const initialValue = {
     sec: 9.746,
     min: 1.085,
-    hou: -0.93,
+    hou: -3.61,
   }
   const [currentSection, setCurrentSection] = useState<number>(0)
   const AnimatedPrimitive = a.primitive as any

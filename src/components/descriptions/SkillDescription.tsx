@@ -27,7 +27,7 @@ const CustomAntdCollapseBox = styled.div`
   max-width: 200px;
   text-align: center;
   width: 100%;
-  margin: 1rem;
+  margin: 0.6rem;
   color: #5d5d5d;
   font-size: 1.3rem;
 `

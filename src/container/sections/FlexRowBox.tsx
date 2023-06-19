@@ -55,5 +55,16 @@ const FlexBox = styled.div`
     flex-direction: row;
     align-items: center;
     cursor: pointer;
+    @media (max-width: 1020px) {
+      flex-direction: column;
+      & > div {
+        width: 100%;
+        &.right > div {
+          margin-top: 2rem;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
   }
 `

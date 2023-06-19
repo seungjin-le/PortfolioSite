@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import {Carousel} from 'antd'
 import {CarouselRef} from 'antd/es/carousel'
 import Title from '../texts/Title'
-
 import {projectsInfo} from '../../utility/listItems'
 import SliderBtn from '../button/SliderBtn'
 import ProjectDescription from '../descriptions/ProjectDescription'
@@ -33,6 +32,7 @@ const ProjectSlider = () => {
   return (
     <Containers>
       <Title title={'Projects'} color={'#eee'} level={1} />
+
       <div className={'project'}>
         <SliderBox>
           <Carousel dotPosition={'top'} ref={ref => (slider.current = ref)}>

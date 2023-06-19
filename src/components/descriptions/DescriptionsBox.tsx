@@ -1,6 +1,7 @@
 import {Card} from 'antd'
 import {styled} from 'styled-components'
 import React, {useState} from 'react'
+import CursorPointer from '../cursor/CursorPointer'
 
 const DescriptionsBox = () => {
   const [onClick, setOnClick] = useState(false)
@@ -52,6 +53,7 @@ const DescriptionsBox = () => {
       ) : (
         '....'
       )}
+      <CursorPointer />
     </CustomAntdCardBox>
   )
 }

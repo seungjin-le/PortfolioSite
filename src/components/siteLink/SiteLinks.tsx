@@ -4,6 +4,7 @@ import Title from '../texts/Title'
 import {allIngredients} from '../../utility/listItems'
 import {Carousel} from 'antd'
 import {CarouselRef} from 'antd/es/carousel'
+import CursorPointer from '../cursor/CursorPointer'
 
 const SiteLinks = () => {
   const [selectedTab, setSelectedTab] = useState(allIngredients[0])
@@ -30,6 +31,7 @@ const SiteLinks = () => {
                     onClick={() => handleSliderOnChange(index)}
                   >
                     <img src={item.icon} alt='' style={{width: '20px', height: '20px'}} /> <h2>{item.label}</h2>
+                    <CursorPointer />
                   </li>
                 )
               })}
