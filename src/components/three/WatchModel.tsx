@@ -152,8 +152,9 @@ const NotWebGlMsg = styled.div`
   & .textBox {
     position: relative;
     background: rgba(53, 53, 53, 0.6);
-    max-width: 600px;
+    max-width: 700px;
     padding: 2rem;
     border-radius: 14px;
+    box-shadow: 0 0 30px 15px rgba(255, 255, 255, 0.7);
   }
 `
