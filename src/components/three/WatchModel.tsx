@@ -83,8 +83,8 @@ const FallbackComponent = () => {
     <NotWebGlMsg>
       <div className={'textBox'}>
         <div>
-          사이트의 배경을 Three.js로 3D 애니메이션으로 구성되어 있으나 사용자의 브라우저가 하드웨어 가속이 켜져 있지
-          않거나, 지원하지 않습니다.
+          사이트의 배경을 Three.js를 사용해 3D애니메이션으로 구성되어 있으나 사용자의 브라우저 설정에서 하드웨어 가속이
+          켜져 있지 않거나, 지원하지 않습니다.
         </div>
         <div>제대로 된 포트폴리오를 확인하시려면 브라우저 설정에서 하드웨어 가속을 활성화를 부탁드립니다.</div>
       </div>
@@ -150,6 +150,7 @@ const NotWebGlMsg = styled.div`
   font-size: 24px;
   line-height: 32px;
   & .textBox {
+    word-break: keep-all;
     position: relative;
     background: rgba(53, 53, 53, 0.6);
     max-width: 700px;
