@@ -92,17 +92,31 @@ const FallbackComponent = () => {
   )
 }
 const WatchModel = () => {
+  const [isWebGLSupported, setIsWebGLSupported] = useState<any>(null)
+
   // WebGL를 지원하는지 확인하는 함수
-  const isWebGLAvailable = () => {
-    try {
-      const canvas = document.createElement('canvas')
-      return !!(window.WebGLRenderingContext && (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')))
-    } catch (e) {
-      return false
+
+  useEffect(() => {
+    const isWebGLAvailable = () => {
+      try {
+        const canvas = document.createElement('canvas')
+        return !!(
+          window.WebGLRenderingContext &&
+          (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
+        )
+      } catch (e) {
+        return false
+      }
     }
+    setIsWebGLSupported(isWebGLAvailable())
+  }, [])
+
+  if (isWebGLSupported === null) {
+    // WebGL 지원 여부를 아직 확인하지 못했을 때
+    return null
   }
 
-  return isWebGLAvailable() ? (
+  return isWebGLSupported ? (
     <CustomCanvas>
       <ambientLight />
       {/* eslint-disable-next-line react/no-unknown-property */}
