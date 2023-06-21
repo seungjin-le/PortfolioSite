@@ -11,10 +11,10 @@ const SiteLinks = () => {
   const slider = useRef<CarouselRef | null | undefined>()
 
   const handleSliderOnChange = (num: number) => {
-    setSelectedTab(allIngredients[num])
-    const element = slider.current
-    if (!element) return
-    element.goTo(num)
+    setSelectedTab(() => allIngredients[num])
+    const {current} = slider
+    if (!current) return
+    current.goTo(num)
   }
   return (
     <Box>

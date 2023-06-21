@@ -24,7 +24,7 @@ const CustomScrollBar = () => {
   })
   return (
     <ScrollBox>
-      <CustomMotionScrollBar style={{scaleY: scrollPos === 0 ? 0 : scaleX}} />
+      <CustomMotionScrollBar style={{scaleY: scrollPos === 0 ? '0' : scaleX}} />
     </ScrollBox>
   )
 }

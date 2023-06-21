@@ -85,7 +85,7 @@ export const allIngredients = [
     icon: '/images/icons/man.png',
     label: 'Info',
     image: '/images/sites/info.png',
-    link: 'https://realdeveloper.pro/bibbibig',
+    link: 'https://www.winningresume.ai/Bibibig',
   },
 ]
 
