@@ -122,7 +122,7 @@ const SliderBtnBox = styled.div`
         transform: translateX(-55%);
       }
       &.left {
-        left: -2.5%;
+        left: -2.2%;
       }
     }
   }

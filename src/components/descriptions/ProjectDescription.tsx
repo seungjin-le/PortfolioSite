@@ -71,7 +71,7 @@ const ProjectDescription = ({
   }, [scrollBtnClick])
 
   return (
-    <div>
+    <div className={'shadow-slate-100'}>
       <div className={'w-full flex flex-row mb-6'}>
         <img className={'max-h-[60px] rounded-default mr-6'} src={item?.logo} alt='' />
         <div className={'w-full flex items-center justify-start text-subTitleText text-3xl'}>{item?.company}</div>
@@ -83,7 +83,7 @@ const ProjectDescription = ({
             'w-full max-h-[600px] flex flex-col text-text overflow-scroll overflow-x-hidden scrollbar-hide border border-solid border-text rounded-default '
           }
         >
-          <div className='h-auto p-4'>
+          <div className='h-auto p-4 '>
             <span ref={scrollTopLine} className={'w-full h-[1px]'} />
             <div className={'flex flex-row md:flex-col border-solid border-b-text border-b md:p-7'}>
               <div className='px-2 py-3 flex-1 md:border-solid md:border-b-text md:border-b '>
