@@ -1,23 +1,13 @@
 import React from 'react'
-import styled from 'styled-components'
 import {ScrollPage} from 'react-scroll-motion'
 import {PageLayoutProps} from 'lodash'
 
 const CustomScrollPage = ({children}: PageLayoutProps) => {
-  return <CustomScrollPageBox>{children}</CustomScrollPageBox>
+  return (
+    <ScrollPage className={'w-full h-full flex flex-col items-center justify-center relative mx-auto'}>
+      {children}
+    </ScrollPage>
+  )
 }
 
 export default CustomScrollPage
-
-const CustomScrollPageBox = styled(ScrollPage)`
-  position: relative;
-  width: 100%;
-  max-width: 1800px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem 3rem;
-  margin: 0 auto !important;
-`

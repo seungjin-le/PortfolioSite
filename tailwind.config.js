@@ -1,12 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{html,js,tsx,ts}'],
+  mode: 'jit',
   theme: {
     screens: {
-      sm: '500px',
-      md: '900px',
-      lg: '1400px',
-      xl: '1800px',
+      sm: {max: '500px'},
+      md: {max: '900px'},
+      lg: {max: '1200px'},
+      xl: {max: '1600px'},
     },
     fontFamily: {
       jalnanTtf: ['JalnanTtf', 'JalnanOTF'],
@@ -24,8 +25,12 @@ module.exports = {
       pageBg: 'rgba(22, 22, 22,.1)',
       cursor: 'rgba(255, 255, 255,.1)',
     },
+    backgroundImage: {
+      header: 'linear-gradient(0deg, hsla(0, 0%, 10%, 0), #161616)',
+    },
     borderRadius: {
       default: '14px',
+      tags: '4px',
     },
     colors: {
       titleText: '#eeeeee',
@@ -38,5 +43,5 @@ module.exports = {
     },
     extend: {},
   },
-  plugins: [],
+  plugins: [require('tailwind-scrollbar-hide')],
 }

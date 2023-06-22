@@ -1,18 +1,12 @@
 import React from 'react'
-import {Tag} from 'antd'
 import {SkillTagProps} from 'lodash'
-import styled from 'styled-components'
 
 const SkillTag = ({name, color}: SkillTagProps) => {
   return (
-    <CustomAntdTag bordered={false} color={color}>
+    <span style={{backgroundColor: color}} className={`text-text p-1 rounded-tags  m-1 my-1 text-sm`}>
       {name}
-    </CustomAntdTag>
+    </span>
   )
 }
 
 export default SkillTag
-
-const CustomAntdTag = styled(Tag)`
-  margin-bottom: 1rem;
-`

@@ -1,10 +1,7 @@
-import {Descriptions} from 'antd'
 import React, {memo, useCallback, useEffect} from 'react'
 import SkillTag from '../tags/SkillTag'
 import {labelsAndColors} from '../../utility/listItems'
-import styled from 'styled-components'
 import {ProjectDescriptionProps} from 'lodash'
-import Title from '../texts/Title'
 import DescriptionMarkDown from '../texts/DescriptionMarkDown'
 
 const ProjectDescription = ({
@@ -24,7 +21,6 @@ const ProjectDescription = ({
         entries.forEach(({isIntersecting, target}) => {
           const scrollTop = scrollTopLine.current
           const scrollBottom = scrollBottomLine.current
-
           if (target === scrollBottom) setScrollBottom(!isIntersecting)
           if (target === scrollTop) setScrollTop(!isIntersecting)
         })
@@ -76,115 +72,66 @@ const ProjectDescription = ({
 
   return (
     <div>
-      <DescriptionTitleBox>
-        <img src={item?.logo} alt='' />
-        <Title title={item?.company} level={3} color={'#eee'} />
-      </DescriptionTitleBox>
-      <DescriptionBox ref={scrollRef}>
-        <CustomAntdDescription bordered>
-          <Descriptions.Item label='프로젝트 이름' span={2}>
-            <ScrollLine ref={scrollTopLine} className={'top'} />
-            {item?.projectName}
-          </Descriptions.Item>
-          <Descriptions.Item label='개발 기간' span={1}>
-            {item?.date?.start} ~ {item?.date?.end}
-          </Descriptions.Item>
-          <Descriptions.Item label='프로젝트 유형' span={2}>
-            {item?.projectType}
-          </Descriptions.Item>
-          <Descriptions.Item label='팀 구성' span={1}>
-            <div>Frontend : {item?.team?.front} 명</div>
-            <div>Backend : {item?.team?.back} 명</div>
-          </Descriptions.Item>
-          <Descriptions.Item label='사용 스킬' span={3}>
-            {labelsAndColors?.map((v, i) => {
-              if (item.skills.indexOf(v.label)) return <SkillTag name={v.label} color={v.color} key={i} />
-            })}
-          </Descriptions.Item>
-          <Descriptions.Item label='상세 설명' span={3} className={'description'}>
-            <DescriptionMarkDown description={item.description} />
-            <ScrollLine ref={scrollBottomLine} className={'bottom'} />
-          </Descriptions.Item>
-        </CustomAntdDescription>
-      </DescriptionBox>
+      <div className={'w-full flex flex-row mb-6'}>
+        <img className={'max-h-[60px] rounded-default mr-6'} src={item?.logo} alt='' />
+        <div className={'w-full flex items-center justify-start text-subTitleText text-3xl'}>{item?.company}</div>
+      </div>
+      <div>
+        <div
+          ref={scrollRef}
+          className={
+            'w-full max-h-[600px] flex flex-col text-text overflow-scroll overflow-x-hidden scrollbar-hide border border-solid border-text rounded-default '
+          }
+        >
+          <div className='h-auto p-4'>
+            <span ref={scrollTopLine} className={'w-full h-[1px]'} />
+            <div className={'flex flex-row md:flex-col border-solid border-b-text border-b md:p-7'}>
+              <div className='px-2 py-3 flex-1 md:border-solid md:border-b-text md:border-b '>
+                <dt className='text-2xl '>Project Name</dt>
+                <dd className='mt-2 ml-2 text-base '>{item.projectName}</dd>
+              </div>
+              <div className='px-2 py-3 flex-1'>
+                <dt className='text-2xl '>Project Period</dt>
+                <dd className='mt-2 ml-2 text-base '>
+                  {item.date.start} ∼ {item.date.end}
+                </dd>
+              </div>
+            </div>
+            <div className={'flex flex-row md:flex-col h-auto border-solid border-b-text border-b md:p-7'}>
+              <div className='px-2 py-3 flex-1 md:border-solid md:border-b-text md:border-b '>
+                <dt className='text-2xl '>Project Type</dt>
+                <dd className='mt-2 ml-2 text-base '>{item.projectType}</dd>
+              </div>
+              <div className='px-2 py-3 flex-1'>
+                <dt className='text-2xl '>Team Member</dt>
+                <dd className='mt-2 ml-2 text-md flex flex-col'>
+                  <span>FrontEnd : {item.team.front}</span>
+                  <span>BackEnd : {item.team.back}</span>
+                </dd>
+              </div>
+            </div>
+            <div>
+              <div className='px-2 py-3 border-solid border-b-text border-b'>
+                <dt className='text-2xl '>Skills</dt>
+                <dd className='mt-2 text-base ml-2 flex flex-wrap '>
+                  {labelsAndColors?.map((v, i) => {
+                    if (item.skills.indexOf(v.label)) return <SkillTag name={v.label} color={v.color} key={i} />
+                  })}
+                </dd>
+              </div>
+              <div className='px-4 py-6 '>
+                <dt className='text-2xl '>Detailed Description</dt>
+                <dd className='mt-2 text-base ml-2 p-3'>
+                  <DescriptionMarkDown description={item.description} />
+                </dd>
+                <span ref={scrollBottomLine} className={'w-full h-[1px]'} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
 
 export default memo(ProjectDescription)
-
-const ScrollLine = styled.div`
-  position: absolute;
-  left: 0;
-  width: 100% !important;
-  height: 1px !important;
-  &.top {
-    top: 1px;
-  }
-  &.bottom {
-    top: 100%;
-    transform: translateY(-300%);
-  }
-`
-
-const DescriptionTitleBox = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: start;
-  width: auto !important;
-  height: auto !important;
-  & img {
-    margin-bottom: 1rem;
-    margin-right: 1rem;
-    height: 50px;
-    max-width: 200px;
-    border-radius: 14px;
-  }
-`
-
-const DescriptionBox = styled.div`
-  max-height: 550px;
-  position: relative;
-  border: 1px solid #161616 !important;
-  border-radius: 14px;
-  overflow: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-`
-
-const CustomAntdDescription = styled(Descriptions)`
-  width: 400px;
-  height: 400px;
-  & > div {
-    border: none !important;
-  }
-  & tr th {
-    background: rgba(22, 22, 22, 0.5) !important;
-    border-top: 1px solid #eee;
-    color: #eee !important;
-  }
-  & tr td {
-    background: rgba(238, 238, 238, 0.5) !important;
-    border-top: 1px solid #161616;
-    color: #161616 !important;
-  }
-  & tr:first-child th,
-  & tr:first-child td {
-    border-top: none !important;
-  }
-  & tr:first-child {
-    & th {
-      width: 12%;
-    }
-    & td {
-      width: 34%;
-    }
-  }
-  & tr:last-child td {
-    position: relative;
-  }
-`

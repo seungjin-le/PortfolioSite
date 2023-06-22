@@ -30,10 +30,9 @@ const ProjectSlider = () => {
   }
 
   return (
-    <Containers>
+    <div className={'relative flex flex-col w-full'}>
       <Title title={'Projects'} color={'#eee'} level={1} />
-
-      <div className={'project'}>
+      <div className={'project px-8'}>
         <SliderBox>
           <Carousel dotPosition={'top'} ref={ref => (slider.current = ref)}>
             {projectsInfo &&
@@ -60,23 +59,11 @@ const ProjectSlider = () => {
           </SliderBtnBox>
         </SliderBox>
       </div>
-    </Containers>
+    </div>
   )
 }
 
 export default ProjectSlider
-
-const Containers = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  & .project {
-    padding: 0 2rem;
-  }
-`
 
 const SliderBox = styled.div`
   border-radius: 18px;
@@ -85,10 +72,7 @@ const SliderBox = styled.div`
   height: 100%;
   max-width: 1200px;
   position: relative;
-  & div {
-    width: 100%;
-    height: 100%;
-  }
+
   & .slick-slider.slick-initialized {
     width: 100%;
     height: 100%;
@@ -102,7 +86,6 @@ const SliderBox = styled.div`
   }
 
   & .ant-carousel.css-dev-only-do-not-override-dfjnss {
-    padding: 0 2.5rem;
     height: 100%;
     position: relative;
   }
@@ -133,13 +116,13 @@ const SliderBtnBox = styled.div`
     & .btn {
       position: absolute;
       z-index: 2;
-      top: 50%;
+      top: 45%;
       &.right {
         left: 100%;
-        transform: translateX(-200%);
+        transform: translateX(-55%);
       }
       &.left {
-        left: 55px;
+        left: -2.5%;
       }
     }
   }
@@ -152,11 +135,12 @@ const SliderBtnBox = styled.div`
       left: 50%;
       transform: rotate(90deg) translateY(50%);
       &.left {
-        top: 0;
+        top: -6%;
         margin-top: 7rem;
       }
       &.right {
-        top: 83%;
+        top: 100%;
+        transform: rotate(90deg) translate(-100%, 50%);
       }
     }
   }
