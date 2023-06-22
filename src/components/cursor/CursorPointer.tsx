@@ -1,5 +1,4 @@
 import React, {memo, useCallback, useState} from 'react'
-import {styled} from 'styled-components'
 
 const CursorPointer = () => {
   const [position, setPosition] = useState({x: 0, y: 0})
@@ -15,30 +14,20 @@ const CursorPointer = () => {
   const handleMouseLeave = useCallback(() => {
     setIsHovered(false)
   }, [])
+
   return (
-    <LightComponent onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
-      {isHovered && <Light style={{top: `${position.y}px`, left: `${position.x}px`}} />}
-    </LightComponent>
+    <div
+      className={'w-full h-full top-0 left-0 rounded-default overflow-hidden absolute'}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      {isHovered && (
+        <div
+          className={'w-0 h-0  pointer-events-none ease-in-out absolute shadow-cursor rounded-full'}
+          style={{top: `${position.y}px`, left: `${position.x}px`}}
+        />
+      )}
+    </div>
   )
 }
 export default memo(CursorPointer)
-const LightComponent = styled.div`
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  border-radius: 1rem;
-  position: absolute;
-  overflow: hidden;
-`
-
-const Light = styled.div`
-  position: absolute;
-  background-color: rgba(255, 255, 255, 0.1);
-  width: 0 !important;
-  height: 0 !important;
-  border-radius: 50%;
-  pointer-events: none;
-  transition: all 0.01s ease-out;
-  box-shadow: 0 0 30px 15px rgba(255, 255, 255, 0.7);
-`

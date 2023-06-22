@@ -1,7 +1,6 @@
 import React from 'react'
 import {ScrollContainer, Sticky, Fade, batch, MoveOut, MoveIn} from 'react-scroll-motion'
 import FlexRowBox from '../../container/sections/FlexRowBox'
-import styled from 'styled-components'
 import MainDraw from '../../components/draw/MainDraw'
 import SiteLinks from '../../components/siteLink/SiteLinks'
 import Title from '../../components/texts/Title'
@@ -16,7 +15,7 @@ import CustomAnimator from '../../components/background/CustomAnimator'
 
 const MainPage = () => {
   return (
-    <CustomScrollContainer snap='mandatory' className={'w-full h-full'}>
+    <ScrollContainer snap='mandatory' className={'w-full h-full'}>
       <OriginBackground>
         <MainDraw />
       </OriginBackground>
@@ -46,13 +45,8 @@ const MainPage = () => {
         <AboutCard />
       </OriginBackground>
       <Footer />
-    </CustomScrollContainer>
+    </ScrollContainer>
   )
 }
 
 export default MainPage
-
-const CustomScrollContainer = styled(ScrollContainer)`
-  width: 100%;
-  height: 100%;
-`
