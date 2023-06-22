@@ -3,6 +3,7 @@ import MainLayout from './container/layout/MainLayout'
 import MainPage from './pages/home/MainPage'
 import CustomScrollBar from './components/scroll/CustomScrollBar'
 import {Route, Routes} from 'react-router-dom'
+import 'styles/tailwind.css'
 
 function App() {
   return (

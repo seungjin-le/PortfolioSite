@@ -2,17 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'JalnanTtf'; 
-  src: local('JalnanTtf'), local('JalnanTtf');
-  font-style: normal;
-  src: url(${JalnanTtf}) format('JalnanTtf');
-  font-weight: 300;
-}
-  @font-face {
-  font-family: 'JalnanOTF';
-  src: local('JalnanOTF'), local('JalnanOTF');
-  font-style: normal;
-  src: url(${JalnanOTF}) format('JalnanOTF');
-  font-weight: 300;
-}

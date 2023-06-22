@@ -16,7 +16,7 @@ import CustomAnimator from '../../components/background/CustomAnimator'
 
 const MainPage = () => {
   return (
-    <CustomScrollContainer snap='mandatory'>
+    <CustomScrollContainer snap='mandatory' className={'w-full h-full'}>
       <OriginBackground>
         <MainDraw />
       </OriginBackground>

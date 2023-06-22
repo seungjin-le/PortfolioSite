@@ -85,7 +85,7 @@ export const allIngredients = [
     icon: '/images/icons/man.png',
     label: 'Info',
     image: '/images/sites/info.png',
-    link: 'https://www.winningresume.ai/Bibibig',
+    link: 'https://www.rallit.com/resumes/70839@dltmdwls154/%EC%9D%B4%EC%8A%B9%EC%A7%84',
   },
 ]
 
@@ -149,8 +149,8 @@ JavaScript 라이브러리인 React를 사용하여 UI 컴포넌트를 구성하
 다른 개발자와 협업을 위해 Git Commit Message를 알기 쉽도록 작성하였으며,
 후에 팀에 합류할 개발자를 위해 프로젝트의 구조와 사용 방법을 상세히 기술한 README.md 문서를 작성하였습니다.
 
-Redux라이브러리를 사용하여 효육적인 상태관리와 JavaScript의 정적 타입 언어인 TypeScript로 코드의 안정성 또한 확보하였습니다. 
-그리고 ESlint와 Prettier를 사용하여 코드의 일관성을 유지하기 위해 노력하였습니다.
+Redux라이브러리를 사용하여 효육적인 상태관리와 JavaScript의 정적 타입 언어인 TypeScript로 코드의 안정성 또한 확보하였으며, 
+ESlint와 Prettier를 사용하여 코드의 일관성을 유지하기 위해 노력하였습니다.
 
 프로젝트 진행도중 퀄리티의 부족함을 느껴 사용자의 브라우저가 메타마스크를 지원하는지 확인 하는 기능을 구현하고
 스크롤을 내릴시 데이터가 추가되는 무한스크롤을 추가로 구현하였습니다.
@@ -287,7 +287,7 @@ Redux라이브러리를 사용하여 효육적인 상태관리와 JavaScript의 
   - 페이지 추가 후 Router 연결
   - 제품 상세 모달 구현(수정, 생성)
   - 제품 형태 리스트 데이터 수정, 추가, 삭제 등 CRUD 구현 
-- 제품 주문 현황 페이지 UI 및 로직 수 정
+- 제품 주문 현황 페이지 UI 및 로직 수정
   - React-bootstrap-table 라이브러리를 사용해 유저 데이터 출력 택배사 리스트 모달 UI 퍼블리싱
   - 제품 주문한 유저의 운송장, 택배사 수정 API 연동 및 배송추적 연동
   - 문제: 스마트 택배(스윗 트레커) API 연동 중 문제 발생
