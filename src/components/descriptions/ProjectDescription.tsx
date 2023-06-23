@@ -85,24 +85,30 @@ const ProjectDescription = ({
         >
           <div className='h-auto p-4 '>
             <span ref={scrollTopLine} className={'w-full h-[1px]'} />
-            <div className={'flex flex-row md:flex-col border-solid border-b-text border-b md:p-7'}>
+            <div
+              className={'my-6 flex flex-row md:flex-col border-solid border-b-text border-b md:border-none md:my-0'}
+            >
               <div className='px-2 py-3 flex-1 md:border-solid md:border-b-text md:border-b '>
                 <dt className='text-2xl '>Project Name</dt>
                 <dd className='mt-2 ml-2 text-base '>{item.projectName}</dd>
               </div>
-              <div className='px-2 py-3 flex-1'>
+              <div className='px-2 py-3 flex-1 md:border-solid md:border-b-text md:border-b'>
                 <dt className='text-2xl '>Project Period</dt>
                 <dd className='mt-2 ml-2 text-base '>
                   {item.date.start} ∼ {item.date.end}
                 </dd>
               </div>
             </div>
-            <div className={'flex flex-row md:flex-col h-auto border-solid border-b-text border-b md:p-7'}>
+            <div
+              className={
+                'my-6 flex flex-row md:flex-col h-auto border-solid border-b-text border-b md:border-none md:my-0'
+              }
+            >
               <div className='px-2 py-3 flex-1 md:border-solid md:border-b-text md:border-b '>
                 <dt className='text-2xl '>Project Type</dt>
                 <dd className='mt-2 ml-2 text-base '>{item.projectType}</dd>
               </div>
-              <div className='px-2 py-3 flex-1'>
+              <div className='px-2 py-3 flex-1 md:border-solid md:border-b-text md:border-b'>
                 <dt className='text-2xl '>Team Member</dt>
                 <dd className='mt-2 ml-2 text-md flex flex-col'>
                   <span>FrontEnd : {item.team.front}</span>
@@ -111,7 +117,7 @@ const ProjectDescription = ({
               </div>
             </div>
             <div>
-              <div className='px-2 py-3 border-solid border-b-text border-b'>
+              <div className='my-6 px-2 py-3 border-solid border-b-text border-b md:my-4 md:pb-4'>
                 <dt className='text-2xl '>Skills</dt>
                 <dd className='mt-2 text-base ml-2 flex flex-wrap '>
                   {labelsAndColors?.map((v, i) => {
