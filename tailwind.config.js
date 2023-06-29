@@ -41,7 +41,11 @@ module.exports = {
     boxShadow: {
       cursor: '0 0 30px 15px rgba(255, 255, 255, 0.7)',
     },
-    extend: {},
+    extend: {
+      transitionProperty: {
+        default: '.5s',
+      },
+    },
   },
   plugins: [require('tailwind-scrollbar-hide')],
 }
