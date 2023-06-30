@@ -1,6 +1,6 @@
 import {memo} from 'react'
 import {SectionFlexBoxProps} from 'lodash'
-import {Animator, MoveIn} from 'react-scroll-motion'
+
 import Title from '../../components/texts/Title'
 
 const FlexRowBox = ({title, left, right}: SectionFlexBoxProps) => {
@@ -9,13 +9,9 @@ const FlexRowBox = ({title, left, right}: SectionFlexBoxProps) => {
       <div className={'w-full flex items-start mb-8'}>
         <Title title={title} color={'#eee'} level={1} />
       </div>
-      <div className={'aboutBox relative w-full flex flex-row items-center lg:flex-col transition-all'}>
-        <Animator className={'w-[50%] py-0 px-12 lg:w-full h-auto'} animation={MoveIn(0, 800)}>
-          {left}
-        </Animator>
-        <Animator className={'w-[50%] py-0 px-12 lg:w-full '} animation={MoveIn(600, 0)}>
-          {right}
-        </Animator>
+      <div className={'relative w-full flex flex-row items-center lg:flex-col'}>
+        <div className={'w-[50%] py-0 px-12 lg:w-full h-auto'}>{left}</div>
+        <div className={'w-[50%] py-0 px-12 lg:w-full '}>{right}</div>
       </div>
     </div>
   )
