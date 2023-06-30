@@ -1,4 +1,4 @@
-import React, {useCallback, useRef, useState} from 'react'
+import {useCallback, useRef, useState} from 'react'
 import styled from 'styled-components'
 import {Carousel} from 'antd'
 import {CarouselRef} from 'antd/es/carousel'

@@ -78,7 +78,9 @@ declare module 'lodash' {
     setScrollBtnClick: Dispatch<SetStateAction<string>>
     scrollBtnClick: string
   }
-
+  export interface ProjectDescriptionSectionProps {
+    item: ProjectItemProps
+  }
   export interface SectionNumProps {
     sectionNum: number
   }

@@ -40,7 +40,11 @@ module.exports = {
     },
     boxShadow: {
       cursor: '0 0 30px 15px rgba(255, 255, 255, 0.7)',
+      boxTop: 'inset 0px 40px 10px -10px rgba(255, 255, 255, .2);',
+      boxBottom: 'inset 0px -40px 10px -10px rgba(255, 255, 255, .2);',
+      boxYAll: 'inset 0px 40px 10px -10px rgba(255, 255, 255, .2), inset 0px -40px 10px -10px rgba(255, 255, 255, .2);',
     },
+
     extend: {
       transitionProperty: {
         default: '.5s',
