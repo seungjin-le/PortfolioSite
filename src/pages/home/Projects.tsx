@@ -1,7 +1,6 @@
-import CustomAnimator from 'components/background/CustomAnimator'
+// import CustomAnimator from 'components/background/CustomAnimator'
 import ScrollContainer from 'react-scroll-motion/dist/ScrollContainer'
 import CustomScrollPage from '../../components/background/CustomScrollPage'
-import {MoveIn} from 'react-scroll-motion'
 import ProjectSections from 'components/descriptions/ProjectSections'
 import {projectsInfo} from '../../utility/listItems'
 
@@ -11,9 +10,7 @@ const ProjectsPage = () => {
       {projectsInfo?.map((v, i) => {
         return (
           <CustomScrollPage key={i}>
-            <CustomAnimator animation={MoveIn(-4000, 0)}>
-              <ProjectSections item={v} />
-            </CustomAnimator>
+            <ProjectSections item={v} />
           </CustomScrollPage>
         )
       })}

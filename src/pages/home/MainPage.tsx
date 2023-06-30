@@ -10,7 +10,6 @@ import DescriptionsBox from 'components/descriptions/DescriptionsBox'
 import SkillTagCloud from '../../components/tags/SkillTagCloud'
 import SkillList from '../../container/sections/SkillList'
 import AboutCard from '../../components/card/AboutCard'
-import ProjectSlider from '../../components/slider/ProjectSlider'
 import CustomAnimator from '../../components/background/CustomAnimator'
 
 const MainPage = () => {
@@ -22,7 +21,7 @@ const MainPage = () => {
       <CustomScrollPage>
         <CustomAnimator animation={batch(Fade(), Sticky(), MoveOut(0, -200))}>
           <Title title={'안녕하세요?'} color={'#eee'} level={1} />
-          <Title title={'프론트엔드 개발자 이승진 입니다.'} color={'#eee'} level={1} />
+          <Title title={'신입 프론트엔드 개발자 이승진 입니다.'} color={'#eee'} level={1} />
         </CustomAnimator>
       </CustomScrollPage>
       <CustomScrollPage>
@@ -31,11 +30,13 @@ const MainPage = () => {
       <CustomScrollPage>
         <SkillList />
       </CustomScrollPage>
+      {/*
       <CustomScrollPage>
         <CustomAnimator animation={MoveIn(-4000, 0)}>
           <ProjectSlider />
         </CustomAnimator>
-      </CustomScrollPage>
+      </CustomScrollPage> 
+      */}
       <CustomScrollPage>
         <CustomAnimator animation={MoveIn(2000, 0)}>
           <SiteLinks />

@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown'
 import {DescriptionMarkdownProps} from 'lodash'
 import remarkGfm from 'remark-gfm'
 import styled from 'styled-components'
+import {motion, useScroll} from 'framer-motion'
 
 const DescriptionMarkDown = ({description}: DescriptionMarkdownProps) => {
   const top = useRef<HTMLSpanElement>(null)
@@ -10,6 +11,9 @@ const DescriptionMarkDown = ({description}: DescriptionMarkdownProps) => {
   const [isTopRef, setTopRef] = useState(false)
   const [isBottomRef, setBottomRef] = useState(false)
   const [shadow, setShadow] = useState('')
+  const ref = useRef(null)
+  const {scrollYProgress} = useScroll({container: ref})
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       entries => {
@@ -49,14 +53,32 @@ const DescriptionMarkDown = ({description}: DescriptionMarkdownProps) => {
   }, [isTopRef, isBottomRef])
 
   return (
-    <div
-      className={`max-h-[800px] overflow-scroll relative scrollbar-hide ${shadow} rounded-default p-4 bg-itemBg transition-all `}
-    >
-      <span ref={top} className={'w-full h-[1px] block absolute top-3'} id={'top'} />
-      <CustomReactMarkdown remarkPlugins={[remarkGfm]} className={'break-keep'}>
-        {description}
-      </CustomReactMarkdown>
-      <span ref={bottom} className={'w-full h-[1px] block mb-4'} id={'bottom'} />
+    <div className={'relative'}>
+      <svg
+        id='progress'
+        className={
+          'absolute top-[20%] left-[-100px] z-10 w-[100px] h-[100px] rotate-[-90deg] md:top-[100%] md:-translate-y-full md:left-0'
+        }
+      >
+        <circle cx='50' cy='50' r='30' className=' stroke-text opacity-4 stroke-[15%] fill-none' />
+        <motion.circle
+          cx='50'
+          cy='50'
+          r='30'
+          className=' stroke-text stroke-[15%] fill-none'
+          style={{pathLength: scrollYProgress}}
+        />
+      </svg>
+      <div
+        ref={ref}
+        className={`max-h-[800px] overflow-scroll relative scrollbar-hide ${shadow} rounded-default p-4 bg-itemBg transition-all `}
+      >
+        <span ref={top} className={'w-full h-[1px] block absolute top-3'} id={'top'} />
+        <CustomReactMarkdown remarkPlugins={[remarkGfm]} className={'break-keep'}>
+          {description}
+        </CustomReactMarkdown>
+        <span ref={bottom} className={'w-full h-[1px] block mb-4'} id={'bottom'} />
+      </div>
     </div>
   )
 }
