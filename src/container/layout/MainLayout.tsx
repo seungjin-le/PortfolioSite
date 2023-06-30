@@ -1,7 +1,6 @@
 import Header from './Header'
 import {PageLayoutProps} from 'lodash'
 import WatchModel from 'components/three/WatchModel'
-import FixedNavigation from 'components/navigation/Navigation'
 
 const MainLayout = ({children}: PageLayoutProps) => {
   return (
@@ -9,7 +8,6 @@ const MainLayout = ({children}: PageLayoutProps) => {
       <Header />
       {children}
       <WatchModel />
-      <FixedNavigation />
     </div>
   )
 }

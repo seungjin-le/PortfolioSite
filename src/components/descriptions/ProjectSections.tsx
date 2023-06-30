@@ -14,7 +14,7 @@ const ProjectSections = ({item}: ProjectDescriptionSectionProps) => {
     }
   }, [isInView])
   return (
-    <div className={'w-full rounded-tags text-titleTex px-4 opacity-0'} ref={scope}>
+    <div className={'w-full rounded-tags text-titleTex px-4'} ref={scope}>
       <div className={'w-full  flex flex-row '}>
         <img className={'max-h-[60px] rounded-default mr-6'} src={item?.logo} alt='' />
         <div className={'w-full flex items-center justify-start text-titleText text-3xl'}>{item?.company}</div>

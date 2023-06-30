@@ -53,7 +53,7 @@ const DescriptionMarkDown = ({description}: DescriptionMarkdownProps) => {
   }, [isTopRef, isBottomRef])
 
   return (
-    <div className={'relative'}>
+    <div className={'relative '}>
       <svg
         id='progress'
         className={
@@ -71,10 +71,10 @@ const DescriptionMarkDown = ({description}: DescriptionMarkdownProps) => {
       </svg>
       <div
         ref={ref}
-        className={`max-h-[800px] overflow-scroll relative scrollbar-hide ${shadow} rounded-default p-4 bg-itemBg transition-all `}
+        className={`max-h-[800px] sm:' h-auto overflow-scroll relative scrollbar-hide ${shadow} rounded-default p-4 bg-itemBg transition-all `}
       >
         <span ref={top} className={'w-full h-[1px] block absolute top-3'} id={'top'} />
-        <CustomReactMarkdown remarkPlugins={[remarkGfm]} className={'break-keep'}>
+        <CustomReactMarkdown remarkPlugins={[remarkGfm]} className={'break-keep h-full'}>
           {description}
         </CustomReactMarkdown>
         <span ref={bottom} className={'w-full h-[1px] block mb-4'} id={'bottom'} />

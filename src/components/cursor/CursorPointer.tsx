@@ -17,7 +17,7 @@ const CursorPointer = () => {
 
   return (
     <div
-      className={'w-full h-full top-0 left-0 overflow-hidden absolute'}
+      className={'w-full h-full top-0 left-0 overflow-hidden absolute rounded-default'}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
