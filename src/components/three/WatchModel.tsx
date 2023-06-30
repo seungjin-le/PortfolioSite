@@ -1,4 +1,4 @@
-import React, {memo, useEffect, useRef, useState} from 'react'
+import {memo, useEffect, useRef, useState} from 'react'
 import {useGLTF} from '@react-three/drei'
 import {Canvas} from '@react-three/fiber'
 import styled from 'styled-components'
@@ -78,9 +78,14 @@ const Model = () => {
   return <AnimatedPrimitive object={scene} {...props} />
 }
 const FallbackComponent = () => {
-  // WebGL이 지원되지 않을 때 보여줄 컴포넌트
+  const [click, setClick] = useState(false)
+
+  // 브라우저에서 WebGL이 지원되지 않을 때 보여줄 컴포넌트
   return (
-    <NotWebGlMsg>
+    <NotWebGlMsg
+      onClick={() => setClick(true)}
+      className={`fixed ${click && 'opacity-0 z-[-1]'} transition-opacity cursor-pointer`}
+    >
       <div className={'textBox'}>
         <div>
           사이트의 배경을 Three.js를 사용해 3D애니메이션으로 구성되어 있으나 사용자의 브라우저 설정에서 하드웨어 가속이
@@ -95,7 +100,6 @@ const WatchModel = () => {
   const [isWebGLSupported, setIsWebGLSupported] = useState<any>(null)
 
   // WebGL를 지원하는지 확인하는 함수
-
   useEffect(() => {
     const isWebGLAvailable = () => {
       try {
@@ -150,7 +154,6 @@ const CustomCanvas = styled(Canvas)`
   }
 `
 const NotWebGlMsg = styled.div`
-  position: fixed;
   text-align: center;
   color: #eee;
   display: flex;
@@ -158,7 +161,6 @@ const NotWebGlMsg = styled.div`
   justify-content: center;
   width: 100%;
   top: 10%;
-  z-index: -1;
   left: 50%;
   transform: translateX(-50%);
   font-size: 24px;

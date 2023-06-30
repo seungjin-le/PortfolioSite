@@ -172,9 +172,9 @@ const Slide = styled.div`
   justify-content: start;
   box-sizing: border-box;
   border-radius: 14px;
-
-  line-height: 15px;
-
+  line-height: 18px;
+  transition: 0.5s;
+  font-size: 14px;
   & .skillIcon {
     margin: 1.5rem auto;
     background-size: cover;

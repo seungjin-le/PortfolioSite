@@ -1,4 +1,4 @@
-import React, {memo} from 'react'
+import {memo} from 'react'
 import {SkillListProps} from 'lodash'
 import CursorPointer from '../cursor/CursorPointer'
 

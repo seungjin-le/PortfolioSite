@@ -37,7 +37,7 @@ const ProjectDescription = ({
     }
   }, [])
 
-  const smoothScrollTo = (element: HTMLDivElement, top: number) => {
+  const smoothScrollTo = useCallback((element: HTMLDivElement, top: number) => {
     const start = element.scrollTop
     const change = top - start
     const duration = 400
@@ -52,7 +52,7 @@ const ProjectDescription = ({
     }
 
     setTimeout(animateScroll, 20, performance.now())
-  }
+  }, [])
 
   const scrollMove = useCallback((text: string) => {
     const element = scrollRef.current
@@ -72,7 +72,7 @@ const ProjectDescription = ({
 
   return (
     <div className={'shadow-slate-100'}>
-      <div className={'w-full flex flex-row mb-6'}>
+      <div className={'w-full min-h-[60px] flex flex-row mb-6'}>
         <img className={'max-h-[60px] rounded-default mr-6'} src={item?.logo} alt='' />
         <div className={'w-full flex items-center justify-start text-subTitleText text-3xl'}>{item?.company}</div>
       </div>
@@ -88,11 +88,11 @@ const ProjectDescription = ({
             <div
               className={'my-6 flex flex-row md:flex-col border-solid border-b-text border-b md:border-none md:my-0'}
             >
-              <div className='px-2 py-3 flex-1 md:border-solid md:border-b-text md:border-b '>
+              <div className='flex-1 px-2 py-3 md:border-solid md:border-b-text md:border-b '>
                 <dt className='text-2xl '>Project Name</dt>
                 <dd className='mt-2 ml-2 text-base '>{item.projectName}</dd>
               </div>
-              <div className='px-2 py-3 flex-1 md:border-solid md:border-b-text md:border-b'>
+              <div className='flex-1 px-2 py-3 md:border-solid md:border-b-text md:border-b'>
                 <dt className='text-2xl '>Project Period</dt>
                 <dd className='mt-2 ml-2 text-base '>
                   {item.date.start} ∼ {item.date.end}
@@ -104,22 +104,22 @@ const ProjectDescription = ({
                 'my-6 flex flex-row md:flex-col h-auto border-solid border-b-text border-b md:border-none md:my-0'
               }
             >
-              <div className='px-2 py-3 flex-1 md:border-solid md:border-b-text md:border-b '>
+              <div className='flex-1 px-2 py-3 md:border-solid md:border-b-text md:border-b '>
                 <dt className='text-2xl '>Project Type</dt>
                 <dd className='mt-2 ml-2 text-base '>{item.projectType}</dd>
               </div>
-              <div className='px-2 py-3 flex-1 md:border-solid md:border-b-text md:border-b'>
+              <div className='flex-1 px-2 py-3 md:border-solid md:border-b-text md:border-b'>
                 <dt className='text-2xl '>Team Member</dt>
-                <dd className='mt-2 ml-2 text-md flex flex-col'>
+                <dd className='flex flex-col mt-2 ml-2 text-md'>
                   <span>FrontEnd : {item.team.front}</span>
                   <span>BackEnd : {item.team.back}</span>
                 </dd>
               </div>
             </div>
             <div>
-              <div className='my-6 px-2 py-3 border-solid border-b-text border-b md:my-4 md:pb-4'>
+              <div className='px-2 py-3 my-6 border-b border-solid border-b-text md:my-4 md:pb-4'>
                 <dt className='text-2xl '>Skills</dt>
-                <dd className='mt-2 text-base ml-2 flex flex-wrap '>
+                <dd className='flex flex-wrap mt-2 ml-2 text-base '>
                   {labelsAndColors?.map((v, i) => {
                     if (item.skills.indexOf(v.label)) return <SkillTag name={v.label} color={v.color} key={i} />
                   })}
@@ -127,7 +127,7 @@ const ProjectDescription = ({
               </div>
               <div className='px-4 py-6 '>
                 <dt className='text-2xl '>Detailed Description</dt>
-                <dd className='mt-2 text-base ml-2 p-3'>
+                <dd className='p-3 mt-2 ml-2 text-base'>
                   <DescriptionMarkDown description={item.description} />
                 </dd>
                 <span ref={scrollBottomLine} className={'w-full h-[1px]'} />

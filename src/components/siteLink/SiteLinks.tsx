@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react'
+import {useCallback, useRef, useState} from 'react'
 import styled from 'styled-components'
 import Title from '../texts/Title'
 import {allIngredients} from '../../utility/listItems'
@@ -10,16 +10,19 @@ const SiteLinks = () => {
   const [selectedTab, setSelectedTab] = useState(allIngredients[0])
   const slider = useRef<CarouselRef | null | undefined>()
 
-  const handleSliderOnChange = (num: number) => {
-    setSelectedTab(() => allIngredients[num])
-    const {current} = slider
-    if (!current) return
-    current.goTo(num)
-  }
+  const handleSliderOnChange = useCallback(
+    (num: number) => {
+      setSelectedTab(() => allIngredients[num])
+      const {current} = slider
+      if (!current) return
+      current.goTo(num)
+    },
+    [slider],
+  )
   return (
-    <Box>
+    <div className={'w-full h-full flex flex-col justify-end items-end'}>
       <Title title={'Sites'} color={'#eee'} level={1} />
-      <SiteBox>
+      <div className={'px-8 max-w-[1000px] min-w-[400px] w-full h-full'}>
         <LinkBox>
           <nav>
             <ul>
@@ -49,32 +52,12 @@ const SiteLinks = () => {
             </Carousel>
           </main>
         </LinkBox>
-      </SiteBox>
-    </Box>
+      </div>
+    </div>
   )
 }
 
 export default SiteLinks
-
-const Box = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-end;
-  width: 100%;
-  height: 100%;
-  & > h1 {
-    margin: 0 auto;
-  }
-`
-
-const SiteBox = styled.div`
-  padding: 0 2rem;
-  max-width: 1000px;
-  min-width: 400px;
-  width: 100%;
-  height: 100%;
-`
 
 const LinkBox = styled.div`
   width: 100%;

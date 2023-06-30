@@ -4,9 +4,9 @@ import Title from 'components/texts/Title'
 
 const DescriptionsBox = () => {
   return (
-    <div className={`bg-itemBg w-full h-full relative rounded-default cursor-pointer p-6 transition-all break-keep`}>
+    <div className={`bg-itemBg w-full h-full relative rounded-default p-6 transition-all break-keep`}>
       <Title title={'안녕하세요, 신입 프론트엔드 개발자 이승진입니다.'} level={3} color={'#5d5d5d'} />
-      <div className={'text-text text-base transition-all'}>
+      <div className={'text-text text-base '}>
         <div>
           안녕하세요, 신입 프론트엔드 개발자 이승진입니다. 고등학교 3학년부터 취업을 나와 산업체에서 근무하며, 힘든
           상황에서도 빠르게 적응하고 문제를 해결하는 능력을 키웠습니다.
@@ -21,7 +21,7 @@ const DescriptionsBox = () => {
           <br />
         </div>
         <br />
-        <div className={'transition-all'}>
+        <div>
           새로운 기술을 배우고 성장하는 것에 즐거움을 느끼며, 다양한 경험을 통해 어떤 환경에도 적응할 수 있는 유연함을
           키웠습니다. 또한, 배운 것을 기록하고 공유하기 위해 블로그에 글을 작성하며, 지식을 체계적으로 관리하고
           있습니다.

@@ -1,4 +1,4 @@
-import React from 'react'
+import {memo} from 'react'
 import {SectionFlexBoxProps} from 'lodash'
 import {Animator, MoveIn} from 'react-scroll-motion'
 import Title from '../../components/texts/Title'
@@ -21,4 +21,4 @@ const FlexRowBox = ({title, left, right}: SectionFlexBoxProps) => {
   )
 }
 
-export default FlexRowBox
+export default memo(FlexRowBox)

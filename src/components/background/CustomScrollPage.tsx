@@ -1,4 +1,3 @@
-import React from 'react'
 import {ScrollPage} from 'react-scroll-motion'
 import {PageLayoutProps} from 'lodash'
 

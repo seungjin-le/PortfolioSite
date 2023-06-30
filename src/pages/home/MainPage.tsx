@@ -4,7 +4,7 @@ import FlexRowBox from '../../container/sections/FlexRowBox'
 import MainDraw from '../../components/draw/MainDraw'
 import SiteLinks from '../../components/siteLink/SiteLinks'
 import Title from '../../components/texts/Title'
-import OriginBackground from '../../components/background/CustomScrollPage'
+import CustomScrollPage from '../../components/background/CustomScrollPage'
 import Footer from '../../container/layout/Footer'
 import DescriptionsBox from 'components/descriptions/DescriptionsBox'
 import SkillTagCloud from '../../components/tags/SkillTagCloud'
@@ -15,35 +15,35 @@ import CustomAnimator from '../../components/background/CustomAnimator'
 
 const MainPage = () => {
   return (
-    <ScrollContainer snap='mandatory' className={'w-full h-full relative'}>
-      <OriginBackground>
+    <ScrollContainer className={'w-full h-full relative'}>
+      <CustomScrollPage>
         <MainDraw />
-      </OriginBackground>
-      <OriginBackground>
+      </CustomScrollPage>
+      <CustomScrollPage>
         <CustomAnimator animation={batch(Fade(), Sticky(), MoveOut(0, -200))}>
           <Title title={'안녕하세요?'} color={'#eee'} level={1} />
           <Title title={'프론트엔드 개발자 이승진 입니다.'} color={'#eee'} level={1} />
         </CustomAnimator>
-      </OriginBackground>
-      <OriginBackground>
+      </CustomScrollPage>
+      <CustomScrollPage>
         <FlexRowBox title={'About Me'} left={<DescriptionsBox />} right={<SkillTagCloud />} />
-      </OriginBackground>
-      <OriginBackground>
+      </CustomScrollPage>
+      <CustomScrollPage>
         <SkillList />
-      </OriginBackground>
-      <OriginBackground>
+      </CustomScrollPage>
+      <CustomScrollPage>
         <CustomAnimator animation={MoveIn(-4000, 0)}>
           <ProjectSlider />
         </CustomAnimator>
-      </OriginBackground>
-      <OriginBackground>
+      </CustomScrollPage>
+      <CustomScrollPage>
         <CustomAnimator animation={MoveIn(2000, 0)}>
           <SiteLinks />
         </CustomAnimator>
-      </OriginBackground>
-      <OriginBackground>
+      </CustomScrollPage>
+      <CustomScrollPage>
         <AboutCard />
-      </OriginBackground>
+      </CustomScrollPage>
       <Footer />
     </ScrollContainer>
   )

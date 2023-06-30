@@ -1,5 +1,4 @@
 import {SliderImageProps} from 'lodash'
-import React from 'react'
 import {Image} from 'antd'
 import styled from 'styled-components'
 
