@@ -3,7 +3,7 @@ import {PageLayoutProps} from 'lodash'
 
 const CustomScrollPage = ({children}: PageLayoutProps) => {
   return (
-    <ScrollPage className={'w-full h-full  flex flex-col items-center justify-center relative mx-auto min-h-[1400px]'}>
+    <ScrollPage className={'w-full h-full  flex flex-col items-center justify-center relative mx-auto min-h-[1500px]'}>
       {children}
     </ScrollPage>
   )

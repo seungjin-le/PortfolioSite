@@ -17,13 +17,13 @@ const CursorPointer = () => {
 
   return (
     <div
-      className={'w-full h-full top-0 left-0 overflow-hidden absolute rounded-default'}
+      className={'w-full h-full top-0 left-0 overflow-hidden absolute'}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
       {isHovered && (
         <div
-          className={'w-0 h-0  pointer-events-none ease-in-out absolute shadow-cursor rounded-full'}
+          className={'w-0 h-0  pointer-events-none ease-in-out absolute shadow-cursor'}
           style={{top: `${position.y}px`, left: `${position.x}px`}}
         />
       )}

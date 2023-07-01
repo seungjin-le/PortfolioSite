@@ -3,7 +3,7 @@ import ReactMarkdown from 'react-markdown'
 import {DescriptionMarkdownProps} from 'lodash'
 import remarkGfm from 'remark-gfm'
 import styled from 'styled-components'
-import {motion, useScroll} from 'framer-motion'
+import {motion, useMotionValueEvent, useScroll} from 'framer-motion'
 
 const DescriptionMarkDown = ({description}: DescriptionMarkdownProps) => {
   const top = useRef<HTMLSpanElement>(null)
@@ -12,7 +12,9 @@ const DescriptionMarkDown = ({description}: DescriptionMarkdownProps) => {
   const [isBottomRef, setBottomRef] = useState(false)
   const [shadow, setShadow] = useState('')
   const ref = useRef(null)
-  const {scrollYProgress} = useScroll({container: ref})
+  const {scrollYProgress, scrollY} = useScroll({container: ref})
+  const [scrollPo, setScrollPo] = useState(0)
+  const [scrollCheck, setScrollCheck] = useState(true)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -50,34 +52,61 @@ const DescriptionMarkDown = ({description}: DescriptionMarkdownProps) => {
     } else if (isTopRef && isBottomRef) {
       setShadow('')
     }
+    if (ref.current) {
+      const {scrollHeight, clientHeight} = ref.current
+      scrollHeight - clientHeight === 0 && setScrollCheck(false)
+    }
   }, [isTopRef, isBottomRef])
+
+  useMotionValueEvent(scrollY, 'change', latest => {
+    if (ref.current) {
+      const {scrollHeight, clientHeight} = ref.current
+      const totalHeight = scrollHeight - clientHeight
+      const scrollProgress = latest / totalHeight
+      setScrollPo(Math.floor(scrollProgress * 100))
+    }
+  })
 
   return (
     <div className={'relative '}>
-      <svg
-        id='progress'
-        className={
-          'absolute top-[20%] left-[-100px] z-10 w-[100px] h-[100px] rotate-[-90deg] md:top-[100%] md:-translate-y-full md:left-0'
-        }
-      >
-        <circle cx='50' cy='50' r='30' className=' stroke-text opacity-4 stroke-[15%] fill-none' />
-        <motion.circle
-          cx='50'
-          cy='50'
-          r='30'
-          className=' stroke-text stroke-[15%] fill-none'
-          style={{pathLength: scrollYProgress}}
-        />
-      </svg>
+      {scrollCheck && (
+        <svg
+          id='progress'
+          className={
+            'z-20 absolute  left-[-120px] top-[20%] w-[100px] h-[100px] rotate-[-90deg] md:top-[100%] md:-translate-y-full md:left-[100%] md:-translate-x-full sm:hidden bg-itemBg rounded-default md:bg-[transparent]'
+          }
+        >
+          <circle cx='50' cy='50' r='30' className=' stroke-text opacity-4 stroke-[15%] fill-none' />
+          <motion.circle
+            cx='50'
+            cy='50'
+            r='30'
+            className=' stroke-text stroke-[15%] fill-none'
+            style={{pathLength: scrollYProgress}}
+          />
+          <text
+            x='50%'
+            y='50%'
+            textAnchor='middle'
+            dy='.4em'
+            className={'text-text text-sm'}
+            transform='rotate(90 50 50)'
+            fill='#eee'
+          >
+            {scrollPo} %
+          </text>
+        </svg>
+      )}
+
       <div
         ref={ref}
-        className={`max-h-[800px] sm:' h-auto overflow-scroll relative scrollbar-hide ${shadow} rounded-default p-4 bg-itemBg transition-all `}
+        className={`max-h-[800px] sm:h-auto overflow-scroll relative scrollbar-hide ${shadow} rounded-default p-4 bg-itemBg transition-all `}
       >
         <span ref={top} className={'w-full h-[1px] block absolute top-3'} id={'top'} />
         <CustomReactMarkdown remarkPlugins={[remarkGfm]} className={'break-keep h-full'}>
           {description}
         </CustomReactMarkdown>
-        <span ref={bottom} className={'w-full h-[1px] block mb-4'} id={'bottom'} />
+        <span ref={bottom} className={'w-full h-[1px] block'} id={'bottom'} />
       </div>
     </div>
   )
@@ -89,7 +118,6 @@ const CustomReactMarkdown = styled(ReactMarkdown)`
   .shadow:after {
     content: '';
     position: absolute;
-    z-index: 99;
     bottom: 0;
     left: 0;
     pointer-events: none;

@@ -1,4 +1,3 @@
-// import CustomAnimator from 'components/background/CustomAnimator'
 import ScrollContainer from 'react-scroll-motion/dist/ScrollContainer'
 import CustomScrollPage from '../../components/background/CustomScrollPage'
 import ProjectSections from 'components/descriptions/ProjectSections'

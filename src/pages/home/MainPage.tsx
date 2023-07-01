@@ -1,4 +1,3 @@
-import React from 'react'
 import {ScrollContainer, Sticky, Fade, batch, MoveOut, MoveIn} from 'react-scroll-motion'
 import FlexRowBox from '../../container/sections/FlexRowBox'
 import MainDraw from '../../components/draw/MainDraw'

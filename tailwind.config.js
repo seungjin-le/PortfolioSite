@@ -4,7 +4,7 @@ module.exports = {
   mode: 'jit',
   theme: {
     screens: {
-      sm: {max: '500px'},
+      sm: {max: '600px'},
       md: {max: '900px'},
       lg: {max: '1200px'},
       xl: {max: '1600px'},
