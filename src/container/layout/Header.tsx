@@ -23,7 +23,7 @@ const Header = () => {
         <div className={'flex-1 text-text h-full flex'}>
           <Link
             className={
-              'bg-itemBg p-3 transition-all inline-block rounded-default hover:scale-110 relative mr-3 sm:flex-1 sm:m-0 sm:rounded-[0]'
+              'bg-itemBg p-3 transition-all inline-block rounded-default hover:scale-110 relative mr-3 sm:flex-1 sm:m-0 sm:rounded-[0] overflow-hidden'
             }
             to={'/'}
           >
@@ -32,7 +32,7 @@ const Header = () => {
           </Link>
           <Link
             className={
-              'bg-itemBg p-3 transition-all inline-block rounded-default hover:scale-110 relative sm:flex-1 sm:h-full sm:rounded-[0]'
+              'bg-itemBg p-3 transition-all inline-block rounded-default hover:scale-110 relative sm:flex-1 sm:h-full sm:rounded-[0] overflow-hidden'
             }
             to={'/projects'}
           >

@@ -21,7 +21,9 @@ const SiteLinks = () => {
   )
   return (
     <div className={'w-full h-full flex flex-col justify-end items-end'}>
-      <Title title={'Sites'} color={'#eee'} level={1} />
+      <div className={'w-full text-center'}>
+        <Title title={'Sites'} color={'#eee'} level={1} />
+      </div>
       <div className={'px-8 max-w-[1000px] min-w-[400px] w-full h-full'}>
         <LinkBox>
           <nav>
@@ -122,6 +124,7 @@ const LinkBox = styled.div`
       position: relative;
       color: #eee;
       background: rgba(53, 53, 53, 0.5);
+      overflow: hidden;
       cursor: pointer;
       display: flex;
       justify-content: space-between;

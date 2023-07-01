@@ -61,9 +61,7 @@ const DescriptionMarkDown = ({description}: DescriptionMarkdownProps) => {
   useMotionValueEvent(scrollY, 'change', latest => {
     if (ref.current) {
       const {scrollHeight, clientHeight} = ref.current
-      const totalHeight = scrollHeight - clientHeight
-      const scrollProgress = latest / totalHeight
-      setScrollPo(Math.floor(scrollProgress * 100))
+      setScrollPo(Math.floor((latest / (scrollHeight - clientHeight)) * 100))
     }
   })
 

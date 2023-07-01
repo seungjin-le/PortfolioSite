@@ -4,7 +4,7 @@ import Title from 'components/texts/Title'
 
 const DescriptionsBox = () => {
   return (
-    <div className={`bg-itemBg w-full h-full relative rounded-default p-6 transition-all break-keep`}>
+    <div className={`bg-itemBg w-full h-full relative rounded-default p-6 transition-all break-keep overflow-hidden`}>
       <Title title={'안녕하세요, 신입 프론트엔드 개발자 이승진입니다.'} level={3} color={'#5d5d5d'} />
       <div className={'text-text text-base '}>
         <div>

@@ -9,11 +9,14 @@ const AboutCard = () => {
   return (
     <Container>
       <CardBox onClick={() => setIsFlipped(!isFlipped)}>
-        <CardInner className={'card'} style={{transform: `rotateY(${isFlipped ? 180 : 0}deg)`}}>
-          <CardFront className={'front'}>
+        <CardInner
+          className={'card overflow-hidden rounded-default'}
+          style={{transform: `rotateY(${isFlipped ? 180 : 0}deg)`}}
+        >
+          <CardFront className={'front '}>
             <Title title={'Click Card!'} color={'#eee'} level={2} />
           </CardFront>
-          <CardBack className={'back'}>
+          <CardBack className={'back '}>
             <Title title={'Name : Lee Seung Jin'} color={'#eee'} level={3} />
             <Title title={'Email : dltmdwls154@gmail.com'} color={'#eee'} level={3} />
             <Title title={'Phone : +82) 010-5574-2436'} color={'#eee'} level={3} />
@@ -84,6 +87,7 @@ const CardFace = styled.div`
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
+
   border-radius: 14px;
   padding: 0 3rem;
 `

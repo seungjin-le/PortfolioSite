@@ -71,7 +71,7 @@ const SkillList = () => {
             </div>
             <Carousel ref={carouselRef}>
               {collapseListItem.map(value => (
-                <Slide key={value.key}>
+                <Slide key={value.key} className={'overflow-hidden'}>
                   <div className={'skillIcon'} style={{backgroundImage: `url(${value.icons})`}} />
                   <div className={'description'}>{value.texts}</div>
                   <CursorPointer />

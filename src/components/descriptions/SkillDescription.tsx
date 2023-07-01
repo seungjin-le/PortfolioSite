@@ -6,7 +6,7 @@ const SkillDescription = ({title, index, onClick}: SkillListProps) => {
   return (
     <div
       className={
-        'max-w-[200px] p-5 m-2 bg-itemBg text-xl cursor-pointer w-full relative rounded-default text-center border-none text-subTitleText'
+        'max-w-[200px] p-5 m-2 bg-itemBg text-xl cursor-pointer w-full relative rounded-default text-center border-none text-subTitleText overflow-hidden'
       }
       onClick={() => onClick(index)}
     >
