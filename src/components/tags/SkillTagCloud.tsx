@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {memo} from 'react'
 import {TagCloudOptions} from 'TagCloud'
 
 import TagCloud from '@frank-mayer/react-tag-cloud'
@@ -20,4 +20,4 @@ const SkillTagCloud = () => {
   )
 }
 
-export default SkillTagCloud
+export default memo(SkillTagCloud)

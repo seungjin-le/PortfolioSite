@@ -9,7 +9,7 @@ const CursorPointer = () => {
       x: event.nativeEvent.offsetX - 5,
       y: event.nativeEvent.offsetY - 5,
     })
-  }, []) // 의존성 배열이 비어 있으므로 이 함수는 한 번만 생성됩니다.
+  }, [])
 
   const handleMouseLeave = useCallback(() => {
     setIsHovered(false)

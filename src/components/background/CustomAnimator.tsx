@@ -1,4 +1,4 @@
-import React from 'react'
+import {memo} from 'react'
 import {Animator} from 'react-scroll-motion'
 import {AnimatorProps} from 'lodash'
 
@@ -10,4 +10,4 @@ const CustomAnimator = ({children, animation}: AnimatorProps) => {
   )
 }
 
-export default CustomAnimator
+export default memo(CustomAnimator)

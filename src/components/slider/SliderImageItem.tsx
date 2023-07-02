@@ -1,6 +1,7 @@
 import {SliderImageProps} from 'lodash'
 import {Image} from 'antd'
 import styled from 'styled-components'
+import {memo} from 'react'
 
 const SliderImageItem = ({src, alt}: SliderImageProps) => {
   return (
@@ -10,7 +11,7 @@ const SliderImageItem = ({src, alt}: SliderImageProps) => {
   )
 }
 
-export default SliderImageItem
+export default memo(SliderImageItem)
 
 const ImageBox = styled.div`
   & div > div {

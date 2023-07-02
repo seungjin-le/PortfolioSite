@@ -24,6 +24,7 @@ const SliderButtonBox = styled.span`
   cursor: pointer;
   padding: 15px;
   background: rgba(238, 238, 238, 0.4);
+  overflow: hidden;
   &:hover {
     transition: 0.2s;
     background: rgba(16, 16, 16, 0.8);

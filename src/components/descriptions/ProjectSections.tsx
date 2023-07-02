@@ -2,7 +2,7 @@ import SkillTag from 'components/tags/SkillTag'
 import DescriptionMarkDown from 'components/texts/DescriptionMarkDown'
 import {useAnimate, useInView} from 'framer-motion'
 import {ProjectDescriptionSectionProps} from 'lodash'
-import {useEffect} from 'react'
+import {memo, useEffect} from 'react'
 
 const ProjectSections = ({item}: ProjectDescriptionSectionProps) => {
   const [scope, animate] = useAnimate()
@@ -71,4 +71,4 @@ const ProjectSections = ({item}: ProjectDescriptionSectionProps) => {
   )
 }
 
-export default ProjectSections
+export default memo(ProjectSections)

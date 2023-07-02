@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react'
+import {memo, useCallback, useEffect, useRef, useState} from 'react'
 import styled from 'styled-components'
 import Title from '../../components/texts/Title'
 import SkillDescription from '../../components/descriptions/SkillDescription'
@@ -7,43 +7,47 @@ import {collapseListItem} from '../../utility/listItems'
 import SliderBtn from '../../components/button/SliderBtn'
 
 const SkillList = () => {
-  const [activeIndex, setActiveIndex] = useState(0)
+  const [activeIndex, setActiveIndex] = useState<number>(0)
   const carouselRef = useRef<HTMLDivElement | null>(null)
   const [isCarouselAutoSpin, setIsCarouselAutoSpin] = useState(true)
 
   useEffect(() => {
-    const carousel = carouselRef.current
+    const {current} = carouselRef
     const numImages = collapseListItem.length
     const angle = (2 * Math.PI) / numImages
-    if (!carousel) return
-    Array.from(carousel.children).forEach((child: any, index: number) => {
+    if (!current) return
+    Array.from(current.children).forEach((child: any, index: number) => {
       const theta = angle * index
       child.style.transform = `rotateY(${theta}rad) translateZ(230px)`
     })
 
-    carousel.style.transform = `rotateY(${-angle * activeIndex}rad)`
+    current.style.transform = `rotateY(${-angle * activeIndex}rad)`
   }, [activeIndex])
 
-  const handlePrev = () => {
+  const handleImageRotationStops = useCallback(() => {
     setIsCarouselAutoSpin(false)
+  }, [])
+
+  const handlePrev = useCallback(() => {
     setActiveIndex(prevIndex => (prevIndex === 0 ? collapseListItem.length - 1 : prevIndex - 1))
-  }
+    handleImageRotationStops()
+  }, [activeIndex])
 
-  const handleNext = () => {
-    setIsCarouselAutoSpin(false)
+  const handleNext = useCallback(() => {
     setActiveIndex(prevIndex => (prevIndex === collapseListItem.length - 1 ? 0 : prevIndex + 1))
-  }
+    handleImageRotationStops()
+  }, [activeIndex])
 
-  const handleSkillOnClick = (key: number) => {
-    setIsCarouselAutoSpin(false)
+  const handleSkillOnClick = useCallback((key: number) => {
     setActiveIndex(key - 1)
-  }
+    handleImageRotationStops()
+  }, [])
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       if (isCarouselAutoSpin)
         setActiveIndex(prevIndex => (prevIndex === 0 ? collapseListItem.length - 1 : prevIndex - 1))
-    }, 1000)
+    }, 2000)
 
     return () => {
       clearInterval(intervalId)
@@ -85,7 +89,7 @@ const SkillList = () => {
   )
 }
 
-export default SkillList
+export default memo(SkillList)
 
 const SkillContainer = styled.div`
   display: flex;
@@ -147,6 +151,14 @@ const Container = styled.div`
         transform: translateX(-100%);
       }
     }
+    @media screen and (max-width: 600px) {
+      & .btn.left {
+        left: 21.7%;
+      }
+      & .btn.right {
+        transform: translateX(-340%);
+      }
+    }
   }
 `
 
@@ -154,7 +166,7 @@ const Carousel = styled.div`
   width: 200px;
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 1s;
+  transition: transform 0.5s;
   margin: 60px auto 0;
   height: 400px;
   max-height: 600px;
@@ -173,7 +185,7 @@ const Slide = styled.div`
   box-sizing: border-box;
   border-radius: 14px;
   line-height: 18px;
-  transition: 0.5s;
+  transition: 0.3s;
   font-size: 14px;
   & .skillIcon {
     margin: 1.5rem auto;

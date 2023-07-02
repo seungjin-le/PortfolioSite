@@ -5,7 +5,7 @@ const SkillTag = ({name, color}: SkillTagProps) => {
   return (
     <span
       style={{backgroundColor: color}}
-      className={`text-text p-1 rounded-tags  m-1 my-1 text-sm bg-itemBg relative`}
+      className={`text-text p-2 rounded-tags  m-1 my-1 text-sm bg-itemBg relative overflow-hidden`}
     >
       {name}
       <CursorPointer />

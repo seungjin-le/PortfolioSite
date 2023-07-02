@@ -1,82 +1,52 @@
-import React, {memo, useState} from 'react'
+import {memo, useState} from 'react'
 import styled from 'styled-components'
-import Title from '../texts/Title'
 import CursorPointer from '../cursor/CursorPointer'
 
 const AboutCard = () => {
   const [isFlipped, setIsFlipped] = useState<boolean>(false)
 
   return (
-    <Container>
-      <CardBox onClick={() => setIsFlipped(!isFlipped)}>
-        <CardInner className={'card rounded-default'} style={{transform: `rotateY(${isFlipped ? 180 : 0}deg)`}}>
-          <CardFront className={'front '}>
-            <Title title={'Click Card!'} color={'#eee'} level={2} />
+    <div className={'w-full h-full flex flex-col items-center justify-center text-text'}>
+      <CardBox onClick={() => setIsFlipped(!isFlipped)} className={'max-w-[700px] max-h-[300px] p-4 w-full h-full'}>
+        <CardInner
+          className={'card w-full h-full relative text-center rounded-default duration-700 cursor-pointer '}
+          style={{transform: `rotateY(${isFlipped ? 180 : 0}deg)`}}
+        >
+          <CardFront className={'front items-center'}>
+            <div>Click Card!</div>
             <CursorPointer />
           </CardFront>
-          <CardBack className={'back '}>
-            <Title title={'Name : Lee Seung Jin'} color={'#eee'} level={3} />
-            <Title title={'Email : dltmdwls154@gmail.com'} color={'#eee'} level={3} />
-            <Title title={'Phone : +82) 010-5574-2436'} color={'#eee'} level={3} />
+          <CardBack className={'back rotate-180'}>
+            <div>Name : Lee Seung Jin</div>
+            <div>Email : dltmdwls154@gmail.com</div>
+            <div>Phone : +82) 010-5574-2436</div>
             <CursorPointer />
           </CardBack>
         </CardInner>
       </CardBox>
-    </Container>
+    </div>
   )
 }
 
 export default memo(AboutCard)
 
-const Container = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`
-
 const CardBox = styled.div`
-  max-width: 700px;
-  max-height: 350px;
-  width: 100%;
-  height: 100%;
-  padding: 1rem;
   perspective: 1000px;
-  & .card {
-    transition: 1s;
-    & .front,
-    & .back {
-      transition: 0.5s;
-    }
-  }
 `
 
 const CardInner = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-
   transform-style: preserve-3d;
-  cursor: pointer;
-  & > div {
-    color: black;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: rgba(53, 53, 53, 0.5);
+  & div {
     &.front {
       align-items: center;
+      &:hover > div {
+        transition: 0.5s;
+        transform: scale(1.3);
+      }
     }
     &.back {
       align-items: start;
     }
-  }
-  &:hover .front h2 {
-    transition: 0.5s;
-    transform: scale(1.3);
   }
 `
 
@@ -89,10 +59,19 @@ const CardFace = styled.div`
   padding: 0 3rem;
   transform-style: preserve-3d;
   overflow: hidden;
+  background: rgba(53, 53, 53, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `
-const CardFront = styled(CardFace)``
+const CardFront = styled(CardFace)`
+  font-size: 2rem;
+`
 
 const CardBack = styled(CardFace)`
-  color: #eee;
   transform: rotateY(180deg);
+  font-size: 1.5rem;
+  & > div {
+    margin-bottom: 2rem;
+  }
 `
