@@ -3,6 +3,42 @@
 @tailwind utilities;
 
 .tagcloud--item:hover:hover {
-    font-size: 24px;
-    transition: 0.5s;
+  font-size: 24px;
+  transition: 0.5s;
+}
+
+@keyframes cardPrevMove {
+  0% {
+    transform: translateX(0px) translateY(0px);
+  }
+  20% {
+    transform: translateX(0px) translateY(0px);
+  }
+  40% {
+    transform: translateX(-360px) translateY(-70px);
+  }
+  50% {
+    transform: translateX(-360px) translateY(-70px);
+  }
+  80% {
+    transform: rotateZ(0deg) translateY(-50px);
+  }
+}
+
+@keyframes cardNextMove {
+  0% {
+    transform: translateX(0px) translateY(0px);
+  }
+  20% {
+    transform: translateX(0px) translateY(0px);
+  }
+  40% {
+    transform: translateX(360px) translateY(-70px);
+  }
+  50% {
+    transform: translateX(360px) translateY(-70px);
+  }
+  80% {
+    transform: rotateZ(0deg) translateY(-50px);
+  }
 }

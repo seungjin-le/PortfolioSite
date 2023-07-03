@@ -16,7 +16,7 @@ const AboutCard = () => {
             <div>Click Card!</div>
             <CursorPointer />
           </CardFront>
-          <CardBack className={'back rotate-180'}>
+          <CardBack className={'back rotate-180 sm:text-md'}>
             <div>Name : Lee Seung Jin</div>
             <div>Email : dltmdwls154@gmail.com</div>
             <div>Phone : +82) 010-5574-2436</div>

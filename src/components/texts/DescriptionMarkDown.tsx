@@ -95,13 +95,12 @@ const DescriptionMarkDown = ({description}: DescriptionMarkdownProps) => {
           </text>
         </svg>
       )}
-
       <div
         ref={ref}
-        className={`max-h-[800px] sm:h-auto overflow-scroll relative scrollbar-hide ${shadow} rounded-default p-4 bg-itemBg transition-all `}
+        className={`max-h-[800px] max-w-[800px] mx-auto sm:h-auto overflow-scroll relative scrollbar-hide ${shadow} rounded-default p-4 bg-itemBg transition-all `}
       >
         <span ref={top} className={'w-full h-[1px] block absolute top-3'} id={'top'} />
-        <CustomReactMarkdown remarkPlugins={[remarkGfm]} className={'break-keep h-full'}>
+        <CustomReactMarkdown remarkPlugins={[remarkGfm]} className={'break-keep h-full px-3'}>
           {description}
         </CustomReactMarkdown>
         <span ref={bottom} className={'w-full h-[1px] block'} id={'bottom'} />
@@ -130,7 +129,7 @@ const CustomReactMarkdown = styled(ReactMarkdown)`
 
   & p {
     margin: 16px 0;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.5;
     word-wrap: break-word;
   }
@@ -152,6 +151,22 @@ const CustomReactMarkdown = styled(ReactMarkdown)`
     font-size: 2rem;
     margin: 0.67em 0;
   }
+  & h2 {
+    font-size: 1.8rem;
+    margin: 0.64em 0;
+  }
+  & h3 {
+    font-size: 1.6rem;
+    margin: 0.6em 0;
+  }
+  & h4 {
+    font-size: 1.4rem;
+    margin: 0.56em 0;
+  }
+  & h5 {
+    font-size: 1.2rem;
+    margin: 0.52em 0;
+  }
   & blockquote {
     border-radius: 10px;
     border-left: 3px solid #ddd;
@@ -160,5 +175,8 @@ const CustomReactMarkdown = styled(ReactMarkdown)`
   }
   & hr {
     margin: 1rem 0;
+  }
+  & em {
+    color: #939393;
   }
 `

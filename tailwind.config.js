@@ -49,9 +49,6 @@ module.exports = {
       transitionProperty: {
         default: '.5s',
       },
-      perspective: {
-        1000: '1000px',
-      },
     },
   },
   plugins: [require('tailwind-scrollbar-hide')],

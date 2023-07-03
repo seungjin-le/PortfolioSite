@@ -46,7 +46,9 @@ const DrawBox = styled.div`
   align-items: center;
   justify-content: center;
   background: rgba(16, 16, 16, 0);
-
+  svg {
+    width: 80%;
+  }
   circle,
   rect,
   line {

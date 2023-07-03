@@ -10,8 +10,8 @@ const FlexRowBox = ({title, left, right}: SectionFlexBoxProps) => {
         <Title title={title} color={'#eee'} level={1} />
       </div>
       <div className={'relative w-full flex flex-row items-center lg:flex-col'}>
-        <div className={'w-[50%] py-0 px-12 lg:w-full h-auto'}>{left}</div>
-        <div className={'w-[50%] py-0 px-12 lg:w-full '}>{right}</div>
+        <div className={'flex-1 py-0 px-12 lg:w-full h-auto md:w-full '}>{left}</div>
+        <div className={'flex-1 py-0 px-12 lg:w-full '}>{right}</div>
       </div>
     </div>
   )
