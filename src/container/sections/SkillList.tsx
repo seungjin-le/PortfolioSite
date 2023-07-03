@@ -70,7 +70,7 @@ const SkillList = () => {
 
   return (
     <div className={'flex flex-col px-8 h-full w-full relative items-center justify-center'}>
-      <div className={'titleBox'}>
+      <div className={'titleBox w-full '}>
         <Title title={'Skills & Tools'} color={'#eee'} level={1} />
       </div>
       <div className={'flex flex-row md:flex-col w-full items-center justify-center'}>

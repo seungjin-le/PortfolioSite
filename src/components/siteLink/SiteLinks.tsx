@@ -23,8 +23,8 @@ const SiteLinks = () => {
     [slider],
   )
   return (
-    <div className={'w-full h-full flex flex-col justify-center items-end'}>
-      <div className={'w-full text-center'}>
+    <div className={'w-full h-full flex flex-col justify-center items-end px-8'}>
+      <div className={'w-full text-left'}>
         <Title title={'Sites'} color={'#eee'} level={1} />
       </div>
       <div className={'px-8 max-w-[1000px] max-h-[500px] w-full h-full'} ref={ref}>
