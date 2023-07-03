@@ -1,4 +1,4 @@
-import {ScrollContainer, MoveIn} from 'react-scroll-motion'
+import {ScrollContainer} from 'react-scroll-motion'
 import FlexRowBox from '../../container/sections/FlexRowBox'
 import MainDraw from '../../components/draw/MainDraw'
 import SiteLinks from '../../components/siteLink/SiteLinks'
@@ -9,7 +9,6 @@ import DescriptionsBox from 'components/descriptions/DescriptionsBox'
 import SkillTagCloud from '../../components/tags/SkillTagCloud'
 import SkillList from '../../container/sections/SkillList'
 import AboutCard from '../../components/card/AboutCard'
-import CustomAnimator from '../../components/background/CustomAnimator'
 import {useRef} from 'react'
 import {useInView} from 'framer-motion'
 
@@ -44,9 +43,7 @@ const MainPage = () => {
         <SkillList />
       </CustomScrollPage>
       <CustomScrollPage>
-        <CustomAnimator animation={MoveIn(2000, 0)}>
-          <SiteLinks />
-        </CustomAnimator>
+        <SiteLinks />
       </CustomScrollPage>
       <CustomScrollPage>
         <AboutCard />

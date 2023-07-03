@@ -5,10 +5,13 @@ import {allIngredients} from '../../utility/listItems'
 import {Carousel} from 'antd'
 import {CarouselRef} from 'antd/es/carousel'
 import CursorPointer from '../cursor/CursorPointer'
+import {useInView} from 'framer-motion'
 
 const SiteLinks = () => {
   const [selectedTab, setSelectedTab] = useState(allIngredients[0])
   const slider = useRef<CarouselRef | null | undefined>()
+  const ref = useRef(null)
+  const isInView = useInView(ref, {once: true})
 
   const handleSliderOnChange = useCallback(
     (num: number) => {
@@ -20,12 +23,18 @@ const SiteLinks = () => {
     [slider],
   )
   return (
-    <div className={'w-full h-full flex flex-col justify-end items-end'}>
+    <div className={'w-full h-full flex flex-col justify-center items-end'}>
       <div className={'w-full text-center'}>
         <Title title={'Sites'} color={'#eee'} level={1} />
       </div>
-      <div className={'px-8 max-w-[1000px] min-w-[400px] w-full h-full'}>
-        <LinkBox>
+      <div className={'px-8 max-w-[1000px] max-h-[500px] w-full h-full'} ref={ref}>
+        <LinkBox
+          style={{
+            transform: isInView ? 'none' : 'translateX(-400px)',
+            opacity: isInView ? 1 : 0,
+            transition: 'all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s',
+          }}
+        >
           <nav>
             <ul>
               {allIngredients.map((item, index) => {

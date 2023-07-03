@@ -106,7 +106,7 @@ export const collapseListItem = [
     label: 'Notion',
     icons: 'images/logos/notion.jpeg',
     texts:
-      '외주 개발로 팀 프로젝트를 진행하면서 다른 같은 프론트엔드 개발자들과 서로 진행 과정과 이슈 상황 등을 공유한 경험이 있습니다.',
+      '외주 개발로 팀 프로젝트를 진행하면서 다른 페이지를 개발하는 프론트엔드 개발자들과 서로 진행 과정과 이슈 상황 등을 공유한 경험이 있습니다.',
   },
 ]
 
@@ -131,7 +131,7 @@ export const allIngredients = [
   },
 ]
 
-export const aboutMeText = `
+export const aboutMeText: string = `
 ### *안녕하세요, 신입 프론트엔드 개발자 이승진입니다.*
   
 고등학교 3학년부터 취업을 나와 산업체에서 근무하며, 힘든상황에서도 빠르게 적응하고 문제를 해결하는 능력을 키웠습니다.

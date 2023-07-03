@@ -86,7 +86,7 @@ const FallbackComponent = () => {
       onClick={() => setClick(true)}
       className={`fixed ${click && 'opacity-0 z-[-1]'} transition-opacity cursor-pointer`}
     >
-      <div className={'textBox'}>
+      <div className={'textBox hover:scale-110 transition-default'}>
         <div>
           사이트의 배경을 Three.js를 사용해 3D애니메이션으로 구성되어 있으나 사용자의 브라우저 설정에서 하드웨어 가속이
           켜져 있지 않거나, 지원하지 않습니다.
