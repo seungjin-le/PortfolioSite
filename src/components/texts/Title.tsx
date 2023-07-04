@@ -1,18 +1,17 @@
 import {memo} from 'react'
-import styled from 'styled-components'
-import {Typography} from 'antd'
 import {TitleProps} from 'lodash'
 
-const Title = ({title, level, color}: TitleProps) => {
+const Title = ({title, size, color, margin}: TitleProps) => {
   return (
-    <CustomAntdTypography style={{color: color ? color : 'black'}} level={level ? level : 2}>
+    <span
+      className={`${size ? `text-${size}` : 'text-3xl'}  ${margin ? margin : 'mb-8'} inline-block`}
+      style={{color: color ? color : '#eee'}}
+    >
       {title}
-    </CustomAntdTypography>
+    </span>
   )
 }
 
 export default memo(Title)
 
-const CustomAntdTypography = styled(Typography.Title)`
-  font-weight: bold !important;
-`
+// 38, 30, 24, 20 16

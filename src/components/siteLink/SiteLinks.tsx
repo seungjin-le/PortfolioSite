@@ -6,6 +6,7 @@ import {Carousel} from 'antd'
 import {CarouselRef} from 'antd/es/carousel'
 import CursorPointer from '../cursor/CursorPointer'
 import {useInView} from 'framer-motion'
+import {Link} from 'react-router-dom'
 
 const SiteLinks = () => {
   const [selectedTab, setSelectedTab] = useState(allIngredients[0])
@@ -22,13 +23,15 @@ const SiteLinks = () => {
     },
     [slider],
   )
+
   return (
     <div className={'w-full h-full flex flex-col justify-center items-end px-8'}>
       <div className={'w-full text-left'}>
-        <Title title={'Sites'} color={'#eee'} level={1} />
+        <Title title={'Sites'} color={'#eee'} />
       </div>
-      <div className={'px-8 max-w-[1000px] max-h-[500px] w-full h-full'} ref={ref}>
+      <div className={'px-8 w-full flex justify-center'} ref={ref}>
         <LinkBox
+          className={'max-w-[1000px] max-h-[600px] min-w-[350px] min-h-[290px] rounded-default overflow-hidden'}
           style={{
             transform: isInView ? 'none' : 'translateX(-400px)',
             opacity: isInView ? 1 : 0,
@@ -51,13 +54,13 @@ const SiteLinks = () => {
               })}
             </ul>
           </nav>
-          <main>
+          <main className={'relative w-full h-full'}>
             <Carousel dots={false} ref={ref => (slider.current = ref)}>
               {allIngredients.map((v, i) => {
                 return (
-                  <div key={i} className={'imgBox'} onClick={() => window.open(selectedTab.link, '_blank')}>
-                    <img className={'siteImage'} src={v.image} alt={v.image} />
-                  </div>
+                  <Link key={i} className={'cursor-pointer h-full w-full'} to={selectedTab.link}>
+                    <img className={'h-full w-full'} src={v.image} alt={v.image} />
+                  </Link>
                 )
               })}
             </Carousel>
@@ -71,17 +74,8 @@ const SiteLinks = () => {
 export default SiteLinks
 
 const LinkBox = styled.div`
-  width: 100%;
-  max-height: 600px;
-  min-width: 300px;
-  height: 100%;
-  border-radius: 10px;
-  background: rgba(16, 16, 16, 0);
-  overflow: hidden;
   box-shadow: 3px 1px 1px hsl(0deg 0% 0% / 0.175), 0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.375),
     0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075);
-  display: flex;
-  flex-direction: column;
 
   & > div {
     padding: 0 2rem;
@@ -93,11 +87,6 @@ const LinkBox = styled.div`
   }
 
   main {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    max-height: 535px;
-
     & * {
       outline: none;
     }
@@ -110,13 +99,6 @@ const LinkBox = styled.div`
       height: 100%;
       &:active {
         border: none;
-      }
-    }
-    .imgBox {
-      cursor: pointer;
-      .siteImage {
-        width: 100%;
-        height: 100%;
       }
     }
   }
@@ -139,7 +121,6 @@ const LinkBox = styled.div`
       justify-content: space-between;
       align-items: center;
       flex: 1;
-      min-width: 0;
       user-select: none;
       &.selected {
         background: rgba(103, 103, 103, 0.8);

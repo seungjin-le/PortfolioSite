@@ -70,7 +70,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 100%;
     vertical-align: baseline;
     user-select: none;
-  
+    word-break: keep-all;
   }
   #cursor {
     pointer-events: none;

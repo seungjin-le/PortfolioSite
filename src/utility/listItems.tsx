@@ -108,6 +108,13 @@ export const collapseListItem = [
     texts:
       '외주 개발로 팀 프로젝트를 진행하면서 다른 페이지를 개발하는 프론트엔드 개발자들과 서로 진행 과정과 이슈 상황 등을 공유한 경험이 있습니다.',
   },
+  {
+    key: 14,
+    label: 'Tailwind CSS',
+    icons: 'images/logos/tailwindCSS.png',
+    texts:
+      'Tailwind CSS의 기본에 익숙합니다. 응답성이 뛰어난 반응형 인터페이스 제작하는데 활용할 수 있습니다. 또한 현제 보고계신 포트폴리오 사이트는 Tailwind CSS로 개발하였습니다.',
+  },
 ]
 
 export const allIngredients = [
@@ -419,5 +426,94 @@ export const scroll = [
     position: [0, 0.5, 0],
     scale: [0.4, 0.4, 0.4],
     rotation: [1, 0, 0],
+  },
+]
+
+export const timeLineItem = [
+  {
+    title: '(주)성보산업 입사',
+    date: {
+      start: '2014/08',
+      end: '',
+    },
+    description: '고등학교 3학년 여름에 산업체로 취업을 나갔습니다.',
+    last: false,
+  },
+  {
+    title: '대전 공업고등학교 졸업',
+    date: {
+      start: '2015/02',
+      end: '',
+    },
+    description: '산업체에서 복무하면서 대전 공업고등학교 졸업하였습니다',
+    last: false,
+  },
+  {
+    title: '(주)성보산업 산업체 대체복무 완료',
+    date: {
+      start: '2019/05',
+      end: '',
+    },
+    description: '약 5년간에 산업체 대체복무 후 개발자가 되기위해 퇴사하였습니다.',
+    last: false,
+  },
+  {
+    title: '아르바이트(인테리어, 목공)',
+    date: {
+      start: '2022/07',
+      end: '2022/11',
+    },
+    description:
+      '컴퓨터 학원을 다니면서 생활비 수급 목적으로 아르바이트를 하였습니다. 하지만 학원에서 너무 많은 분야(C, C#, Python, Java, Spring, JavaScript, MySQL .....)를 단기에 가르쳐 주었기에 비전공자 아무것도 이해하지 못하고 중간에 그만두었습니다.',
+    last: false,
+  },
+  {
+    title: '패스트 캠퍼스 프론트앤드 개발자 완주반 수료',
+    date: {
+      start: '2021/02',
+      end: '2021/04',
+    },
+    description:
+      '학원에서 알게된 것 중 JavaScript가 여러 분야(Web, App, Server, DB)에서 사용할 수 있다는 게 마음에 들어서 JavaScript를 공부하기 시작했습니다.',
+    last: false,
+  },
+  {
+    title: 'SoftSquared 라이징캠프 2기 웹과정 수료',
+    date: {
+      start: '2021/10',
+      end: '2021/12',
+    },
+    description:
+      '다른 아르바이트를 하며 혼자 공부하는 것에 벽을 느껴 SoftSquared의 웹 과정을 신청해 React를 집중적으로 공부하였습니다.',
+    last: false,
+  },
+  {
+    title: '건설 근로자(배관공)',
+    date: {
+      start: '2021/12',
+      end: '2022/10',
+    },
+    description: '생활비를 벌기 위해 한동안 건설 현장에서 배관공 보조로 근무하였습니다.',
+    last: false,
+  },
+  {
+    title: '첫 외주 개발( Pettick )',
+    date: {
+      start: '2022/05',
+      end: '2022/08',
+    },
+    description:
+      '2021년 웹 과정을 공부한 SoftSquared에서 React 외주 개발 인원 모집 글을 보고 신청 후 합격하여 낮에는 건설 현장에서 일하면서 퇴근 후 Pettick(애완동물 사료, 용품, 간식 등 애완동물 관련 쇼핑몰)의  Admin Page의 기능 구현(추가, 수정)을 하였습니다.',
+    last: false,
+  },
+  {
+    title: '두번째 외주 개발( (주)OKPOS )',
+    date: {
+      start: '2022/10',
+      end: '2022/04',
+    },
+    description:
+      '취업 준비를 위해 아르바이트로 그만두자 첫 외주 개발을 진행했던 SoftSquared에서 프로젝트 참여 연락이와 OKPOS의  두 번째 외주 개발을 진행했었습니다.',
+    last: true,
   },
 ]

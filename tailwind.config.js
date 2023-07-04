@@ -22,8 +22,9 @@ module.exports = {
     },
     backgroundColor: {
       itemBg: 'rgba(53, 53, 53, 0.5)',
-      pageBg: 'rgba(22, 22, 22,.1)',
-      cursor: 'rgba(255, 255, 255,.1)',
+      pageBg: 'rgba(22, 22, 22, 0.1)',
+      cursor: 'rgba(255, 255, 255, 0.1)',
+      text: '#eee',
     },
     backgroundImage: {
       header: 'linear-gradient(0deg, hsla(0, 0%, 10%, 0), #161616)',
@@ -31,6 +32,7 @@ module.exports = {
     borderRadius: {
       default: '14px',
       tags: '4px',
+      full: '9999px',
     },
     colors: {
       titleText: '#eeeeee',
@@ -51,5 +53,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require('tailwind-scrollbar-hide')],
+  plugins: [require('tailwind-scrollbar-hide'), require('tailwind-scroll-behavior')()],
 }

@@ -13,7 +13,7 @@ const DescriptionMarkDown = ({description}: DescriptionMarkdownProps) => {
   const [shadow, setShadow] = useState('')
   const ref = useRef(null)
   const {scrollYProgress, scrollY} = useScroll({container: ref})
-  const [scrollPo, setScrollPo] = useState(0)
+  const [scrollPercentage, setScrollPercentage] = useState(0)
   const [scrollCheck, setScrollCheck] = useState(true)
 
   useEffect(() => {
@@ -61,7 +61,7 @@ const DescriptionMarkDown = ({description}: DescriptionMarkdownProps) => {
   useMotionValueEvent(scrollY, 'change', latest => {
     if (ref.current) {
       const {scrollHeight, clientHeight} = ref.current
-      setScrollPo(Math.floor((latest / (scrollHeight - clientHeight)) * 100))
+      setScrollPercentage(Math.floor((latest / (scrollHeight - clientHeight)) * 100))
     }
   })
 
@@ -91,13 +91,13 @@ const DescriptionMarkDown = ({description}: DescriptionMarkdownProps) => {
             transform='rotate(90 50 50)'
             fill='#eee'
           >
-            {scrollPo} %
+            {scrollPercentage} %
           </text>
         </svg>
       )}
       <div
         ref={ref}
-        className={`max-h-[800px] max-w-[800px] mx-auto sm:h-auto overflow-scroll relative scrollbar-hide ${shadow} rounded-default p-4 bg-itemBg transition-all `}
+        className={`max-h-[800px] max-w-[800px] mx-auto sm:h-auto overflow-scroll relative scrollbar-hide ${shadow} rounded-default p-4 bg-itemBg transition-all hover:scroll-auto`}
       >
         <span ref={top} className={'w-full h-[1px] block absolute top-3'} id={'top'} />
         <CustomReactMarkdown remarkPlugins={[remarkGfm]} className={'break-keep h-full px-3'}>

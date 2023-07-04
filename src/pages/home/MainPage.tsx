@@ -11,28 +11,29 @@ import SkillList from '../../container/sections/SkillList'
 import AboutCard from '../../components/card/AboutCard'
 import {useRef} from 'react'
 import {useInView} from 'framer-motion'
+import AboutTimeLine from 'components/timeLine/AboutTimeLine'
 
 const MainPage = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, {once: true})
 
   return (
-    <ScrollContainer className={'w-full h-full relative'}>
+    <ScrollContainer className={'w-full h-full relative scroll-smooth'}>
       <CustomScrollPage>
         <MainDraw />
       </CustomScrollPage>
       <CustomScrollPage>
         <div
-          className={'w-full h-full flex flex-col items-center justify-center'}
+          className={'w-full h-full flex flex-col items-center justify-center px-4'}
           style={{
             transform: isInView ? 'none' : 'translateX(-200px)',
             opacity: isInView ? 1 : 0,
             transition: 'all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s',
           }}
         >
-          <div ref={ref}>
-            <Title title={'안녕하세요?'} color={'#eee'} level={1} />
-            <Title title={'신입 프론트엔드 개발자 이승진 입니다.'} color={'#eee'} level={1} />
+          <div ref={ref} className={'flex flex-col'}>
+            <Title title={'안녕하세요?'} color={'#eee'} />
+            <Title title={'신입 프론트엔드 개발자 이승진 입니다.'} color={'#eee'} />
           </div>
         </div>
       </CustomScrollPage>
@@ -44,6 +45,9 @@ const MainPage = () => {
       </CustomScrollPage>
       <CustomScrollPage>
         <SiteLinks />
+      </CustomScrollPage>
+      <CustomScrollPage>
+        <AboutTimeLine />
       </CustomScrollPage>
       <CustomScrollPage>
         <AboutCard />

@@ -16,8 +16,9 @@ declare module 'lodash' {
   }
   export interface TitleProps {
     title: string
-    level?: 1 | 5 | 2 | 3 | 4 | undefined
+    size?: string | undefined
     color?: string
+    margin?: string
   }
   export interface SectionFlexBoxProps {
     title: string
@@ -84,7 +85,17 @@ declare module 'lodash' {
   export interface SectionNumProps {
     sectionNum: number
   }
-
+  export interface TimeLineItemProps {
+    item: {
+      title: string
+      date: {
+        start: string
+        end: string
+      }
+      description: string
+      last: boolean
+    }
+  }
   export type CustomScrollPageProps = {
     gradientDirection: true | false
   }
