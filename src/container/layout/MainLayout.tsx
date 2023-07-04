@@ -4,7 +4,7 @@ import WatchModel from 'components/three/WatchModel'
 
 const MainLayout = ({children}: PageLayoutProps) => {
   return (
-    <div className={'w-full h-0 mx-auto my-0 max-w-[1600px] min-w-[400px]'}>
+    <div className={'w-full h-0 mx-auto my-0  '}>
       <Header />
       {children}
       <WatchModel />

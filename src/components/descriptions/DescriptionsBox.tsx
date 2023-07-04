@@ -15,6 +15,4 @@ const DescriptionsBox = () => {
 
 export default memo(DescriptionsBox)
 
-//
-
 const AboutMeBox = styled.div``

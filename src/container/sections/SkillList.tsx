@@ -3,15 +3,15 @@ import styled from 'styled-components'
 import Title from '../../components/texts/Title'
 import SkillDescription from '../../components/descriptions/SkillDescription'
 import CursorPointer from '../../components/cursor/CursorPointer'
-import {collapseListItem} from '../../utility/listItems'
+import {skillListItems} from '../../utility/listItems'
 import SliderBtn from '../../components/button/SliderBtn'
 import SkillListState from '../../zustand/SkillListState'
 
 const SkillList = () => {
   const {activeIndex, setActiveIndex} = SkillListState(state => state)
   const carouselRef = useRef<HTMLDivElement | null>(null)
-  const cardsLen = collapseListItem.length
-  const [direction, setDirection] = useState('right')
+  const cardsLen: number = skillListItems.length
+  const [direction, setDirection] = useState<string>('right')
 
   useEffect(() => {
     const {current} = carouselRef
@@ -69,19 +69,17 @@ const SkillList = () => {
   )
 
   return (
-    <div className={'flex flex-col px-8 h-full w-full relative items-center justify-center'}>
+    <div className={'flex flex-col h-full w-full relative items-center justify-center'}>
       <div className={'titleBox w-full h-auto'}>
         <Title title={'Skills & Tools'} color={'#eee'} />
       </div>
       <div className={'flex flex-row md:flex-col w-full items-center justify-center'}>
-        <div className={'skillBox flex flex-1 flex-wrap flex-row md:justify-center'}>
-          {collapseListItem.map(value => {
-            return (
-              <SkillDescription title={value.label} key={value.key} index={value.key} onClick={handleSkillOnClick} />
-            )
-          })}
+        <div className={'flex-1 w-full h-full flex flex-row flex-wrap'}>
+          {skillListItems.map(value => (
+            <SkillDescription title={value.label} key={value.key} index={value.key} onClick={handleSkillOnClick} />
+          ))}
         </div>
-        <div className={'flex-1 max-h-[600px] w-full h-full'}>
+        <div className={'flex-1 max-h-[600px] w-full'}>
           <Container className={'w-full h-full flex flex-col justify-center items-center'}>
             <div className={'sliderBtnBox'}>
               <SliderBtn onClick={handlePrev} direction={'left'} />
@@ -93,7 +91,7 @@ const SkillList = () => {
                 'max-w-[340px] w-full h-[500px] md:mt-20  mx-auto transition-default flex items-center justify-center relative'
               }
             >
-              {collapseListItem.map(value => (
+              {skillListItems.map(value => (
                 <Slide
                   key={value.key}
                   className={

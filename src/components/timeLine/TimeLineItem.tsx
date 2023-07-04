@@ -3,7 +3,7 @@ import {TimeLineItemProps} from 'lodash'
 
 const TimeLineItem = ({item}: TimeLineItemProps) => {
   return (
-    <li className='relative flex flex-row mb-0 md:flex-row '>
+    <li className='relative flex flex-row mb-0'>
       <div className='flex flex-col items-center w-16'>
         <div className='z-10 flex items-center justify-center p-3 text-xl rounded-full hover:scale-150 transition-default bg-pageBg'>
           <FieldTimeOutlined />

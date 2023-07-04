@@ -85,17 +85,39 @@ declare module 'lodash' {
   export interface SectionNumProps {
     sectionNum: number
   }
-  export interface TimeLineItemProps {
-    item: {
-      title: string
-      date: {
-        start: string
-        end: string
-      }
-      description: string
-      last: boolean
+  export interface TimeLineItem {
+    title: string
+    date: {
+      start: string
+      end: string
     }
+    description: string
+    last: boolean
   }
+  export interface TimeLineItemProps {
+    item: TimeLineItem
+  }
+
+  export interface ThreeScrollPos {
+    position: number[]
+    scale: number[]
+    rotation: number[]
+  }
+
+  export interface SiteItemProps {
+    icon: string
+    label: string
+    image: string
+    link: string
+  }
+
+  export interface SkillDirection {
+    key: number
+    label: string
+    icons: string
+    texts: string
+  }
+
   export type CustomScrollPageProps = {
     gradientDirection: true | false
   }

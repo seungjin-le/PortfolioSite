@@ -51,6 +51,10 @@ module.exports = {
       transitionProperty: {
         default: '.5s',
       },
+      gridTemplateColumns: {
+        // Complex site-specific column configuration
+        footer: '150px 150px 150px',
+      },
     },
   },
   plugins: [require('tailwind-scrollbar-hide'), require('tailwind-scroll-behavior')()],

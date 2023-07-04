@@ -1,3 +1,5 @@
+import {ProjectItemProps, SiteItemProps, SkillDirection, ThreeScrollPos, TimeLineItem} from 'lodash'
+
 export const skillSet: string[] = [
   'HTML',
   'CSS',
@@ -16,7 +18,7 @@ export const skillSet: string[] = [
   'RESTAPI',
 ]
 
-export const collapseListItem = [
+export const skillListItems: SkillDirection[] = [
   {
     key: 1,
     label: 'JavaScript',
@@ -113,11 +115,11 @@ export const collapseListItem = [
     label: 'Tailwind CSS',
     icons: 'images/logos/tailwindCSS.png',
     texts:
-      'Tailwind CSS의 기본에 익숙합니다. 응답성이 뛰어난 반응형 인터페이스 제작하는데 활용할 수 있습니다. 또한 현제 보고계신 포트폴리오 사이트는 Tailwind CSS로 개발하였습니다.',
+      'TailwindCSS를 활용하는데 익숙하며, 응답성이 뛰어난 반응형 인터페이스 제작하는데 활용할 수 있습니다. 또한 현제 보고계신 포트폴리오 사이트는 TailwindCSS로 개발하였습니다.',
   },
 ]
 
-export const allIngredients = [
+export const allIngredients: SiteItemProps[] = [
   {
     icon: '/images/icons/github.png',
     label: 'GitHub',
@@ -154,24 +156,7 @@ export const aboutMeText: string = `
 앞으로도 끊임없는 도전과 성장을 통해 더 나은 개발자가 되기 위해 노력할 것이며, 어떤 프로젝트든 최선을 다해 참여하겠습니다. 감사합니다.
 `
 
-export const labelsAndColors = [
-  {label: 'React', color: '#61dafb'},
-  {label: 'JavaScript', color: '#f0db4f'},
-  {label: 'TypeScript', color: '#007acc'},
-  {label: 'Prettier', color: '#1a2b34'},
-  {label: 'ESLint', color: '#4b32c3'},
-  {label: 'RESTAPI', color: '#ff7f50'},
-  {label: 'Axios', color: '#003366'},
-  {label: 'Ant-design', color: '#001529'},
-  {label: 'React-Redux', color: '#764abc'},
-  {label: 'React-Router', color: '#ca4245'},
-  {label: 'Web3-react', color: '#4285f4'},
-  {label: 'Ethers.js', color: '#005792'},
-  {label: 'Styled-Components', color: '#db7093'},
-  {label: 'Jazzicon', color: '#f012be'},
-]
-
-export const projectsInfo = [
+export const projectsInfo: ProjectItemProps[] = [
   {
     company: '그라노',
     logo: 'images/logos/grano.png',
@@ -391,7 +376,7 @@ ESlint와 Prettier를 사용하여 코드의 일관성을 유지하기 위해 �
   },
 ]
 
-export const scroll = [
+export const scroll: ThreeScrollPos[] = [
   {
     position: [1, -1, 1],
     scale: [0.8, 0.8, 0.8],
@@ -429,7 +414,7 @@ export const scroll = [
   },
 ]
 
-export const timeLineItem = [
+export const timeLineItem: TimeLineItem[] = [
   {
     title: '(주)성보산업 입사',
     date: {

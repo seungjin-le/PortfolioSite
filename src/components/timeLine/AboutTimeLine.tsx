@@ -50,15 +50,15 @@ const AboutTimeLine = () => {
   }, [isTopRef, isBottomRef])
 
   return (
-    <div className={'w-full h-full flex flex-col items-center justify-center px-8'}>
+    <div className={'w-full h-full flex flex-col items-center justify-center'}>
       <div className={'text-left w-full '}>
         <Title title={'History'} color={'#eee'} />
       </div>
-      <div className={'px-8'}>
+      <div className={'px-4'}>
         <div
-          className={`w-full px-4 py-4 max-h-[800px] overflow-scroll scrollbar-hide ${shadow} rounded-default bg-itemBg max-w-[70%]`}
+          className={`w-full px-4 py-4 max-h-[800px] overflow-scroll scrollbar-hide ${shadow} rounded-default bg-itemBg max-w-[70%] md:max-w-[85%] sm:max-w-[100%]`}
         >
-          <ol className={'relative flex flex-col text-text  hover:will-change-scroll max-w-[70%]'}>
+          <ol className={'relative flex flex-col text-text  hover:will-change-scroll max-w-[70%] sm:max-w-[100%]'}>
             <ScrollLine ref={top} className={' top-[10px]'} id={'top'} />
             {timeLineItem.map((v, i) => (
               <TimeLineItem item={v} key={i} />

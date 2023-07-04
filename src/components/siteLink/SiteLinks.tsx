@@ -25,7 +25,7 @@ const SiteLinks = () => {
   )
 
   return (
-    <div className={'w-full h-full flex flex-col justify-center items-end px-8'}>
+    <div className={'w-full h-full flex flex-col justify-center items-end'}>
       <div className={'w-full text-left'}>
         <Title title={'Sites'} color={'#eee'} />
       </div>
