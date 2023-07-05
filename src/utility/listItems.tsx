@@ -445,11 +445,21 @@ export const timeLineItem: TimeLineItem[] = [
   {
     title: '아르바이트(인테리어, 목공)',
     date: {
-      start: '2022/07',
-      end: '2022/11',
+      start: '2019/07',
+      end: '2019/11',
     },
     description:
       '컴퓨터 학원을 다니면서 생활비 수급 목적으로 아르바이트를 하였습니다. 하지만 학원에서 너무 많은 분야(C, C#, Python, Java, Spring, JavaScript, MySQL .....)를 단기에 가르쳐 주었기에 비전공자 아무것도 이해하지 못하고 중간에 그만두었습니다.',
+    last: false,
+  },
+  {
+    title: '(주)시큐모아',
+    date: {
+      start: '2019/12',
+      end: '2020/12',
+    },
+    description:
+      '개발에 재능이 없다고 생각하여 잠시 방황하며 약 1년간 세종 정부청사에서 IPT전화기 유지보수와 FAX설치 등 다른 직군에서 근무하였습니다. 근무하던중 다시 개발에 흥미가 생겨 조금씩 공부를 시작하였습니다.',
     last: false,
   },
   {

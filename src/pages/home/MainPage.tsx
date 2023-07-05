@@ -14,7 +14,7 @@ import {useInView} from 'framer-motion'
 import AboutTimeLine from 'components/timeLine/AboutTimeLine'
 
 const MainPage = () => {
-  const ref = useRef(null)
+  const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, {once: true})
 
   return (
