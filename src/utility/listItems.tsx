@@ -443,13 +443,23 @@ export const timeLineItem: TimeLineItem[] = [
     last: false,
   },
   {
+    title: 'SBS 컴퓨터 아카데미 학원',
+    date: {
+      start: '2019/07',
+      end: '2019/11',
+    },
+    description:
+      '개발자가 되기위해 컴퓨터 학원을 다니기 시작했고 어떤 개발자가 되고싶은지 몰라 웹 개발자 과정을 사비로 신청했습니다. 하지만 학원에서 너무 많은 분야(C, Python, Java, Spring, JavaScript, MySQL .....)를 단기에 가르쳐 주었기에 비전공자였던 저는 아무것도 이해하지 못하고 중간에 그만두었습니다.',
+    last: false,
+  },
+  {
     title: '아르바이트(인테리어, 목공)',
     date: {
       start: '2019/07',
       end: '2019/11',
     },
     description:
-      '컴퓨터 학원을 다니면서 생활비 수급 목적으로 아르바이트를 하였습니다. 하지만 학원에서 너무 많은 분야(C, C#, Python, Java, Spring, JavaScript, MySQL .....)를 단기에 가르쳐 주었기에 비전공자 아무것도 이해하지 못하고 중간에 그만두었습니다.',
+      '컴퓨터 학원을 다니면서 생활비 수급 목적으로 대전 갤러리아 타입월드 백화점 명품매장 코너의 발렌시아가 인테리어 아르바이트를 하였습니다.',
     last: false,
   },
   {
