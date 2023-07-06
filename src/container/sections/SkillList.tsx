@@ -95,7 +95,7 @@ const SkillList = () => {
                 <Slide
                   key={value.key}
                   className={
-                    'absolute w-full h-full rounded-default  overflow-hidden max-h-[500px] max-w-[340px] flex flex-col items-center justify-items-start leading-6 sm:max-h-[450px] sm:max-w-[300px]'
+                    'absolute w-full h-full rounded-default  overflow-hidden max-h-[500px] max-w-[340px] flex flex-col items-center justify-items-start leading-6 sm:max-w-[300px] bg-cardBg'
                   }
                 >
                   <img
@@ -153,5 +153,4 @@ const Container = styled.div`
 
 const Slide = styled.div`
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  background: rgba(53, 53, 53);
 `

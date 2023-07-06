@@ -24,6 +24,7 @@ module.exports = {
       itemBg: 'rgba(53, 53, 53, 0.5)',
       pageBg: 'rgba(22, 22, 22, 0.1)',
       cursor: 'rgba(255, 255, 255, 0.1)',
+      cardBg: 'rgba(37, 37, 37, 1)',
       text: '#eee',
     },
     backgroundImage: {

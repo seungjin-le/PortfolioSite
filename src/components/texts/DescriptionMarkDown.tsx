@@ -97,7 +97,7 @@ const DescriptionMarkDown = ({description}: DescriptionMarkdownProps) => {
       )}
       <div
         ref={ref}
-        className={`max-h-[800px] max-w-[800px] mx-auto sm:h-auto overflow-scroll relative scrollbar-hide ${shadow} rounded-default p-4 bg-itemBg transition-all hover:scroll-auto`}
+        className={`max-h-[800px] max-w-[800px] mx-auto sm:h-auto overflow-scroll relative scrollbar-hide ${shadow} rounded-default p-4 bg-cardBg transition-all hover:scroll-auto`}
       >
         <span ref={top} className={'w-full h-[1px] block absolute top-3'} id={'top'} />
         <CustomReactMarkdown remarkPlugins={[remarkGfm]} className={'break-keep h-full px-3'}>
