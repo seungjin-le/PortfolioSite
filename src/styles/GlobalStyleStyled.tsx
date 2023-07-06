@@ -66,7 +66,6 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     border: 0;
     font-family: JalnanTtf,JalnanOTF,sans-serif;
-    font-weight: 600;
     font-size: 100%;
     vertical-align: baseline;
     user-select: none;

@@ -104,7 +104,7 @@ const SkillList = () => {
                     alt={value.label}
                   />
                   <div className={'text-itemText text-3xl md:text-2xl '}>{value.label}</div>
-                  <div className={'w-full p-4 text-text text-lg md:text-base'}>{value.texts}</div>
+                  <div className={'w-full p-4 text-text text-md md:text-base'}>{value.texts}</div>
                   <CursorPointer />
                 </Slide>
               ))}
