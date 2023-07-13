@@ -54,7 +54,6 @@ module.exports = {
         default: '.5s',
       },
       gridTemplateColumns: {
-        // Complex site-specific column configuration
         footer: '150px 150px 150px',
       },
     },
