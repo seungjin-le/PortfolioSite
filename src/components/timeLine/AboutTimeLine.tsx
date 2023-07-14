@@ -2,7 +2,7 @@ import Title from 'components/texts/Title'
 import TimeLineItem from './TimeLineItem'
 import {timeLineItem} from 'utility/listItems'
 import styled from 'styled-components'
-import {useEffect, useRef, useState} from 'react'
+import {memo, useEffect, useRef, useState} from 'react'
 
 const AboutTimeLine = () => {
   const top = useRef<HTMLDivElement>(null)
@@ -71,7 +71,7 @@ const AboutTimeLine = () => {
   )
 }
 
-export default AboutTimeLine
+export default memo(AboutTimeLine)
 
 const ScrollLine = styled.div`
   padding-top: 1px;
