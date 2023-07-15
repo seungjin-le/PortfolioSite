@@ -1,4 +1,4 @@
-import {useCallback, useRef, useState} from 'react'
+import {memo, useCallback, useRef, useState} from 'react'
 import styled from 'styled-components'
 import Title from '../texts/Title'
 import {allIngredients} from '../../utility/listItems'
@@ -71,7 +71,7 @@ const SiteLinks = () => {
   )
 }
 
-export default SiteLinks
+export default memo(SiteLinks)
 
 const LinkBox = styled.div`
   box-shadow: 3px 1px 1px hsl(0deg 0% 0% / 0.175), 0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.375),
