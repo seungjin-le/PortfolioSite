@@ -1,4 +1,4 @@
-import React, {memo, useCallback, useEffect} from 'react'
+import {memo, useCallback, useEffect} from 'react'
 import Title from '../../components/texts/Title'
 import {Link, useLocation} from 'react-router-dom'
 import CursorPointer from 'components/cursor/CursorPointer'
