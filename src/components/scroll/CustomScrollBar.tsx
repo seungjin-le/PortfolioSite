@@ -1,4 +1,4 @@
-import React, {memo, useEffect, useState} from 'react'
+import {memo, useEffect, useState} from 'react'
 import {motion, useScroll, useSpring} from 'framer-motion'
 import styled from 'styled-components'
 import {throttle} from 'lodash'
