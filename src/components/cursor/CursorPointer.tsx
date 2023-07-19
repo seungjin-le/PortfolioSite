@@ -1,4 +1,4 @@
-import React, {memo, useCallback, useState} from 'react'
+import {memo, useCallback, useState} from 'react'
 
 const CursorPointer = () => {
   const [position, setPosition] = useState({x: 0, y: 0})
