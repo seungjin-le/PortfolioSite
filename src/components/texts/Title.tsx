@@ -13,5 +13,3 @@ const Title = ({title, size, color, margin}: TitleProps) => {
 }
 
 export default memo(Title)
-
-// 38, 30, 24, 20 16
