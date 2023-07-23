@@ -1,4 +1,3 @@
-import {memo} from 'react'
 import {TitleProps} from 'lodash'
 
 const Title = ({title, size, color, margin}: TitleProps) => {
@@ -12,4 +11,4 @@ const Title = ({title, size, color, margin}: TitleProps) => {
   )
 }
 
-export default memo(Title)
+export default Title
