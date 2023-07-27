@@ -1,6 +1,5 @@
 import {FieldTimeOutlined} from '@ant-design/icons'
 import {TimeLineItemProps} from 'lodash'
-import {memo} from 'react'
 
 const TimeLineItem = ({item}: TimeLineItemProps) => {
   return (
@@ -22,4 +21,4 @@ const TimeLineItem = ({item}: TimeLineItemProps) => {
   )
 }
 
-export default memo(TimeLineItem)
+export default TimeLineItem
