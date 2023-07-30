@@ -1,4 +1,4 @@
-import {memo, useState} from 'react'
+import {useState} from 'react'
 import styled from 'styled-components'
 import CursorPointer from '../cursor/CursorPointer'
 
@@ -28,7 +28,7 @@ const AboutCard = () => {
   )
 }
 
-export default memo(AboutCard)
+export default AboutCard
 
 const CardBox = styled.div`
   perspective: 1000px;
