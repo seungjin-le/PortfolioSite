@@ -1,4 +1,4 @@
-import {memo, useEffect, useRef, useState} from 'react'
+import {useEffect, useRef, useState} from 'react'
 import ReactMarkdown from 'react-markdown'
 import {DescriptionMarkdownProps} from 'lodash'
 import remarkGfm from 'remark-gfm'
@@ -109,7 +109,7 @@ const DescriptionMarkDown = ({description}: DescriptionMarkdownProps) => {
   )
 }
 
-export default memo(DescriptionMarkDown)
+export default DescriptionMarkDown
 
 const CustomReactMarkdown = styled(ReactMarkdown)`
   .shadow:after {
