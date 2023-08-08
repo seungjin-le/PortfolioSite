@@ -1,4 +1,3 @@
-import {memo} from 'react'
 import {SectionFlexBoxProps} from 'lodash'
 
 import Title from '../../components/texts/Title'
@@ -17,4 +16,4 @@ const FlexRowBox = ({title, left, right}: SectionFlexBoxProps) => {
   )
 }
 
-export default memo(FlexRowBox)
+export default FlexRowBox
