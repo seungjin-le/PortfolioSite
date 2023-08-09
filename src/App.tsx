@@ -5,7 +5,7 @@ import {Route, Routes} from 'react-router-dom'
 import 'styles/tailwind.css'
 import ProjectsPage from 'pages/home/ProjectsPage'
 
-function App() {
+const App = () => {
   return (
     <MainLayout>
       <Routes>
