@@ -4,7 +4,7 @@ import MainDraw from '../../components/draw/MainDraw'
 import SiteLinks from '../../components/siteLink/SiteLinks'
 import Title from '../../components/texts/Title'
 import CustomScrollPage from '../../components/background/CustomScrollPage'
-import Footer from '../../container/layout/Footer'
+
 import DescriptionsBox from 'components/descriptions/DescriptionsBox'
 import SkillTagCloud from '../../components/tags/SkillTagCloud'
 import SkillList from '../../container/sections/SkillList'
@@ -52,7 +52,6 @@ const MainPage = () => {
       <CustomScrollPage>
         <AboutCard />
       </CustomScrollPage>
-      <Footer />
     </ScrollContainer>
   )
 }
