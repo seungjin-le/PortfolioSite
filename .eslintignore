@@ -1,11 +1,10 @@
-.idea/*
+.idea
 /.yarn
 .DS_Store
 node_modules/*
 logs/*
-.vscode/*
+.vscode
 .husky/*
-package.json
 package-lock.json
 yarn.lock
 build/*
