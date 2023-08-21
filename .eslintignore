@@ -4,13 +4,13 @@ node_modules/*
 logs/*
 .husky/*
 package-lock.json
-yarn.lock
+/yarn.lock
 build/*
 build-dev/*
 build-stage/*
 dist/*
 .gitignore
-.gitlab-ci.yml
+/.gitlab-ci.yml
 README.md
 
 # env
