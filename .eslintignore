@@ -13,7 +13,9 @@ dist/*
 .gitlab-ci.yml
 README.md
 
+# env
 /.env
+/.env.*
 
 # ide
 .idea
