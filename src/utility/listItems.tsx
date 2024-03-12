@@ -412,6 +412,16 @@ export const scroll: ThreeScrollPos[] = [
     scale: [0.4, 0.4, 0.4],
     rotation: [1, 0, 0],
   },
+  {
+    position: [1, -1, 1],
+    scale: [0.8, 0.8, 0.8],
+    rotation: [0, -0.6, 0],
+  },
+  {
+    position: [0, 0.5, 0],
+    scale: [0.7, 0.7, 0.7],
+    rotation: [0, -1, 0],
+  },
 ]
 
 export const timeLineItem: TimeLineItem[] = [
