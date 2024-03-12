@@ -23,6 +23,7 @@ const Model = () => {
     const handleScroll = () => {
       const {scrollY} = window
       const sectionHeight = window.innerHeight
+      console.log(scrollY, sectionHeight)
       const sectionIndex = Math.round(scrollY / sectionHeight)
       setCurrentSection(sectionIndex)
     }
@@ -31,6 +32,7 @@ const Model = () => {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
+
   scene.traverse(object => {
     // Object_84 : 초침
     // Object_81 : 분침, 82 : 분침 바늘

@@ -11,7 +11,7 @@ const queryClient: QueryClient = new QueryClient({
   /* options */
 })
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
+const root = ReactDOM.createRoot(document.getElementById('__next') as HTMLElement)
 
 root.render(
   <QueryClientProvider client={queryClient}>
